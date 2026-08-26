@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="color-scheme" content="light">
+  <title>糖尿病饮食计算器</title>
+  <style>
+    :root{
+      --bg:#f2f2f7;--card:#fff;--text:#1c1c1e;--muted:#6e6e73;--separator:#d1d1d6;
+      --green:#248a3d;--green-soft:#edf8ef;--blue:#007aff;--fill:#f2f2f7;
+      --shadow:0 1px 2px rgba(0,0,0,.04),0 10px 30px rgba(0,0,0,.035)
+    }
+    *{box-sizing:border-box}
+    html{background:var(--bg)}
+    body{margin:0;color:var(--text);background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
+    button,input,select{font:inherit}
+    .hero{padding:42px max(18px,calc((100vw - 1040px)/2)) 22px}
+    .eyebrow{color:var(--green);font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+    h1{margin:8px 0 6px;font-size:clamp(32px,6vw,52px);line-height:1.08;letter-spacing:-.035em}
+    .hero p{max-width:620px;margin:0;color:var(--muted);font-size:17px;line-height:1.55}
+    .wrap{max-width:1040px;margin:0 auto;padding:0 14px 42px}
+    .card{margin:14px 0;padding:22px;background:var(--card);border:1px solid rgba(0,0,0,.055);border-radius:24px;box-shadow:var(--shadow)}
+    .section-head{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+    .step{display:grid;place-items:center;width:29px;height:29px;border-radius:9px;background:var(--green-soft);color:var(--green);font-weight:800;font-size:13px}
+    h2{margin:0;font-size:22px;letter-spacing:-.02em}
+    h3{letter-spacing:-.01em}
+    .form{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    label{display:block;margin:0 0 7px 2px;color:var(--muted);font-size:13px;font-weight:650}
+    input,select{width:100%;height:48px;padding:0 13px;color:var(--text);background:var(--fill);border:1px solid transparent;border-radius:13px;font-size:16px;outline:none}
+    input:focus,select:focus{background:#fff;border-color:rgba(0,122,255,.45);box-shadow:0 0 0 3px rgba(0,122,255,.12)}
+    .actions{display:flex;align-items:center;gap:12px;margin-top:16px}
+    button{min-height:46px;padding:0 18px;border:0;border-radius:13px;background:var(--green);color:#fff;font-weight:750;cursor:pointer;box-shadow:0 4px 12px rgba(36,138,61,.18);transition:transform .12s ease,filter .12s ease}
+    button:hover{filter:brightness(.97)}button:active{transform:scale(.98)}
+    .secondary{background:var(--fill);color:var(--blue);box-shadow:none}
+    .helper,.small{color:var(--muted);font-size:13px;line-height:1.55}
+    .helper{margin:12px 2px 0}
+    .results{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+    .result{min-height:112px;padding:15px;background:var(--fill);border-radius:17px;color:var(--muted);font-size:13px}
+    .result b{display:block;margin:9px 0 1px;color:var(--text);font-size:28px;line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+    .result em{display:block;margin-top:7px;color:var(--muted);font-size:12px;font-style:normal;line-height:1.35}
+    .method{margin-top:13px;padding-top:2px;color:var(--muted);font-size:13px}
+    summary{cursor:pointer;list-style:none;color:var(--blue);font-weight:650}summary::-webkit-details-marker{display:none}
+    summary::after{content:"＋";margin-left:6px}.method[open] summary::after,.scope[open] summary::after{content:"－"}
+    .method p,.scope p{margin:9px 0 0;line-height:1.65}
+    .exchange-hero{display:flex;align-items:baseline;gap:9px;padding:16px 18px;background:var(--green-soft);border-radius:17px}
+    .exchange-hero b{color:var(--green);font-size:34px;line-height:1;font-variant-numeric:tabular-nums}
+    .group-summary{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:10px 0 16px}
+    .summary-item{padding:10px 12px;border-radius:13px;background:var(--fill);color:var(--muted);font-size:12px}
+    .summary-item b{display:block;margin-top:3px;color:var(--text);font-size:17px}
+    .exchange-meals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+    .exchange-meal{padding:15px;border:1px solid rgba(0,0,0,.07);border-radius:17px}
+    .exchange-meal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
+    .exchange-meal h3{margin:0;font-size:18px}.meal-total{padding:5px 8px;border-radius:9px;background:var(--green-soft);color:var(--green);font-size:12px;font-weight:750}
+    .exchange-line{padding:10px 0;border-bottom:1px solid var(--separator);line-height:1.45}.exchange-line:last-child{border:0;padding-bottom:0}
+    .exchange-line strong{font-size:15px}.exchange-line .portion{color:var(--green)}
+    .exchange-line .swap{display:block;margin-top:3px;color:var(--muted);font-size:12px;line-height:1.5}.estimate{display:block;margin-top:7px;padding:7px 9px;border-radius:9px;background:var(--fill);color:var(--muted);font-size:12px;line-height:1.45}
+    .tier-reference{margin-top:18px;padding-top:2px}.tier-reference>summary{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-radius:13px;background:var(--fill);color:var(--text);font-size:15px}.tier-reference>summary::after{content:"展开";margin-left:auto;color:var(--blue);font-size:12px}.tier-reference[open]>summary::after{content:"收起"}.tier-intro{margin:12px 2px 9px;color:var(--muted);font-size:12px;line-height:1.65}.tier-table-wrap{overflow:auto;max-height:520px;border:1px solid rgba(0,0,0,.08);border-radius:14px}.tier-table{min-width:900px;font-variant-numeric:tabular-nums}.tier-table th{position:sticky;top:0;z-index:1}.tier-table td,.tier-table th{text-align:center;white-space:nowrap}.tier-table td:first-child,.tier-table th:first-child{text-align:left}.tier-table tr.current-tier td{background:var(--green-soft);font-weight:750}.tier-table tr.current-tier td:first-child{color:var(--green)}.tier-basis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin-top:11px}.tier-basis article{padding:12px 13px;border-radius:13px;background:var(--fill)}.tier-basis b{display:block;margin-bottom:5px;font-size:13px}.tier-basis p{margin:0;color:var(--muted);font-size:12px;line-height:1.6}
+    .meals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+    .meal{padding:16px;background:var(--fill);border-radius:17px}.meal h3{margin:0 0 9px;font-size:17px}.meal ul{margin:0;padding-left:20px;line-height:1.75;font-size:14px}
+    .visuals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+    .visual{overflow:hidden;border:1px solid rgba(0,0,0,.07);border-radius:17px;background:#fff}
+    .scene{height:142px;display:flex;align-items:end;justify-content:center;gap:18px;padding:18px;background:linear-gradient(180deg,#fafafa,#f2f2f7)}
+    .food{font-size:62px;line-height:1}.bowl{width:96px;height:58px;display:grid;place-items:center;background:#fff;border:2px solid #c7c7cc;border-radius:8px 8px 52px 52px;font-size:38px}
+    .glass{width:58px;height:92px;display:grid;place-items:center;background:#fff;border:2px solid #c7c7cc;border-radius:7px 7px 12px 12px;font-size:33px}
+    .egg{width:34px;height:46px;border-radius:53% 53% 45% 45%;background:#ead8ae;border:1px solid #c8ad78;box-shadow:0 4px 8px rgba(0,0,0,.1)}
+    .caption{padding:12px 13px 14px;color:var(--muted);font-size:13px}.caption b{display:block;margin-bottom:3px;color:var(--text);font-size:16px}
+    .report{min-height:180px;padding:16px;white-space:pre-wrap;background:var(--fill);border-radius:17px;line-height:1.72;font-size:14px}
+    .row-buttons{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
+    .button-link{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;border-radius:13px;text-decoration:none;font-weight:750}
+    .patient-fields{display:grid;grid-template-columns:1fr 1.4fr;gap:10px;margin-bottom:14px}
+    .patient-sheet{width:210mm;max-width:100%;min-height:297mm;margin:0 auto;padding:8mm 9mm 7mm;border:1px solid rgba(0,0,0,.09);border-radius:18px;background:#fff;color:#1c1c1e;display:flex;flex-direction:column}
+    .sheet-brand{display:flex;align-items:center;justify-content:space-between;gap:8mm;padding-bottom:3mm;border-bottom:1px solid var(--separator)}.sheet-brand img{display:block;width:58mm;max-height:15mm;object-fit:contain;object-position:left center}.sheet-brand-dept{color:var(--green);font-size:17px;font-weight:800;letter-spacing:.08em;white-space:nowrap}
+    .sheet-titlebar{display:flex;align-items:flex-end;justify-content:space-between;gap:8mm;margin:4mm 0 3mm}.sheet-titlebar h3{margin:0;font-size:26px;letter-spacing:.05em}.sheet-subtitle{margin:1mm 0 0;color:var(--muted);font-size:11px}.sheet-badge{padding:1.4mm 2.6mm;border-radius:999px;background:var(--green-soft);color:var(--green);font-size:10px;font-weight:750;white-space:nowrap}
+    .sheet-meta{display:grid;grid-template-columns:1.2fr 1.35fr repeat(3,minmax(0,1fr));gap:2mm}.meta-item{min-width:0;padding:2.2mm 2.5mm;border-radius:2.5mm;background:#f5f7f6}.meta-item span{display:block;color:var(--muted);font-size:9px}.meta-item b{display:block;margin-top:.8mm;font-size:12px;line-height:1.35;overflow-wrap:anywhere}
+    .sheet-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:2mm;margin:3mm 0}.sheet-stat{padding:2.4mm;border:1px solid #dce9e2;border-radius:2.8mm;background:var(--green-soft);font-size:9.5px;color:var(--muted)}.sheet-stat b{display:block;margin-top:1mm;color:var(--text);font-size:17px;line-height:1}
+    .sheet-section-head{display:flex;align-items:baseline;justify-content:space-between;gap:4mm;margin:3mm 0 1.8mm}.sheet-section-head h4{margin:0;font-size:13px}.sheet-section-head span{color:var(--muted);font-size:9px}
+    .sheet-category-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.8mm}.sheet-category{display:flex;align-items:center;justify-content:space-between;gap:2mm;padding:2.5mm 2.7mm;border:1px solid #dce5e0;border-radius:2.5mm;background:#fafcfb;color:#50565a;font-size:11.5px;font-weight:650}.sheet-category b{color:var(--green);font-size:17px;line-height:1;white-space:nowrap}
+    .sheet-plan{width:100%;min-width:0;border:1px solid #dfe5e2;border-radius:2.5mm;border-collapse:separate;border-spacing:0;overflow:hidden;font-size:10.5px}.sheet-plan th,.sheet-plan td{padding:2.25mm 2.3mm;border-bottom:1px solid #e4e8e6;vertical-align:top;line-height:1.42}.sheet-plan tr:last-child td{border-bottom:0}.sheet-plan th{background:#f2f5f3;color:var(--muted);font-size:9px}.sheet-plan th:nth-child(1){width:12%}.sheet-plan th:nth-child(2){width:32%}.sheet-plan th:nth-child(3){width:56%}.meal-portions{display:flex;flex-wrap:wrap;gap:1mm}.meal-portions span{display:inline-flex;gap:.8mm;align-items:center;padding:.7mm 1.2mm;border:1px solid #dce5e0;border-radius:999px;background:#f7faf8;color:#4f5853;font-size:9.2px;white-space:nowrap}.meal-portions b{color:var(--green);font-size:9.8px}
+    .sheet-bottom-grid{display:grid;grid-template-columns:1.18fr .82fr;gap:3mm;margin-top:3mm;min-height:68mm}.sheet-panel{padding:3mm;border:1px solid #dfe5e2;border-radius:3mm;display:flex;flex-direction:column}.sheet-panel h4{margin:0 0 1.8mm;font-size:12.5px}.sheet-checklist{display:grid;grid-template-columns:1fr;gap:2.2mm;align-content:space-between;flex:1}.sheet-check{display:grid;grid-template-columns:4.5mm minmax(0,1fr);gap:1.5mm;align-items:start;font-size:10px;line-height:1.48}.sheet-check i{display:grid;place-items:center;width:4.5mm;height:4.5mm;border-radius:50%;background:var(--green-soft);color:var(--green);font-size:7.5px;font-style:normal;font-weight:800}.sheet-follow-list{display:grid;gap:1.6mm;margin-top:.2mm;align-content:space-between;flex:1}.sheet-follow-item{display:grid;grid-template-columns:3.8mm minmax(0,1fr);gap:1.2mm;font-size:9.6px;line-height:1.45}.sheet-follow-item i{color:var(--green);font-style:normal;font-weight:850}
+    .sheet-order{display:flex;align-items:center;justify-content:center;gap:1.5mm;margin-bottom:2mm;padding:1.8mm;border-radius:2.5mm;background:var(--green-soft);font-size:9.5px;font-weight:750}.sheet-order b{color:var(--green)}.sheet-monitor-title{margin:0 0 1.3mm;color:var(--muted);font-size:9px}.sheet-monitor{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5mm;margin-bottom:2.5mm}.sheet-monitor span{padding:1.6mm 1.3mm;border:1px solid #e1e6e3;border-radius:2mm;color:var(--muted);font-size:8px;text-align:center}.sheet-monitor b{display:block;height:4mm;margin-top:1mm;border-bottom:1px solid #aeb7b2}
+    .sheet-note-label{color:var(--muted);font-size:9px}.sheet-note-line{height:8mm;border-bottom:1px solid #bfc7c3}.sheet-followup{display:grid;grid-template-columns:1fr 1fr;gap:2mm;margin-top:3mm;font-size:9.5px}.sheet-followup span{padding-bottom:1.5mm;border-bottom:1px solid #9fa8a3}
+    .sheet-footer{display:flex;justify-content:space-between;align-items:flex-end;gap:8mm;margin-top:auto;padding-top:3mm;border-top:1px solid var(--separator);color:var(--muted);font-size:8.5px;line-height:1.45}.sheet-footer .sheet-sign{color:var(--text);font-size:9.5px;white-space:nowrap}
+    .print-bundle,.print-poster-page{display:none}.download-help{margin:9px 2px 0;color:var(--muted);font-size:12px;line-height:1.5}
+    .exchange-table{margin-top:14px}.exchange-table summary{padding:8px 0}
+    .table-wrap{overflow-x:auto;margin-top:6px;border:1px solid rgba(0,0,0,.07);border-radius:14px}
+    table{width:100%;border-collapse:collapse;min-width:620px;font-size:13px}th,td{padding:11px 12px;border-bottom:1px solid var(--separator);text-align:left}tr:last-child td{border:0}th{color:var(--muted);background:var(--fill);font-weight:650}
+    .principles{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.chip{padding:7px 10px;border-radius:999px;background:var(--fill);color:var(--muted);font-size:12px}
+    .scope{margin:18px 4px 0;color:var(--muted);font-size:12px}.scope summary{color:var(--muted)}
+    footer{padding:12px 4px 0;color:#8e8e93;font-size:11px;line-height:1.6}
+    @media(max-width:820px){.form{grid-template-columns:repeat(2,1fr)}.tier-basis{grid-template-columns:1fr}.results{grid-template-columns:repeat(2,1fr)}.group-summary{grid-template-columns:repeat(3,1fr)}.visuals{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:580px){.hero{padding-top:30px}.card{padding:17px;border-radius:20px}.exchange-meals,.meals{grid-template-columns:1fr}.visuals{grid-template-columns:1fr}.group-summary{grid-template-columns:repeat(2,1fr)}.results{grid-template-columns:repeat(2,1fr)}.result:last-child{grid-column:1/-1}.actions button{width:100%}.patient-fields{grid-template-columns:1fr}.patient-sheet{width:100%;min-height:0;padding:14px}.sheet-brand img{width:52mm}.sheet-titlebar{align-items:flex-start}.sheet-meta{grid-template-columns:1fr 1fr}.sheet-summary{grid-template-columns:1fr 1fr}.sheet-category-grid{grid-template-columns:repeat(3,1fr)}.sheet-bottom-grid{grid-template-columns:1fr}.sheet-checklist{grid-template-columns:1fr}.sheet-footer{display:block}.sheet-sign{display:block;margin-top:8px}}
+@page{size:A4 portrait;margin:0}
+    @media print{
+      html,body{width:210mm;margin:0;background:#fff}
+      body>header,body>main{display:none!important}
+      .print-bundle{display:block!important;width:210mm;margin:0}
+      .print-guide-page{display:flex!important;width:210mm;max-width:none;min-height:297mm;height:297mm;margin:0;padding:8mm 9mm 7mm;border:0;border-radius:0;box-shadow:none;break-after:page;page-break-after:always;overflow:hidden}
+      .print-poster-page{display:block!important;width:210mm;height:297mm;margin:0;break-before:page;page-break-before:always;overflow:hidden}
+      .print-poster-page img{display:block;width:210mm;height:297mm;object-fit:contain}
+      .no-print{display:none!important}
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="eyebrow">Diabetes meal planner</div>
+    <h1>一天怎么吃，一眼看清</h1>
+    <p>从能量估算到每餐交换份，再落到食物克数。用于一般成年糖尿病患者的饮食初步参考。</p>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <div class="section-head"><span class="step">01</span><h2>填写基本情况</h2></div>
+      <div class="form">
+        <div><label for="height">身高（cm）</label><input id="height" type="number" value="165" min="120" max="220"></div>
+        <div><label for="weight">体重（kg）</label><input id="weight" type="number" value="70" min="25" max="250" step="0.1"></div>
+        <div><label for="activity">日常活动</label><select id="activity"><option value="rest">卧床或极少活动</option><option value="light" selected>轻体力活动</option><option value="moderate">中体力活动</option><option value="heavy">重体力活动</option></select></div>
+      </div>
+      <div class="actions no-print"><button type="button" id="calculateButton">生成饮食参考</button></div>
+      <p class="helper">填写身高、体重和日常活动水平，即可生成一天的初步饮食参考。</p>
+    </section>
+
+    <section class="card">
+      <div class="section-head"><span class="step">02</span><h2>计算结果</h2></div>
+      <div class="results">
+        <div class="result">目标体重<b id="ibw">—</b>kg<em>身高－105</em></div>
+        <div class="result">BMI<b id="bmi">—</b><em id="bmiText">—</em></div>
+        <div class="result">能量估算<b id="energy">—</b>kcal/天<em id="energyRange">—</em></div>
+        <div class="result">交换份折算能量<b id="menuEnergy">—</b>kcal<em>全天交换份×90 kcal</em></div>
+        <div class="result">全天交换份<b id="exchangeTotal">—</b>份<em>能量÷90后向下取整</em></div>
+      </div>
+      <details class="method"><summary>查看计算方法</summary><p id="methodText"></p></details>
+    </section>
+
+    <section class="card">
+      <div class="section-head"><span class="step">03</span><h2>交换份分到每一餐</h2></div>
+      <div class="exchange-hero"><span>全天合计</span><b id="exchangeTotalBig">—</b><span>份</span></div>
+      <div id="groupSummary" class="group-summary"></div>
+      <p class="helper">每份换算系数统一采用 T/CNSS 020—2023；手量参考来自《成人糖尿病食养指南》，仅帮助估量，不参与计算。</p>
+            <div id="exchangeMeals" class="exchange-meals"></div>
+      <details class="tier-reference" open>
+        <summary>各能量档位的分类交换份方案</summary>
+        <p class="tier-intro">本工具以1份＝90 kcal为步长，共设置13～30份。绿色行是当前方案；“估算能量区间”决定采用哪一行。</p>
+        <div id="tierTable" class="tier-table-wrap"></div>
+        <div class="tier-basis">
+          <article><b>标准直接规定</b><p>T/CNSS 020—2023规定每份食物约90 kcal；先确定能量，再确定各类份数；同类可互换，非同类不宜直接互换。</p></article>
+          <article><b>指南给出的约束</b><p>碳水化合物45%～60%、蛋白质15%～20%、脂肪20%～35%；蔬菜每日500g，油不超过25g，主食中全谷物和杂豆不少于1/3。</p></article>
+          <article><b>本工具的分配方法</b><p>先保留蔬菜、水果、奶豆、肉蛋水产和油脂的基本份数，再用谷薯类补足总能量；随能量升高，奶豆和肉蛋水产分阶段增加。</p></article>
+        </div>
+      </details>
+    </section>
+
+    <section class="card">
+      <div class="section-head"><span class="step">04</span><h2>一天五餐参考</h2></div>
+      <div id="meals" class="meals"></div>
+      <div class="principles"><span class="chip">全谷物和杂豆≥主食1/3</span><span class="chip">蔬菜≥500g</span><span class="chip">深色蔬菜占一半以上</span><span class="chip">油≤25g</span><span class="chip">盐≤5g</span></div>
+      <p class="helper">所有食物均标注烹调前可食部重量；米和面按原料生重计算。</p>
+    </section>
+
+
+    <section class="card">
+      <div class="section-head"><span class="step">05</span><h2>患者饮食指导单</h2></div>
+      <div class="patient-fields no-print">
+        <div><label for="patientName">患者姓名（选填）</label><input id="patientName" type="text" placeholder="例如：张女士"></div>
+        <div><label for="diagnosis">诊断（选填）</label><input id="diagnosis" type="text" value="糖尿病" placeholder="例如：2型糖尿病"></div>
+      </div>
+      <div id="patientSheet" class="patient-sheet"></div>
+      <div id="report" hidden></div>
+      <div class="row-buttons no-print"><button type="button" id="copyButton">复制指导单</button><button type="button" class="secondary" id="printButton">打印指导单（2页）</button><button type="button" class="secondary" id="downloadButton">下载两页指导单（HTML）</button></div>
+      <p class="download-help no-print">打印或下载均为两页：第1页是患者饮食指导单，第2页自动附食物交换份速查图。</p>
+      <details class="exchange-table"><summary>查看换算系数与手量参考</summary>
+        <p class="helper">克数统一按 T/CNSS 020—2023；质量估算摘自《成人糖尿病食养指南（2023年版）》，仅作近似手量参考。</p>
+        <div class="table-wrap"><table>
+          <thead><tr><th>类别</th><th>T/CNSS 1份质量</th><th>食物示例</th><th>质量估算</th></tr></thead>
+          <tbody>
+            <tr><td>谷物、全谷物、杂豆</td><td>25g</td><td>大米、面粉、小米、绿豆等</td><td>大米、小米或绿豆约1把</td></tr>
+            <tr><td>面制品／米饭</td><td>35g／75g</td><td>馒头、面包／熟米饭</td><td>馒头约半个；面包1片；米饭半碗</td></tr>
+            <tr><td>薯芋类</td><td>100g</td><td>马铃薯、甘薯、山药等</td><td>马铃薯约半个</td></tr>
+            <tr><td>综合蔬菜</td><td>250g</td><td>混合蔬菜</td><td>建议称量</td></tr>
+            <tr><td>深色／浅色嫩茎叶花菜</td><td>300g／330g</td><td>油菜、菠菜／白菜、菜花</td><td>油菜或菠菜约3把；奶白菜3把；圆白菜半棵</td></tr>
+            <tr><td>茄果类</td><td>375g</td><td>西红柿、黄瓜、茄子等</td><td>西红柿约2个；黄瓜1根</td></tr>
+            <tr><td>根茎／鲜蘑菇类</td><td>300g／275g</td><td>胡萝卜、白萝卜／平菇等</td><td>胡萝卜1根或白萝卜半根；平菇2把</td></tr>
+            <tr><td>综合水果</td><td>150g</td><td>混合水果</td><td>建议称量</td></tr>
+            <tr><td>柑橘类</td><td>200g</td><td>橘子、橙子、柚子</td><td>橘子2个或橙子1个</td></tr>
+            <tr><td>仁果、核果、瓜果类</td><td>175g</td><td>苹果、梨、桃、西瓜等</td><td>苹果约1个</td></tr>
+            <tr><td>浆果／热带水果类</td><td>150g／75g</td><td>草莓、猕猴桃／香蕉、荔枝等</td><td>草莓7颗或猕猴桃2个；香蕉1根、荔枝4颗</td></tr>
+            <tr><td>纯瘦肉／禽肉</td><td>80g／50g</td><td>牛羊里脊／鸡鸭鹅等</td><td>纯瘦肉约手掌大；鸡肉1块</td></tr>
+            <tr><td>蛋／鱼／虾蟹贝</td><td>60g／75g／115g</td><td>鸡蛋／鲈鱼等／海虾等</td><td>鸡蛋1个；鱼1块；海虾5只或河蟹2只</td></tr>
+            <tr><td>北豆腐／南豆腐</td><td>90g／150g</td><td>豆腐</td><td>北豆腐约1/3盒；南豆腐半盒</td></tr>
+            <tr><td>全脂液态乳</td><td>150g</td><td>全脂牛奶</td><td>约2/3杯</td></tr>
+            <tr><td>高脂坚果</td><td>15g</td><td>核桃、杏仁、葵花子等</td><td>核桃2颗；杏仁或葵花子1把</td></tr>
+            <tr><td>油脂类</td><td>10g</td><td>植物油或动物油</td><td>建议称量</td></tr>
+          </tbody>
+        </table></div>
+      </details>
+    </section>
+
+    <details class="scope"><summary>适用范围</summary><p>适合一般成年糖尿病患者作饮食初步参考。妊娠或哺乳、1型糖尿病并使用餐时胰岛素、慢性肾病或透析、反复低血糖、近期明显进食减少或消瘦者，应由营养师结合病情另行制定。</p></details>
+    <footer>食养原则与能量估算参考《成人糖尿病食养指南（2023年版）》；所有食物交换份换算系数统一采用 T/CNSS 020—2023《食物交换份》。本工具不替代个体化营养处方。</footer>
+  </main>
+
+  <div id="printBundle" class="print-bundle" aria-hidden="true">
+    <section id="printGuidePage" class="patient-sheet print-guide-page"></section>
+    <section id="printPosterPage" class="print-poster-page"><img src="./糖尿病食物交换份示意图-A4-打印附件.png" alt="食物交换份速查图"></section>
+  </div>
+
+  <script>
+    const byId = id => document.getElementById(id);
+    const numberValue = id => Number(byId(id).value);
+    const unit = {grain:25,veg:250,fruit:150,meat:50,egg:60,fish:75,milk:150,tofu:90,oil:10};
+
+    function roundTo(value, step){return Math.round(value/step)*step}
+    function fmt(value){return (Math.round(value*10)/10).toFixed(1)}
+    function bmiClass(value){return value<18.5?'体重过低':value<24?'正常体重':value<28?'超重':'肥胖'}
+    function energyCoefficient(bodyClass,activity){
+      const table={
+        rest:{'体重过低':30,'正常体重':25,'超重':20,'肥胖':20},
+        light:{'体重过低':35,'正常体重':30,'超重':25,'肥胖':25},
+        moderate:{'体重过低':40,'正常体重':35,'超重':30,'肥胖':30},
+        heavy:{'体重过低':45,'正常体重':40,'超重':35,'肥胖':35}
+      };
+      return table[activity][bodyClass];
+    }
+    function exchangeProfile(total){
+      const veg=2;
+      const fruit=1;
+      const milkSoy=total>=16?2.5:2;
+      const protein=total<=14?3:total<=19?3.5:total<=23?4:total<=27?4.5:5;
+      const oil=total<=14?1.5:total<=18?2:2.5;
+      const grain=total-veg-fruit-milkSoy-protein-oil;
+      return {total,grain,veg,fruit,protein,milkSoy,oil};
+    }
+    function tierEnergyRange(total){
+      if(total===13)return '≤1259';
+      if(total===30)return '≥2700';
+      return `${total*90}～${(total+1)*90-1}`;
+    }
+    function buildTierReference(currentTotal){
+      const rows=Array.from({length:18},(_,index)=>index+13).map(total=>{
+        const item=exchangeProfile(total);
+        const current=total===currentTotal?' class="current-tier"':'';
+        return `<tr${current}><td>${tierEnergyRange(total)}</td><td>${total*90}</td><td>${total}</td><td>${portionText(item.grain)}</td><td>${portionText(item.veg)}</td><td>${portionText(item.fruit)}</td><td>${portionText(item.protein)}</td><td>${portionText(item.milkSoy)}</td><td>${portionText(item.oil)}</td></tr>`;
+      }).join('');
+      byId('tierTable').innerHTML=`<table class="tier-table"><thead><tr><th>估算能量区间<br>kcal</th><th>折算能量<br>kcal</th><th>总份数</th><th>谷薯</th><th>蔬菜</th><th>水果</th><th>肉蛋水产</th><th>奶豆</th><th>油脂</th></tr></thead><tbody>${rows}</tbody></table>`;
+    }
+    function calculate(){
+      const height=numberValue('height'),weight=numberValue('weight');
+      if(!height||!weight||height<120||height>220||weight<25||weight>250){alert('请检查身高和体重');return}
+      const targetWeight=height-105;
+      const bmi=weight/Math.pow(height/100,2);
+      const bodyClass=bmiClass(bmi);
+      const coefficient=energyCoefficient(bodyClass,byId('activity').value);
+      const energy=roundTo(targetWeight*coefficient,50);
+      const lowerEnergy=roundTo(targetWeight*Math.max(15,coefficient-2.5),50);
+      const upperEnergy=roundTo(targetWeight*(coefficient+2.5),50);
+      const rawExchangeTarget=Math.floor(energy/90);
+      const exchangeTarget=Math.max(13,Math.min(30,rawExchangeTarget));
+      const profile=exchangeProfile(exchangeTarget);
+      const menuEnergy=exchangeTarget*90;
+      const exchangeRoundingText=exchangeTarget===rawExchangeTarget?`将${energy}÷90向下取整为${exchangeTarget}份`:`${energy}÷90向下取整原为${rawExchangeTarget}份；一般成人初步菜单暂按${exchangeTarget}份边界生成，超出范围需个体化评估`;
+
+      byId('ibw').textContent=targetWeight.toFixed(1);
+      byId('bmi').textContent=bmi.toFixed(1);
+      byId('bmiText').textContent=bodyClass;
+      byId('energy').textContent=energy;
+      byId('energyRange').textContent=`简便范围 ${lowerEnergy}～${upperEnergy} kcal`;
+      byId('menuEnergy').textContent=menuEnergy;
+      byId('methodText').textContent=`目标体重按身高－105估算；BMI为${bmi.toFixed(1)}（${bodyClass}），本活动水平取${coefficient} kcal/(kg·d)，计算为${targetWeight.toFixed(1)}×${coefficient}≈${energy} kcal。按T/CNSS 020—2023每份90 kcal，${exchangeRoundingText}，折算${menuEnergy} kcal，与估算值相差${Math.abs(energy-menuEnergy)} kcal。本档分类：谷薯${portionText(profile.grain)}份、蔬菜${portionText(profile.veg)}份、水果${portionText(profile.fruit)}份、肉蛋水产${portionText(profile.protein)}份、奶豆${portionText(profile.milkSoy)}份、油脂${portionText(profile.oil)}份。`;
+      buildTierReference(exchangeTarget);
+      const exchangePlan=buildExchange(profile);
+      buildMeals(exchangePlan);
+      buildReport(menuEnergy,exchangeTarget,exchangePlan);
+    }
+    function portionText(value){return Number.isInteger(value)?String(value):value.toFixed(1)}
+    function halfPortion(value,minimum){return Math.max(minimum,Math.round(value*2)/2)}
+    function foodAmount(line){return Math.round(line.portion*line.gramsPerPortion)}
+    function exchangeLine(line){
+      const estimate=line.estimate?`<span class="estimate">手量参考（按1份）：${line.estimate}</span>`:'';
+      return `<div class="exchange-line"><strong>${line.name} <span class="portion">${portionText(line.portion)}份</span></strong><div>${line.food} ${foodAmount(line)}${line.unitLabel}</div><span class="swap">同类可换：${line.swap(line.portion)}</span>${estimate}</div>`;
+    }
+    function exchangeMeal(group){
+      const total=group.lines.reduce((sum,line)=>sum+line.portion,0);
+      return `<article class="exchange-meal"><div class="exchange-meal-head"><h3>${group.title}</h3><span class="meal-total">${portionText(total)}份</span></div>${group.lines.map(exchangeLine).join('')}</article>`;
+    }
+    function createExchangePlan(profile){
+      const line=(key,name,type,portion,gramsPerPortion,food,unitLabel,swap,estimate='')=>({key,name,type,portion,ideal:portion,minimum:portion,gramsPerPortion,food,unitLabel,swap,estimate});
+      const grainSwap=portion=>`生谷物 ${Math.round(portion*25)}g；薯芋 ${Math.round(portion*100)}g`;
+      const vegetableSwap=portion=>`综合蔬菜 ${Math.round(portion*250)}g；深色嫩茎叶花菜 ${Math.round(portion*300)}g`;
+      const breakfastGrain=Math.max(1,Math.round(profile.grain*0.3*2)/2);
+      const lunchGrain=Math.max(1.5,Math.round((profile.grain-breakfastGrain)*0.5*2)/2);
+      const dinnerGrain=profile.grain-breakfastGrain-lunchGrain;
+      const fishPortion=Math.round(((profile.protein-1)/2)*2)/2;
+      const chickenPortion=profile.protein-1-fishPortion;
+      const milkPortion=profile.milkSoy-0.5;
+      const lunchOil=Math.floor((profile.oil/2)*2)/2;
+      const dinnerOil=profile.oil-lunchOil;
+      const groups=[
+        {title:'早餐',lines:[
+          line('bGrain','主食','grain',breakfastGrain,25,'面粉/全麦粉','g',grainSwap,'大米1把；馒头约半个；熟米饭半碗；面包1片'),
+          line('egg','蛋类','protein',1,60,'鸡蛋','g',portion=>`蛋类 ${Math.round(portion*60)}g`,'鸡蛋1个'),
+          line('bVeg','蔬菜','veg',0.5,250,'黄瓜胡萝卜等混合蔬菜','g',vegetableSwap,'黄瓜1根或西红柿约2个（茄果类）')
+        ]},
+        {title:'上午加餐',lines:[
+          line('milk','乳类','milkSoy',milkPortion,150,'全脂纯牛奶','ml',portion=>`全脂液态乳 ${Math.round(portion*150)}ml；北豆腐 ${Math.round(portion*90)}g（放在正餐）`,'牛奶约2/3杯')
+        ]},
+        {title:'午餐',lines:[
+          line('lGrain','主食','grain',lunchGrain,25,'生米','g',grainSwap,'生大米1把；熟米饭半碗'),
+          line('fish','鱼类','protein',fishPortion,75,'鲈鱼','g',portion=>`鱼类 ${Math.round(portion*75)}g；畜禽肉 ${Math.round(portion*50)}g`,'鱼1块；海虾约5只'),
+          line('lVeg','蔬菜','veg',1,250,'混合蔬菜','g',vegetableSwap,'油菜或菠菜约3把；胡萝卜1根'),
+          line('tofu','豆制品','milkSoy',0.5,90,'北豆腐','g',portion=>`北豆腐 ${Math.round(portion*90)}g；南豆腐 ${Math.round(portion*150)}g`,'北豆腐约1/3盒；南豆腐半盒'),
+          line('lOil','烹调油','oil',lunchOil,10,'烹调油','g',portion=>`烹调油 ${Math.round(portion*10)}g`)
+        ]},
+        {title:'下午加餐',lines:[
+          line('fruit','水果','fruit',profile.fruit,150,'完整水果','g',portion=>`综合水果 ${Math.round(portion*150)}g；苹果梨桃等 ${Math.round(portion*175)}g`,'苹果1个；橙子1个；香蕉1根')
+        ]},
+        {title:'晚餐',lines:[
+          line('dGrain','主食','grain',dinnerGrain,25,'生米','g',grainSwap,'生大米1把；熟米饭半碗'),
+          line('chicken','禽肉','protein',chickenPortion,50,'鸡肉','g',portion=>`畜禽肉 ${Math.round(portion*50)}g；鱼类 ${Math.round(portion*75)}g`,'鸡肉1块；纯瘦肉约手掌大'),
+          line('dVeg','蔬菜','veg',0.5,250,'混合蔬菜','g',vegetableSwap,'油菜或菠菜约3把；圆白菜半棵'),
+          line('dOil','烹调油','oil',dinnerOil,10,'烹调油','g',portion=>`烹调油 ${Math.round(portion*10)}g`)
+        ]}
+      ];
+      const allLines=groups.flatMap(group=>group.lines);
+      return {groups,allLines,byKey:Object.fromEntries(allLines.map(item=>[item.key,item])),total:allLines.reduce((sum,item)=>sum+item.portion,0)};
+    }    function buildExchange(profile){
+      const plan=createExchangePlan(profile);
+      const sumType=type=>plan.allLines.filter(item=>item.type===type).reduce((sum,item)=>sum+item.portion,0);
+      byId('exchangeTotal').textContent=portionText(plan.total);
+      byId('exchangeTotalBig').textContent=portionText(plan.total);
+      byId('groupSummary').innerHTML=[['谷薯',sumType('grain')],['蔬菜',sumType('veg')],['水果',sumType('fruit')],['肉蛋水产',sumType('protein')],['奶豆',sumType('milkSoy')],['油脂',sumType('oil')]].map(item=>`<div class="summary-item">${item[0]}<b>${portionText(item[1])}份</b></div>`).join('');
+      byId('exchangeMeals').innerHTML=plan.groups.map(exchangeMeal).join('');
+      return plan;
+    }
+    function meal(title,items){return `<article class="meal"><h3>${title}</h3><ul>${items.map(item=>`<li>${item}</li>`).join('')}</ul></article>`}
+    function amount(plan,key){return foodAmount(plan.byKey[key])}
+    function buildMeals(plan){
+      byId('meals').innerHTML=
+        meal('早餐',[`杂粮馒头：面粉/全麦粉 ${amount(plan,'bGrain')}g`,`煮鸡蛋 ${amount(plan,'egg')}g（约1个）`,`凉拌混合蔬菜 ${amount(plan,'bVeg')}g`])+
+        meal('上午加餐',[`全脂纯牛奶 ${amount(plan,'milk')}ml`])+
+        meal('午餐',[`杂粮米饭：生米 ${amount(plan,'lGrain')}g`,`清蒸鲈鱼 ${amount(plan,'fish')}g`,`西兰花胡萝卜 ${amount(plan,'lVeg')}g`,`紫菜豆腐汤：北豆腐 ${amount(plan,'tofu')}g`])+
+        meal('下午加餐',[`苹果、梨、橙等完整水果 ${amount(plan,'fruit')}g`])+
+        meal('晚餐',[`杂粮米饭：生米 ${amount(plan,'dGrain')}g`,`芹菜鸡片：鸡肉 ${amount(plan,'chicken')}g、芹菜计入本餐蔬菜`,`香菇青菜等蔬菜 ${amount(plan,'dVeg')}g`])+
+        meal('全天调味',[`植物油 ${amount(plan,'lOil')+amount(plan,'dOil')}g`,`盐不超过5g`]);
+    }
+    function escapeHtml(value){return String(value??'').replace(/[&<>"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[char]))}
+    function groupTotal(plan,title){const group=plan.groups.find(item=>item.title===title);return group?group.lines.reduce((sum,line)=>sum+line.portion,0):0}
+    function mealCategoryValues(group){
+      const order=[['grain','谷薯'],['veg','蔬菜'],['fruit','水果'],['protein','肉蛋水产'],['milkSoy','奶豆'],['oil','油脂']];
+      return order.map(([type,label])=>[label,group.lines.filter(line=>line.type===type).reduce((sum,line)=>sum+line.portion,0)]).filter(item=>item[1]>0);
+    }
+    function mealCategoryHtml(group){return `<div class="meal-portions">${mealCategoryValues(group).map(item=>`<span>${item[0]} <b>${portionText(item[1])}份</b></span>`).join('')}</div>`}
+    function mealCategoryText(group){return mealCategoryValues(group).map(item=>`${item[0]}${portionText(item[1])}份`).join('、')}
+    function buildReport(menuEnergy,exchangeTarget,plan){
+      const patientName=byId('patientName').value.trim()||'____________';
+      const diagnosis=byId('diagnosis').value.trim()||'糖尿病';
+      const groupByTitle=title=>plan.groups.find(item=>item.title===title);
+      const mealRows=[
+        {title:'早餐',group:groupByTitle('早餐'),foods:`杂粮馒头：面粉/全麦粉${amount(plan,'bGrain')}g；煮鸡蛋${amount(plan,'egg')}g；凉拌混合蔬菜${amount(plan,'bVeg')}g`},
+        {title:'上午加餐',group:groupByTitle('上午加餐'),foods:`全脂纯牛奶${amount(plan,'milk')}ml`},
+        {title:'午餐',group:groupByTitle('午餐'),foods:`杂粮米饭：生米${amount(plan,'lGrain')}g；清蒸鲈鱼${amount(plan,'fish')}g；混合蔬菜${amount(plan,'lVeg')}g；北豆腐${amount(plan,'tofu')}g；烹调油${amount(plan,'lOil')}g`},
+        {title:'下午加餐',group:groupByTitle('下午加餐'),foods:`完整水果${amount(plan,'fruit')}g，不榨汁`},
+        {title:'晚餐',group:groupByTitle('晚餐'),foods:`杂粮米饭：生米${amount(plan,'dGrain')}g；鸡肉${amount(plan,'chicken')}g；混合蔬菜${amount(plan,'dVeg')}g；烹调油${amount(plan,'dOil')}g`}
+      ];
+      const rowsHtml=mealRows.map(row=>`<tr><td><b>${row.title}</b></td><td>${mealCategoryHtml(row.group)}</td><td>${row.foods}</td></tr>`).join('');
+      const sumType=type=>plan.allLines.filter(item=>item.type===type).reduce((sum,item)=>sum+item.portion,0);
+      const categories=[['谷薯',sumType('grain')],['蔬菜',sumType('veg')],['水果',sumType('fruit')],['肉蛋水产',sumType('protein')],['奶豆',sumType('milkSoy')],['油脂',sumType('oil')]];
+      const categoryHtml=categories.map(item=>`<div class="sheet-category"><span>${item[0]}</span><b>${portionText(item[1])}份</b></div>`).join('');
+      const sheetHtml=`
+        <div class="sheet-brand"><img src="./医院logo.png" alt="昆山市第一人民医院"><div class="sheet-brand-dept">临床营养科</div></div>
+        <div class="sheet-titlebar"><div><h3>糖尿病饮食指导单</h3><p class="sheet-subtitle">根据当前身高、体重、活动量和食物交换份生成</p></div><span class="sheet-badge">个体化饮食参考</span></div>
+        <div class="sheet-meta">
+          <div class="meta-item"><span>姓名</span><b>${escapeHtml(patientName)}</b></div><div class="meta-item"><span>诊断</span><b>${escapeHtml(diagnosis)}</b></div><div class="meta-item"><span>身高</span><b>${numberValue('height')} cm</b></div><div class="meta-item"><span>体重</span><b>${numberValue('weight')} kg</b></div><div class="meta-item"><span>BMI</span><b>${byId('bmi').textContent}（${byId('bmiText').textContent}）</b></div>
+        </div>
+        <div class="sheet-summary"><div class="sheet-stat">目标体重<b>${byId('ibw').textContent} kg</b></div><div class="sheet-stat">能量估算<b>${byId('energy').textContent} kcal</b></div><div class="sheet-stat">交换份折算能量<b>${menuEnergy} kcal</b></div><div class="sheet-stat">全天交换份<b>${exchangeTarget} 份</b></div></div>
+        <div class="sheet-section-head"><h4>全天分类交换份</h4><span>六类相加＝全天${exchangeTarget}份；同类食物可互换</span></div><div class="sheet-category-grid">${categoryHtml}</div>
+        <div class="sheet-section-head"><h4>一日饮食安排</h4><span>食物重量按烹调前可食部</span></div><table class="sheet-plan"><thead><tr><th>餐次</th><th>各类交换份</th><th>食物和数量</th></tr></thead><tbody>${rowsHtml}</tbody></table>
+        <div class="sheet-bottom-grid">
+          <section class="sheet-panel"><h4>饮食原则</h4><div class="sheet-checklist">
+            <div class="sheet-check"><i>1</i><span>控制全天总量，三餐定时定量；加餐计入全天交换份。</span></div><div class="sheet-check"><i>2</i><span>主食称生重，粗细搭配，全谷物和杂豆建议占主食1/3以上。</span></div>
+            <div class="sheet-check"><i>3</i><span>全天蔬菜不少于500g，深色蔬菜占一半以上，食物多样。</span></div><div class="sheet-check"><i>4</i><span>水果放在两餐之间，完整吃、不榨汁；按本单份量食用。</span></div>
+            <div class="sheet-check"><i>5</i><span>山药、土豆、藕、芋艿、紫薯等按谷薯类交换，不额外添加。</span></div><div class="sheet-check"><i>6</i><span>少油少盐，优先蒸、煮、炖、焖；少煎炸、烧烤，戒烟限酒。</span></div>
+          </div></section>
+          <section class="sheet-panel"><h4>进餐与随访</h4><div class="sheet-order"><b>先蔬菜</b><span>→</span><b>再肉蛋豆</b><span>→</span><b>后主食</b></div><div class="sheet-follow-list">
+            <div class="sheet-follow-item"><i>•</i><span>尽量固定进餐时间与食量，避免漏餐、暴食。</span></div>
+            <div class="sheet-follow-item"><i>•</i><span>餐后约1小时，根据身体情况活动约30分钟。</span></div>
+            <div class="sheet-follow-item"><i>•</i><span>体重、血糖或进食情况明显变化时，及时复诊调整。</span></div>
+            <div class="sheet-follow-item"><i>•</i><span>遵医嘱用药，不因减少主食自行减停降糖药。</span></div>
+          </div></section>
+        </div>
+        <div class="sheet-footer"><span>适用于一般成年糖尿病患者的饮食初步参考；特殊人群需由营养师结合病情另行制定。交换系数按 T/CNSS 020—2023，食养原则参考《成人糖尿病食养指南（2023年版）》。</span></div>`;
+      byId('patientSheet').innerHTML=sheetHtml;
+      byId('printGuidePage').innerHTML=sheetHtml;
+      byId('report').textContent=`糖尿病饮食指导单
+姓名：${patientName}　诊断：${diagnosis}
+身高：${numberValue('height')}cm　体重：${numberValue('weight')}kg　BMI：${byId('bmi').textContent}
+能量估算：${byId('energy').textContent}kcal；交换份折算：${menuEnergy}kcal；全天${exchangeTarget}份
+分类交换份：${categories.map(item=>`${item[0]}${portionText(item[1])}份`).join('；')}
+
+${mealRows.map(row=>`${row.title}（${mealCategoryText(row.group)}）：${row.foods}`).join('\n')}
+
+饮食原则：控制总量、定时定量；主食粗细搭配；蔬菜不少于500g；水果两餐间完整吃；薯芋替代同类主食；少油少盐，优先蒸煮炖焖；餐后适量活动并定期复诊。`;
+    }
+    async function copyReport(){
+      try{await navigator.clipboard.writeText(byId('report').textContent);alert('已复制患者指导单')}
+      catch(error){alert('复制失败，请下载指导单或手动复制')}
+    }
+    function printPatientSheet(){window.print()}
+    function standaloneSheetHtml(){
+      const logoUrl=new URL('./医院logo.png',location.href).href;
+      const posterUrl=new URL('./糖尿病食物交换份示意图-A4-打印附件.png',location.href).href;
+      const bundle=byId('printBundle').outerHTML.replaceAll('./医院logo.png',logoUrl).replaceAll('./糖尿病食物交换份示意图-A4-打印附件.png',posterUrl).replace('aria-hidden="true"','');
+      const baseStyle=document.querySelector('style').textContent;
+      const standaloneStyle=`body.standalone{padding:14px;background:#f2f2f7}.standalone-toolbar{display:flex;justify-content:center;margin-bottom:12px}.standalone-toolbar button{min-height:44px;padding:0 20px;border:0;border-radius:12px;background:#248a3d;color:#fff;font-weight:750}.standalone #printBundle{display:block}.standalone .print-guide-page{display:flex;margin:0 auto 14px;box-shadow:0 12px 35px rgba(0,0,0,.08)}.standalone .print-poster-page{display:block;margin:0 auto;width:210mm;height:297mm;box-shadow:0 12px 35px rgba(0,0,0,.08)}.standalone .print-poster-page img{display:block;width:210mm;height:297mm;object-fit:contain}@media print{body.standalone{padding:0;background:#fff}.standalone-toolbar{display:none!important}.standalone .print-guide-page,.standalone .print-poster-page{margin:0;box-shadow:none}}`;
+      return `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>糖尿病饮食指导单（两页）</title><style>${baseStyle}${standaloneStyle}</style></head><body class="standalone"><div class="standalone-toolbar no-print"><button onclick="window.print()">打印／另存为PDF（2页）</button></div>${bundle}</body></html>`;
+    }
+    function downloadPatientSheet(){
+      const blob=new Blob([standaloneSheetHtml()],{type:'text/html;charset=utf-8'});
+      const url=URL.createObjectURL(blob),link=document.createElement('a');
+      const name=(byId('patientName').value.trim()||'患者').replace(/[\\/:*?"<>|]/g,'_');
+      link.href=url;link.download=`糖尿病饮食指导单-${name}.html`;
+      document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+    }
+    byId('calculateButton').addEventListener('click',calculate);
+    byId('copyButton').addEventListener('click',copyReport);
+    byId('printButton').addEventListener('click',printPatientSheet);
+    byId('downloadButton').addEventListener('click',downloadPatientSheet);
+    ['patientName','diagnosis'].forEach(id=>byId(id).addEventListener('input',calculate));
+    calculate();
+  </script>
+</body>
+</html>
+
+
+
+
+
