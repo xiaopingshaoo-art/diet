@@ -92,12 +92,25 @@
     @media(max-width:580px){.hero{padding-top:30px}.card{padding:17px;border-radius:20px}.exchange-meals,.meals{grid-template-columns:1fr}.visuals{grid-template-columns:1fr}.group-summary{grid-template-columns:repeat(2,1fr)}.results{grid-template-columns:repeat(2,1fr)}.result:last-child{grid-column:1/-1}.actions button{width:100%}.patient-fields{grid-template-columns:1fr}.patient-sheet{width:100%;min-height:0;padding:14px}.sheet-brand img{width:52mm}.sheet-titlebar{align-items:flex-start}.sheet-meta{grid-template-columns:1fr 1fr}.sheet-summary{grid-template-columns:1fr 1fr}.sheet-category-grid{grid-template-columns:repeat(3,1fr)}.sheet-bottom-grid{grid-template-columns:1fr}.sheet-checklist{grid-template-columns:1fr}.sheet-footer{display:block}.sheet-sign{display:block;margin-top:8px}}
 @page{size:A4 portrait;margin:0}
     @media print{
-      html,body{width:210mm;margin:0;background:#fff}
+      *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+      html,body{width:210mm!important;min-width:210mm!important;margin:0!important;padding:0!important;background:#fff!important}
       body>header,body>main{display:none!important}
-      .print-bundle{display:block!important;width:210mm;margin:0}
-      .print-guide-page{display:flex!important;width:210mm;max-width:none;min-height:297mm;height:297mm;margin:0;padding:8mm 9mm 7mm;border:0;border-radius:0;box-shadow:none;break-after:page;page-break-after:always;overflow:hidden}
-      .print-poster-page{display:block!important;width:210mm;height:297mm;margin:0;break-before:page;page-break-before:always;overflow:hidden}
-      .print-poster-page img{display:block;width:210mm;height:297mm;object-fit:contain}
+      .print-bundle{display:block!important;width:210mm!important;margin:0!important}
+      .print-guide-page{display:flex!important;flex-direction:column!important;width:210mm!important;max-width:none!important;min-width:210mm!important;min-height:297mm!important;height:297mm!important;margin:0!important;padding:8mm 9mm 7mm!important;border:0!important;border-radius:0!important;box-shadow:none!important;break-after:page!important;page-break-after:always!important;overflow:hidden!important}
+      .print-guide-page .sheet-brand img{width:58mm!important}
+      .print-guide-page .sheet-titlebar{align-items:flex-end!important}
+      .print-guide-page .sheet-meta{display:grid!important;grid-template-columns:1.2fr 1.35fr repeat(3,minmax(0,1fr))!important}
+      .print-guide-page .sheet-summary{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important}
+      .print-guide-page .sheet-category-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important}
+      .print-guide-page .sheet-bottom-grid{display:grid!important;grid-template-columns:1.18fr .82fr!important;gap:3mm!important;min-height:68mm!important}
+      .print-guide-page .sheet-panel{display:block!important;min-width:0!important}
+      .print-guide-page .sheet-checklist{display:grid!important;grid-template-columns:1fr!important;gap:2.2mm!important;align-content:start!important}
+      .print-guide-page .sheet-check{display:grid!important;grid-template-columns:4.5mm minmax(0,1fr)!important;break-inside:avoid!important;page-break-inside:avoid!important}
+      .print-guide-page .sheet-follow-list{display:grid!important;grid-template-columns:1fr!important;gap:2.6mm!important;align-content:start!important;margin-top:.2mm!important}
+      .print-guide-page .sheet-follow-item{display:grid!important;grid-template-columns:3.8mm minmax(0,1fr)!important;break-inside:avoid!important;page-break-inside:avoid!important}
+      .print-guide-page .sheet-footer{display:flex!important}
+      .print-poster-page{display:block!important;width:210mm!important;height:297mm!important;margin:0!important;break-before:page!important;page-break-before:always!important;overflow:hidden!important}
+      .print-poster-page img{display:block!important;width:210mm!important;height:297mm!important;object-fit:contain!important}
       .no-print{display:none!important}
     }
   </style>
@@ -202,7 +215,7 @@
 
   <div id="printBundle" class="print-bundle" aria-hidden="true">
     <section id="printGuidePage" class="patient-sheet print-guide-page"></section>
-    <section id="printPosterPage" class="print-poster-page"><img src="./糖尿病食物交换份示意图-A4-打印附件.png" alt="食物交换份速查图"></section>
+    <section id="printPosterPage" class="print-poster-page"><img src="./food-exchange-guide-a4.png" alt="食物交换份速查图"></section>
   </div>
 
   <script>
@@ -367,7 +380,7 @@
       const categories=[['谷薯',sumType('grain')],['蔬菜',sumType('veg')],['水果',sumType('fruit')],['肉蛋水产',sumType('protein')],['奶豆',sumType('milkSoy')],['油脂',sumType('oil')]];
       const categoryHtml=categories.map(item=>`<div class="sheet-category"><span>${item[0]}</span><b>${portionText(item[1])}份</b></div>`).join('');
       const sheetHtml=`
-        <div class="sheet-brand"><img src="./医院logo.png" alt="昆山市第一人民医院"><div class="sheet-brand-dept">临床营养科</div></div>
+        <div class="sheet-brand"><img src="./hospital-logo.png" alt="昆山市第一人民医院"><div class="sheet-brand-dept">临床营养科</div></div>
         <div class="sheet-titlebar"><div><h3>糖尿病饮食指导单</h3><p class="sheet-subtitle">根据当前身高、体重、活动量和食物交换份生成</p></div><span class="sheet-badge">个体化饮食参考</span></div>
         <div class="sheet-meta">
           <div class="meta-item"><span>姓名</span><b>${escapeHtml(patientName)}</b></div><div class="meta-item"><span>诊断</span><b>${escapeHtml(diagnosis)}</b></div><div class="meta-item"><span>身高</span><b>${numberValue('height')} cm</b></div><div class="meta-item"><span>体重</span><b>${numberValue('weight')} kg</b></div><div class="meta-item"><span>BMI</span><b>${byId('bmi').textContent}（${byId('bmiText').textContent}）</b></div>
@@ -407,9 +420,9 @@ ${mealRows.map(row=>`${row.title}（${mealCategoryText(row.group)}）：${row.fo
     }
     function printPatientSheet(){window.print()}
     function standaloneSheetHtml(){
-      const logoUrl=new URL('./医院logo.png',location.href).href;
-      const posterUrl=new URL('./糖尿病食物交换份示意图-A4-打印附件.png',location.href).href;
-      const bundle=byId('printBundle').outerHTML.replaceAll('./医院logo.png',logoUrl).replaceAll('./糖尿病食物交换份示意图-A4-打印附件.png',posterUrl).replace('aria-hidden="true"','');
+      const logoUrl=new URL('./hospital-logo.png',location.href).href;
+      const posterUrl=new URL('./food-exchange-guide-a4.png',location.href).href;
+      const bundle=byId('printBundle').outerHTML.replaceAll('./hospital-logo.png',logoUrl).replaceAll('./food-exchange-guide-a4.png',posterUrl).replace('aria-hidden="true"','');
       const baseStyle=document.querySelector('style').textContent;
       const standaloneStyle=`body.standalone{padding:14px;background:#f2f2f7}.standalone-toolbar{display:flex;justify-content:center;margin-bottom:12px}.standalone-toolbar button{min-height:44px;padding:0 20px;border:0;border-radius:12px;background:#248a3d;color:#fff;font-weight:750}.standalone #printBundle{display:block}.standalone .print-guide-page{display:flex;margin:0 auto 14px;box-shadow:0 12px 35px rgba(0,0,0,.08)}.standalone .print-poster-page{display:block;margin:0 auto;width:210mm;height:297mm;box-shadow:0 12px 35px rgba(0,0,0,.08)}.standalone .print-poster-page img{display:block;width:210mm;height:297mm;object-fit:contain}@media print{body.standalone{padding:0;background:#fff}.standalone-toolbar{display:none!important}.standalone .print-guide-page,.standalone .print-poster-page{margin:0;box-shadow:none}}`;
       return `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>糖尿病饮食指导单（两页）</title><style>${baseStyle}${standaloneStyle}</style></head><body class="standalone"><div class="standalone-toolbar no-print"><button onclick="window.print()">打印／另存为PDF（2页）</button></div>${bundle}</body></html>`;
@@ -430,6 +443,7 @@ ${mealRows.map(row=>`${row.title}（${mealCategoryText(row.group)}）：${row.fo
   </script>
 </body>
 </html>
+
 
 
 
