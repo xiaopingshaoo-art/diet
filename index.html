@@ -61,7 +61,7 @@
     .group-summary{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:10px 0 16px}
     .summary-item{padding:10px 12px;border-radius:13px;background:var(--fill);color:var(--muted);font-size:12px}
     .summary-item b{display:block;margin-top:3px;color:var(--text);font-size:17px}
-    .exchange-meals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+    .exchange-meals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;align-items:start}
     .exchange-meal{padding:15px;border:1px solid rgba(0,0,0,.07);border-radius:17px}
     .exchange-meal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px}
     .exchange-meal h3{margin:0;font-size:18px}.meal-total{padding:5px 8px;border-radius:9px;background:var(--green-soft);color:var(--green);font-size:12px;font-weight:750}
@@ -114,6 +114,7 @@
       .sheet-plan td:nth-child(2)::before,.sheet-plan td:nth-child(3)::before{display:block;margin-bottom:3px;color:var(--muted);font-size:9px;font-weight:650}.sheet-plan td:nth-child(2)::before{content:"各类交换份"}.sheet-plan td:nth-child(3)::before{content:"食物和数量"}
       .sheet-bottom-grid{grid-template-columns:1fr;min-height:0}.sheet-panel{padding:12px}.sheet-checklist{grid-template-columns:1fr}.sheet-footer{display:block}.row-buttons{display:grid;grid-template-columns:1fr}.row-buttons button{width:100%}
       .tier-reference>summary{gap:10px}.tier-reference>summary::after{flex:none}.tier-intro{font-size:11px}
+      .portion-modal{align-items:end;padding:0}.portion-dialog{width:100%;max-height:88dvh;padding:17px 16px max(18px,env(safe-area-inset-bottom));border-radius:24px 24px 0 0}.portion-photo{max-width:390px;margin:0 auto}.portion-info{width:24px;height:24px;min-height:24px!important}
     }
     /* v1.0 information and responsive refinements */
     .section-emoji{display:inline-block;margin-right:7px;font-size:.9em;line-height:1;vertical-align:.02em}
@@ -130,6 +131,11 @@
     .prepared{display:block;margin-top:4px;color:var(--blue);font-size:12px;line-height:1.45}
     .estimate{border:1px solid rgba(36,138,61,.08);background:var(--green-soft);color:#4b6652}
     .cooked-note{margin-top:14px;padding:10px 12px;border-radius:12px;background:var(--fill)}
+    .portion-info{display:inline-grid;place-items:center;width:22px;height:22px;min-height:22px!important;margin-left:5px;padding:0;border:1px solid rgba(0,122,255,.24);border-radius:50%;background:#edf5ff;color:var(--blue);font:750 12px/1 Georgia,serif;box-shadow:none;vertical-align:middle}.portion-info:hover{filter:none;background:#e2efff}.portion-info:focus-visible{outline:3px solid rgba(0,122,255,.22);outline-offset:2px}
+    .exchange-line>strong{display:flex;align-items:center;flex-wrap:wrap;gap:3px}.exchange-line>strong .portion{margin-left:1px}
+    .portion-modal{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:18px}.portion-modal[hidden]{display:none}.portion-backdrop{position:absolute;inset:0;background:rgba(20,24,22,.48);-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px)}
+    .portion-dialog{position:relative;width:min(430px,100%);max-height:min(720px,90dvh);overflow:auto;padding:18px;border-radius:24px;background:#fff;box-shadow:0 24px 80px rgba(0,0,0,.24);overscroll-behavior:contain}.portion-dialog-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}.portion-dialog-head h3{margin:0;font-size:21px}.portion-dialog-head p{margin:4px 0 0;color:var(--muted);font-size:12px}.portion-close{display:grid;place-items:center;flex:none;width:34px;height:34px;min-height:34px!important;padding:0;border-radius:50%;background:var(--fill);color:var(--muted);font-size:22px;font-weight:500;box-shadow:none}
+    .portion-photo{display:block;width:100%;aspect-ratio:16/9;border:1px solid rgba(0,0,0,.07);border-radius:18px;background:#f2f2f7;object-fit:contain;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}.portion-current{margin-top:12px;padding:11px 12px;border-radius:13px;background:var(--green-soft);color:#4b6652;font-size:12px;line-height:1.55}.portion-current b{display:block;color:var(--green);font-size:14px}.portion-reference{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.portion-reference span{padding:6px 9px;border-radius:999px;background:var(--fill);color:var(--muted);font-size:11px}.portion-dialog-note{margin:10px 2px 0;color:var(--muted);font-size:11px;line-height:1.55}
     .yield-reference{margin-top:12px;border:1px solid rgba(0,0,0,.07);border-radius:18px;background:#fff;overflow:hidden}
     .yield-reference>summary{display:flex;align-items:center;gap:9px;padding:14px 16px;color:var(--text);font-size:14px;font-weight:650}
     .yield-reference>summary::after{margin-left:auto;color:var(--blue);font-size:12px}
@@ -150,6 +156,11 @@
     .day-meal ul{margin:0;padding-left:18px;color:#42464a;font-size:13px;line-height:1.62}
     .menu-day-foot{margin:10px 1px 0;color:var(--muted);font-size:11px;line-height:1.5}
     summary:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid rgba(0,122,255,.25);outline-offset:2px}
+    @media(min-width:920px){
+      .exchange-meals{grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+      .exchange-meal:nth-child(1){grid-column:1/span 2;grid-row:1}.exchange-meal:nth-child(3){grid-column:3/span 2;grid-row:1}.exchange-meal:nth-child(5){grid-column:5/span 2;grid-row:1}
+      .exchange-meal:nth-child(2){grid-column:2/span 2;grid-row:2}.exchange-meal:nth-child(4){grid-column:4/span 2;grid-row:2}
+    }
     @media(max-width:900px){
       .results,.result-categories{grid-template-columns:repeat(2,minmax(0,1fr))}
       .menu-days{grid-template-columns:1fr}
@@ -175,36 +186,36 @@
       button,input,select,summary{min-height:48px}
       summary{display:flex;align-items:center}
     }
-    @page{size:A4 portrait;margin:5mm}
+    @page{size:A4 portrait;margin:8mm}
     @media print{
       *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
       html,body{width:auto!important;min-width:0!important;margin:0!important;padding:0!important;overflow:visible!important;background:#fff!important}
-      body>header,body>main{display:none!important}
-      .print-bundle{display:block!important;width:200mm!important;max-width:none!important;margin:0!important;padding:0!important;overflow:visible!important}
-      .print-guide-page{display:flex!important;flex-direction:column!important;width:200mm!important;max-width:200mm!important;min-width:0!important;min-height:0!important;height:286mm!important;margin:0!important;padding:5mm 6mm 4mm!important;border:0!important;border-radius:0!important;box-shadow:none!important;break-inside:auto!important;page-break-inside:auto!important;break-after:page!important;page-break-after:always!important;overflow:hidden!important}
-      .print-guide-page .sheet-brand{display:flex!important;gap:8mm!important;padding-bottom:2.5mm!important}
-      .print-guide-page .sheet-brand img{width:58mm!important}
-      .print-guide-page .sheet-brand-dept{font-size:17px!important;letter-spacing:.08em!important}
-      .print-guide-page .sheet-titlebar{display:flex!important;align-items:flex-end!important;margin:3.5mm 0 2.5mm!important}
-      .print-guide-page .sheet-titlebar h3{font-size:25px!important}
+      body>header,body>main,.portion-modal{display:none!important}
+      .print-bundle{display:block!important;width:194mm!important;max-width:194mm!important;margin:0!important;padding:0!important;overflow:hidden!important}
+      .print-guide-page{display:flex!important;flex-direction:column!important;box-sizing:border-box!important;width:194mm!important;max-width:194mm!important;min-width:0!important;min-height:279mm!important;height:279mm!important;max-height:279mm!important;margin:0!important;padding:3mm 4mm 2.5mm!important;border:0!important;border-radius:0!important;box-shadow:none!important;break-inside:avoid!important;page-break-inside:avoid!important;break-after:page!important;page-break-after:always!important;overflow:hidden!important}
+      .print-guide-page .sheet-brand{display:flex!important;gap:8mm!important;padding-bottom:2.2mm!important}
+      .print-guide-page .sheet-brand img{width:56mm!important}
+      .print-guide-page .sheet-brand-dept{font-size:16px!important;letter-spacing:.07em!important}
+      .print-guide-page .sheet-titlebar{display:flex!important;align-items:flex-end!important;margin:3mm 0 2.2mm!important}
+      .print-guide-page .sheet-titlebar h3{font-size:24px!important}
       .print-guide-page .sheet-meta{display:grid!important;grid-template-columns:1.2fr 1.35fr repeat(3,minmax(0,1fr))!important}
-      .print-guide-page .sheet-summary{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;margin:2.5mm 0!important}
+      .print-guide-page .sheet-summary{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;margin:2.2mm 0!important}
       .print-guide-page .sheet-category-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important}
-      .print-guide-page .sheet-section-head{display:flex!important;align-items:baseline!important;margin:2.5mm 0 1.5mm!important}
+      .print-guide-page .sheet-section-head{display:flex!important;align-items:baseline!important;margin:2.2mm 0 1.3mm!important}
       .print-guide-page .sheet-plan{display:table!important;width:100%!important}
       .print-guide-page .sheet-plan thead{display:table-header-group!important}.print-guide-page .sheet-plan tbody{display:table-row-group!important}.print-guide-page .sheet-plan tr{display:table-row!important;margin:0!important;padding:0!important;border:0!important;background:transparent!important}
-      .print-guide-page .sheet-plan th,.print-guide-page .sheet-plan td{display:table-cell!important;width:auto!important;padding:2.1mm 2.2mm!important;border-bottom:1px solid #e4e8e6!important}
+      .print-guide-page .sheet-plan th,.print-guide-page .sheet-plan td{display:table-cell!important;width:auto!important;padding:1.9mm 2mm!important;border-bottom:1px solid #e4e8e6!important}
       .print-guide-page .sheet-plan th:nth-child(1){width:12%!important}.print-guide-page .sheet-plan th:nth-child(2){width:32%!important}.print-guide-page .sheet-plan th:nth-child(3){width:56%!important}
       .print-guide-page .sheet-plan td:nth-child(2)::before,.print-guide-page .sheet-plan td:nth-child(3)::before{display:none!important;content:none!important}
-      .print-guide-page .sheet-bottom-grid{display:grid!important;grid-template-columns:1.18fr .82fr!important;gap:3mm!important;margin-top:2.5mm!important;min-height:52mm!important}
-      .print-guide-page .sheet-panel{display:block!important;min-width:0!important;padding:2.7mm!important}
-      .print-guide-page .sheet-checklist{display:grid!important;grid-template-columns:1fr!important;gap:2mm!important;align-content:start!important}
-      .print-guide-page .sheet-check{display:grid!important;grid-template-columns:4.5mm minmax(0,1fr)!important;break-inside:avoid!important;page-break-inside:avoid!important}
-      .print-guide-page .sheet-follow-list{display:grid!important;grid-template-columns:1fr!important;gap:2.2mm!important;align-content:start!important;margin-top:.2mm!important}
-      .print-guide-page .sheet-follow-item{display:grid!important;grid-template-columns:3.8mm minmax(0,1fr)!important;break-inside:avoid!important;page-break-inside:avoid!important}
-      .print-guide-page .sheet-footer{display:flex!important;margin-top:auto!important;padding-top:2.5mm!important;font-size:8.2px!important;line-height:1.4!important}
-      .print-poster-page{display:block!important;width:200mm!important;max-width:200mm!important;height:286mm!important;margin:0!important;padding:0!important;break-inside:auto!important;page-break-inside:auto!important;break-before:auto!important;page-break-before:auto!important;break-after:auto!important;page-break-after:auto!important;overflow:hidden!important}
-      .print-poster-page img{display:block!important;width:100%!important;max-width:100%!important;height:100%!important;object-fit:contain!important}
+      .print-guide-page .sheet-bottom-grid{display:grid!important;grid-template-columns:1.18fr .82fr!important;gap:2.6mm!important;margin-top:2.2mm!important;min-height:0!important}
+      .print-guide-page .sheet-panel{display:block!important;min-width:0!important;padding:2.4mm!important}
+      .print-guide-page .sheet-checklist{display:grid!important;grid-template-columns:1fr!important;gap:1.7mm!important;align-content:start!important}
+      .print-guide-page .sheet-check{display:grid!important;grid-template-columns:4.5mm minmax(0,1fr)!important;font-size:9.6px!important;line-height:1.42!important;break-inside:avoid!important;page-break-inside:avoid!important}
+      .print-guide-page .sheet-follow-list{display:grid!important;grid-template-columns:1fr!important;gap:1.8mm!important;align-content:start!important;margin-top:.2mm!important}
+      .print-guide-page .sheet-follow-item{display:grid!important;grid-template-columns:3.8mm minmax(0,1fr)!important;font-size:9.2px!important;line-height:1.4!important;break-inside:avoid!important;page-break-inside:avoid!important}
+      .print-guide-page .sheet-footer{display:flex!important;margin-top:2.2mm!important;padding-top:2.2mm!important;font-size:8px!important;line-height:1.36!important}
+      .print-poster-page{display:flex!important;align-items:flex-start!important;justify-content:center!important;box-sizing:border-box!important;width:194mm!important;max-width:194mm!important;height:279mm!important;max-height:279mm!important;margin:0!important;padding:0!important;break-inside:avoid!important;page-break-inside:avoid!important;break-before:auto!important;page-break-before:auto!important;break-after:auto!important;page-break-after:auto!important;overflow:hidden!important}
+      .print-poster-page img{display:block!important;width:auto!important;max-width:190mm!important;height:auto!important;max-height:276mm!important;margin:0 auto!important;object-fit:contain!important}
       .no-print{display:none!important}
     }
   </style>
@@ -349,6 +360,18 @@
     <footer>食养原则与能量估算参考《成人糖尿病食养指南（2023年版）》；所有食物交换份换算系数统一采用 T/CNSS 020—2023《食物交换份》。本工具不替代个体化营养处方。</footer>
   </main>
 
+
+  <div id="portionModal" class="portion-modal" hidden aria-hidden="true">
+    <div class="portion-backdrop" data-portion-close></div>
+    <section class="portion-dialog" role="dialog" aria-modal="true" aria-labelledby="portionModalTitle">
+      <div class="portion-dialog-head"><div><h3 id="portionModalTitle">手量大小参考</h3><p id="portionModalSubtitle">查看文章中的手掌、拳头或捧量对照</p></div><button type="button" class="portion-close" id="portionCloseButton" aria-label="关闭">×</button></div>
+      <img id="portionPhoto" class="portion-photo" src="./portion-hand-rice.jpg" alt="食物与手部大小对照图">
+      <div class="portion-current"><b>本餐计算结果</b><span id="portionCurrentText">—</span></div>
+      <div class="portion-reference"><span id="portionReferenceText">—</span><span>手量仅作粗略估算</span></div>
+      <p id="portionGuideNote" class="portion-dialog-note">图片用于帮助理解体积，处方仍以页面显示的克数为准。</p>
+    </section>
+  </div>
+
   <div id="printBundle" class="print-bundle" aria-hidden="true">
     <section id="printGuidePage" class="patient-sheet print-guide-page"></section>
     <section id="printPosterPage" class="print-poster-page"><img src="./food-exchange-guide-a4.png" alt="食物交换份速查图"></section>
@@ -359,6 +382,15 @@
     const numberValue = id => Number(byId(id).value);
     const unit = {grain:25,veg:250,fruit:150,meat:50,egg:60,fish:75,milk:150,tofu:90,oil:10};
     const cookedYield={steamedBun:1.5,mixedRice:2.2,leanMeat:0.6,roastedSweetPotato:0.75};
+    const portionGuideByLine={bGrain:'bun',bVeg:'veg',lGrain:'rice',fish:'fish',lVeg:'veg',dGrain:'rice',chicken:'chicken',dVeg:'veg'};
+    const portionGuideConfig={
+      bun:{title:'馒头的拳头参考',image:'./portion-hand-bun.jpg',alt:'100克面粉制成馒头与拳头大小对照',baseGrams:100,baseHands:1,handUnit:'个拳头',reference:'文章实拍：100g面粉制成的馒头约1个拳头',note:'图片标注的成品实测约174.5g；面团含水量和蒸制失水不同，成品重量会波动。交换份仍按面粉生重计算。'},
+      rice:{title:'杂粮饭的拳头参考',image:'./portion-hand-rice.jpg',alt:'100克杂粮煮成熟饭与拳头大小对照',baseGrams:100,baseHands:1.5,handUnit:'个拳头',reference:'文章实拍：100g杂粮生重煮成饭约1.5个拳头',note:'图片实测熟饭约271.7g，反映该次加水与烹调条件；本计算器的熟重提示仍按约×2.2估算，交换份和能量始终按生重计算。'},
+      chicken:{title:'鸡胸肉的掌心参考',image:'./portion-hand-chicken.jpg',alt:'70克生鸡胸肉与成人掌心大小对照',baseGrams:70,baseHands:2/3,handUnit:'个掌心',reference:'文章实拍：70g生鸡胸肉约2/3掌心',note:'掌心指不含手指的面积。鸡肉部位、厚度和个人手掌大小不同，优先按去皮可食部生重称量。'},
+      fish:{title:'鱼肉的掌心参考',image:'./portion-hand-fish.jpg',alt:'300克生鱼肉与成人掌心大小对照',baseGrams:300,baseHands:3,handUnit:'个掌心',reference:'文章实拍：300g生鱼肉约3个掌心',note:'图片展示的是300g鱼肉，弹窗会按本餐克数作比例提示；鱼片厚度与可食部差异较大，优先称重。'},
+      veg:{title:'绿叶菜的捧量参考',image:'./portion-hand-vegetable.jpg',alt:'300克生小白菜与成人手部大小对照',baseGrams:300,baseHands:3,handUnit:'大捧',reference:'文章实拍：300g生小白菜约3大捧',note:'绿叶菜品种、切法和松紧程度会明显影响体积；本计算器仍按烹调前可食部生重计算。'}
+    };
+    const portionGuidePreloads=Object.values(portionGuideConfig).map(config=>{const image=new Image();image.src=config.image;return image});
     const householdServing={steamedBun:75,riceBowl:150};
     function cookedEstimate(rawWeight,type){return Math.round(rawWeight*cookedYield[type])}
 
@@ -488,7 +520,9 @@
       const estimateText=line.estimate?(typeof line.estimate==='function'?line.estimate(line.portion,amount):line.estimate):'';
       const prepared=preparedText?`<span class="prepared">${preparedText}</span>`:'';
       const estimate=estimateText?`<span class="estimate">本餐手量参考：${estimateText}</span>`:'';
-      return `<div class="exchange-line"><strong>${line.name} <span class="portion">${portionText(line.portion)}份</span></strong><div>${line.food} ${amount}${line.unitLabel}</div>${prepared}<span class="swap">同类可换：${line.swap(line.portion)}</span>${estimate}</div>`;
+      const guideKey=portionGuideByLine[line.key];
+      const guideButton=guideKey?`<button type="button" class="portion-info" data-portion-guide="${guideKey}" data-current="${line.food} ${amount}${line.unitLabel}" data-amount="${amount}" aria-label="查看${line.name}手量大小参考" aria-haspopup="dialog">i</button>`:'';
+      return `<div class="exchange-line"><strong>${line.name} <span class="portion">${portionText(line.portion)}份</span>${guideButton}</strong><div>${line.food} ${amount}${line.unitLabel}</div>${prepared}<span class="swap">同类可换：${line.swap(line.portion)}</span>${estimate}</div>`;
     }
     function exchangeMeal(group){
       const total=group.lines.reduce((sum,line)=>sum+line.portion,0);
@@ -653,10 +687,43 @@ ${mealRows.map(row=>`${row.title}（${mealCategoryText(row.group)}）：${row.fo
       try{await navigator.clipboard.writeText(byId('report').textContent);alert('已复制患者指导单')}
       catch(error){alert('复制失败，请手动选择并复制指导单内容')}
     }
-    function printPatientSheet(){window.print()}
+    let lastPortionTrigger=null;
+    let previousBodyOverflow='';
+    function openPortionGuide(button){
+      const config=portionGuideConfig[button.dataset.portionGuide];
+      if(!config)return;
+      lastPortionTrigger=button;
+      byId('portionModalTitle').textContent=config.title;
+      byId('portionCurrentText').textContent=button.dataset.current;
+      const currentAmount=Number(button.dataset.amount);
+      const handEstimate=currentAmount/config.baseGrams*config.baseHands;
+      byId('portionReferenceText').textContent=`${config.reference}；本餐按重量比例粗估约${portionText(Math.round(handEstimate*10)/10)}${config.handUnit}`;
+      byId('portionGuideNote').textContent=config.note+' 图片来源：营养师顾中一《67张「用手做对照」的食物分量图》；手量只帮助理解体积，处方仍以克数为准。';
+      byId('portionPhoto').src=config.image;
+      byId('portionPhoto').alt=config.alt;
+      const modal=byId('portionModal');
+      modal.hidden=false;
+      modal.setAttribute('aria-hidden','false');
+      previousBodyOverflow=document.body.style.overflow;
+      document.body.style.overflow='hidden';
+      requestAnimationFrame(()=>byId('portionCloseButton').focus());
+    }
+    function closePortionGuide(restoreFocus=true){
+      const modal=byId('portionModal');
+      if(modal.hidden)return;
+      modal.hidden=true;
+      modal.setAttribute('aria-hidden','true');
+      document.body.style.overflow=previousBodyOverflow;
+      if(restoreFocus&&lastPortionTrigger)lastPortionTrigger.focus();
+    }
+    function printPatientSheet(){closePortionGuide(false);window.print()}
     byId('calculateButton').addEventListener('click',calculate);
     byId('copyButton').addEventListener('click',copyReport);
     byId('printButton').addEventListener('click',printPatientSheet);
+    byId('exchangeMeals').addEventListener('click',event=>{const button=event.target.closest('[data-portion-guide]');if(button)openPortionGuide(button)});
+    byId('portionCloseButton').addEventListener('click',()=>closePortionGuide());
+    byId('portionModal').addEventListener('click',event=>{if(event.target.matches('[data-portion-close]'))closePortionGuide()});
+    document.addEventListener('keydown',event=>{if(event.key==='Escape')closePortionGuide()});
 
     ['patientName','diagnosis'].forEach(id=>byId(id).addEventListener('input',calculate));
     calculate();
