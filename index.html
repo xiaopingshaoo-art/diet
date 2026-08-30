@@ -102,11 +102,11 @@
     .scope{margin:18px 4px 0;color:var(--muted);font-size:12px}.scope summary{color:var(--muted)}
     footer{padding:12px 4px 0;color:#8e8e93;font-size:11px;line-height:1.6}
     @media(max-width:820px){.form{grid-template-columns:repeat(2,1fr)}.tier-basis{grid-template-columns:1fr}.results{grid-template-columns:repeat(2,1fr)}.group-summary{grid-template-columns:repeat(3,1fr)}.visuals{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:580px){.hero{padding-top:max(30px,calc(env(safe-area-inset-top) + 18px))}.card{padding:17px;border-radius:20px}.exchange-meals,.meals{grid-template-columns:1fr}.visuals{grid-template-columns:1fr}.group-summary{grid-template-columns:repeat(2,1fr)}.results{grid-template-columns:repeat(2,1fr)}.result:last-child{grid-column:1/-1}.actions button{width:100%}.patient-fields{grid-template-columns:1fr}.patient-sheet{width:100%;min-height:0;padding:14px}.sheet-brand img{width:52mm}.sheet-titlebar{align-items:flex-start}.sheet-meta{grid-template-columns:1fr 1fr}.sheet-summary{grid-template-columns:1fr 1fr}.sheet-category-grid{grid-template-columns:repeat(3,1fr)}.sheet-bottom-grid{grid-template-columns:1fr}.sheet-checklist{grid-template-columns:1fr}.sheet-footer{display:block}.sheet-sign{display:block;margin-top:8px}}
+    @media(max-width:580px){.hero{padding-top:max(30px,calc(env(safe-area-inset-top) + 18px))}.card{padding:17px;border-radius:20px}.exchange-meals,.meals{grid-template-columns:1fr}.visuals{grid-template-columns:1fr}.group-summary{grid-template-columns:repeat(2,1fr)}.results{grid-template-columns:repeat(2,1fr)}.actions button{width:100%}.patient-fields{grid-template-columns:1fr}.patient-sheet{width:100%;min-height:0;padding:14px}.sheet-brand img{width:52mm}.sheet-titlebar{align-items:flex-start}.sheet-meta{grid-template-columns:1fr 1fr}.sheet-summary{grid-template-columns:1fr 1fr}.sheet-category-grid{grid-template-columns:repeat(3,1fr)}.sheet-bottom-grid{grid-template-columns:1fr}.sheet-checklist{grid-template-columns:1fr}.sheet-footer{display:block}.sheet-sign{display:block;margin-top:8px}}
     @media(max-width:580px){
       .hero{padding:max(30px,calc(env(safe-area-inset-top) + 18px)) 18px 18px}.hero p{font-size:15px}.wrap{padding:0 10px max(30px,calc(env(safe-area-inset-bottom) + 18px))}.card{padding:17px;border-radius:20px}.section-head{align-items:flex-start;margin-bottom:15px}
       .form{grid-template-columns:1fr}.actions{display:grid;grid-template-columns:1fr}.exchange-meals,.meals{grid-template-columns:1fr}.visuals{grid-template-columns:1fr}
-      .group-summary{grid-template-columns:repeat(2,minmax(0,1fr))}.summary-item{padding:10px}.results{grid-template-columns:repeat(2,minmax(0,1fr))}.result{min-width:0;padding:13px}.result b{font-size:25px}.result:last-child{grid-column:1/-1}
+      .group-summary{grid-template-columns:repeat(2,minmax(0,1fr))}.summary-item{padding:10px}.results{grid-template-columns:repeat(2,minmax(0,1fr))}.result{min-width:0;padding:13px}.result b{font-size:25px}
       .patient-fields{grid-template-columns:1fr}.patient-sheet{width:100%;min-height:0;padding:14px;border-radius:16px}.sheet-brand{gap:10px}.sheet-brand img{width:min(52mm,68%)}.sheet-brand-dept{font-size:14px;letter-spacing:.04em}
       .sheet-titlebar{display:block;margin:14px 0 10px}.sheet-titlebar h3{font-size:23px}.sheet-badge{display:inline-block;margin-top:8px}.sheet-meta{grid-template-columns:1fr 1fr}.sheet-summary{grid-template-columns:1fr 1fr}.sheet-category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
       .sheet-section-head{align-items:flex-start}.sheet-section-head span{max-width:52%;text-align:right}.sheet-plan,.sheet-plan tbody,.sheet-plan tr,.sheet-plan td{display:block;width:100%}.sheet-plan thead{display:none}.sheet-plan{border:0;background:transparent}
@@ -130,11 +130,15 @@
     .prepared{display:block;margin-top:4px;color:var(--blue);font-size:12px;line-height:1.45}
     .estimate{border:1px solid rgba(36,138,61,.08);background:var(--green-soft);color:#4b6652}
     .cooked-note{margin-top:14px;padding:10px 12px;border-radius:12px;background:var(--fill)}
-    .yield-reference{margin-top:12px;border:1px solid rgba(0,0,0,.07);border-radius:15px;background:#fff;overflow:hidden}
-    .yield-reference>summary{display:flex;align-items:center;gap:9px;padding:13px 14px;color:var(--text);font-size:14px}
+    .yield-reference{margin-top:12px;border:1px solid rgba(0,0,0,.07);border-radius:18px;background:#fff;overflow:hidden}
+    .yield-reference>summary{display:flex;align-items:center;gap:9px;padding:14px 16px;color:var(--text);font-size:14px;font-weight:650}
     .yield-reference>summary::after{margin-left:auto;color:var(--blue);font-size:12px}
-    .yield-body{padding:0 14px 14px}.yield-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
-    .yield-card{min-width:0;padding:11px;border-radius:12px;background:var(--fill)}.yield-card b{display:block;font-size:13px}.yield-flow{display:flex;align-items:baseline;gap:5px;margin-top:7px;color:var(--muted);font-size:11px;white-space:nowrap}.yield-flow strong{color:var(--green);font-size:18px}.yield-card small{display:block;margin-top:5px;color:var(--muted);font-size:10px;line-height:1.45}.yield-source{margin:10px 1px 0;color:var(--muted);font-size:11px;line-height:1.55}.yield-source a{color:var(--blue)}
+    .yield-body{padding:0 14px 16px}.yield-intro{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;margin:0 0 14px;padding:12px 13px;border-radius:14px;background:linear-gradient(135deg,#f1f8f2,#f7faf7)}
+    .yield-intro-icon{display:grid;width:42px;height:42px;place-items:center;border-radius:13px;background:#fff;font-size:23px;box-shadow:0 2px 10px rgba(25,95,44,.08)}.yield-intro b{display:block;font-size:13px}.yield-intro p{margin:3px 0 0;color:var(--muted);font-size:11px;line-height:1.55}
+    .yield-section{margin-top:14px}.yield-section-head{display:flex;align-items:end;justify-content:space-between;gap:10px;margin-bottom:8px}.yield-section-head h4{margin:0;font-size:14px}.yield-section-head span{color:var(--muted);font-size:10px}
+    .yield-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+    .yield-card{min-width:0;padding:11px;border:1px solid rgba(0,0,0,.055);border-radius:14px;background:var(--fill)}.yield-card-head{display:flex;align-items:center;justify-content:space-between;gap:8px}.yield-card-head b{min-width:0;font-size:13px}.yield-card-head i{font-style:normal;font-size:20px}.yield-flow{display:grid;grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr);align-items:center;gap:3px;margin-top:9px;text-align:center}.yield-weight{min-width:0;padding:7px 4px;border-radius:10px;background:#fff;color:var(--muted);font-size:9px;line-height:1.25}.yield-weight strong{display:block;margin-top:2px;color:var(--text);font-size:16px}.yield-arrow{color:var(--green);font-size:18px;font-weight:800}.yield-badge{display:inline-flex;margin-top:7px;padding:3px 7px;border-radius:99px;background:#e8f4ea;color:#27743b;font-size:9px;font-weight:700}.yield-card[data-change="loss"] .yield-arrow{color:#b66a21}.yield-card[data-change="loss"] .yield-badge{background:#fff1e4;color:#99571b}.yield-card small{display:block;margin-top:6px;color:var(--muted);font-size:9px;line-height:1.4}
+    .yield-all{margin-top:10px;border:1px solid rgba(0,0,0,.06);border-radius:12px;background:#fff;overflow:hidden}.yield-all>summary{padding:10px 12px;color:var(--blue);font-size:11px}.yield-table-wrap{overflow:auto;border-top:1px solid var(--separator)}.yield-table{width:100%;min-width:590px;border-collapse:collapse;font-size:10px}.yield-table th,.yield-table td{padding:7px 9px;border-bottom:1px solid var(--separator);text-align:left;white-space:nowrap}.yield-table th{background:var(--fill);color:var(--muted);font-weight:600}.yield-table tr:last-child td{border-bottom:0}.yield-source{margin:12px 1px 0;color:var(--muted);font-size:10px;line-height:1.6}.yield-source a{color:var(--blue)}
     .menu-days{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
     .menu-day{min-width:0;padding:16px;border:1px solid rgba(0,0,0,.07);border-radius:18px;background:#fff}
     .menu-day-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:11px;padding-bottom:11px;border-bottom:1px solid var(--separator)}
@@ -163,38 +167,44 @@
       .results{gap:8px}.result{min-height:96px;padding:12px}.result b{font-size:23px}
       .exchange-hero{padding:14px 15px}.exchange-hero b{font-size:31px}
       .day-meal{padding:10px}.day-meal ul{font-size:12.5px}
-      .yield-card{padding:10px}.yield-flow strong{font-size:16px}
+      .yield-card{padding:10px}.yield-weight strong{font-size:15px}
     }
+    @media(max-width:700px){.yield-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:380px){.yield-grid{grid-template-columns:1fr}.yield-section-head{align-items:flex-start;flex-direction:column;gap:2px}}
     @media(pointer:coarse){
       button,input,select,summary{min-height:48px}
       summary{display:flex;align-items:center}
     }
-@page{size:A4 portrait;margin:0}
+    @page{size:A4 portrait;margin:5mm}
     @media print{
       *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
-      html,body{width:100%!important;min-width:0!important;margin:0!important;padding:0!important;background:#fff!important}
+      html,body{width:auto!important;min-width:0!important;margin:0!important;padding:0!important;overflow:visible!important;background:#fff!important}
       body>header,body>main{display:none!important}
-      .print-bundle{display:block!important;width:210mm!important;max-width:100%!important;margin:0!important;padding:0!important}
-      .print-guide-page{display:flex!important;flex-direction:column!important;width:210mm!important;max-width:210mm!important;min-width:0!important;min-height:0!important;height:295mm!important;margin:0!important;padding:8mm 9mm 7mm!important;border:0!important;border-radius:0!important;box-shadow:none!important;break-inside:avoid!important;page-break-inside:avoid!important;break-after:page!important;page-break-after:always!important;overflow:hidden!important}
+      .print-bundle{display:block!important;width:200mm!important;max-width:none!important;margin:0!important;padding:0!important;overflow:visible!important}
+      .print-guide-page{display:flex!important;flex-direction:column!important;width:200mm!important;max-width:200mm!important;min-width:0!important;min-height:0!important;height:286mm!important;margin:0!important;padding:5mm 6mm 4mm!important;border:0!important;border-radius:0!important;box-shadow:none!important;break-inside:auto!important;page-break-inside:auto!important;break-after:page!important;page-break-after:always!important;overflow:hidden!important}
+      .print-guide-page .sheet-brand{display:flex!important;gap:8mm!important;padding-bottom:2.5mm!important}
       .print-guide-page .sheet-brand img{width:58mm!important}
-      .print-guide-page .sheet-titlebar{align-items:flex-end!important}
+      .print-guide-page .sheet-brand-dept{font-size:17px!important;letter-spacing:.08em!important}
+      .print-guide-page .sheet-titlebar{display:flex!important;align-items:flex-end!important;margin:3.5mm 0 2.5mm!important}
+      .print-guide-page .sheet-titlebar h3{font-size:25px!important}
       .print-guide-page .sheet-meta{display:grid!important;grid-template-columns:1.2fr 1.35fr repeat(3,minmax(0,1fr))!important}
-      .print-guide-page .sheet-summary{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important}
+      .print-guide-page .sheet-summary{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;margin:2.5mm 0!important}
       .print-guide-page .sheet-category-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important}
+      .print-guide-page .sheet-section-head{display:flex!important;align-items:baseline!important;margin:2.5mm 0 1.5mm!important}
       .print-guide-page .sheet-plan{display:table!important;width:100%!important}
       .print-guide-page .sheet-plan thead{display:table-header-group!important}.print-guide-page .sheet-plan tbody{display:table-row-group!important}.print-guide-page .sheet-plan tr{display:table-row!important;margin:0!important;padding:0!important;border:0!important;background:transparent!important}
-      .print-guide-page .sheet-plan th,.print-guide-page .sheet-plan td{display:table-cell!important;width:auto!important;padding:2.25mm 2.3mm!important;border-bottom:1px solid #e4e8e6!important}
+      .print-guide-page .sheet-plan th,.print-guide-page .sheet-plan td{display:table-cell!important;width:auto!important;padding:2.1mm 2.2mm!important;border-bottom:1px solid #e4e8e6!important}
       .print-guide-page .sheet-plan th:nth-child(1){width:12%!important}.print-guide-page .sheet-plan th:nth-child(2){width:32%!important}.print-guide-page .sheet-plan th:nth-child(3){width:56%!important}
       .print-guide-page .sheet-plan td:nth-child(2)::before,.print-guide-page .sheet-plan td:nth-child(3)::before{display:none!important;content:none!important}
-      .print-guide-page .sheet-bottom-grid{display:grid!important;grid-template-columns:1.18fr .82fr!important;gap:3mm!important;min-height:54mm!important}
-      .print-guide-page .sheet-panel{display:block!important;min-width:0!important}
-      .print-guide-page .sheet-checklist{display:grid!important;grid-template-columns:1fr!important;gap:2.2mm!important;align-content:start!important}
+      .print-guide-page .sheet-bottom-grid{display:grid!important;grid-template-columns:1.18fr .82fr!important;gap:3mm!important;margin-top:2.5mm!important;min-height:52mm!important}
+      .print-guide-page .sheet-panel{display:block!important;min-width:0!important;padding:2.7mm!important}
+      .print-guide-page .sheet-checklist{display:grid!important;grid-template-columns:1fr!important;gap:2mm!important;align-content:start!important}
       .print-guide-page .sheet-check{display:grid!important;grid-template-columns:4.5mm minmax(0,1fr)!important;break-inside:avoid!important;page-break-inside:avoid!important}
-      .print-guide-page .sheet-follow-list{display:grid!important;grid-template-columns:1fr!important;gap:2.6mm!important;align-content:start!important;margin-top:.2mm!important}
+      .print-guide-page .sheet-follow-list{display:grid!important;grid-template-columns:1fr!important;gap:2.2mm!important;align-content:start!important;margin-top:.2mm!important}
       .print-guide-page .sheet-follow-item{display:grid!important;grid-template-columns:3.8mm minmax(0,1fr)!important;break-inside:avoid!important;page-break-inside:avoid!important}
-      .print-guide-page .sheet-footer{display:flex!important}
-      .print-poster-page{display:block!important;width:210mm!important;max-width:210mm!important;height:295mm!important;margin:0!important;break-inside:avoid!important;page-break-inside:avoid!important;break-before:auto!important;page-break-before:auto!important;overflow:hidden!important}
-      .print-poster-page img{display:block!important;width:210mm!important;max-width:100%!important;height:295mm!important;object-fit:contain!important}
+      .print-guide-page .sheet-footer{display:flex!important;margin-top:auto!important;padding-top:2.5mm!important;font-size:8.2px!important;line-height:1.4!important}
+      .print-poster-page{display:block!important;width:200mm!important;max-width:200mm!important;height:286mm!important;margin:0!important;padding:0!important;break-inside:auto!important;page-break-inside:auto!important;break-before:auto!important;page-break-before:auto!important;break-after:auto!important;page-break-after:auto!important;overflow:hidden!important}
+      .print-poster-page img{display:block!important;width:100%!important;max-width:100%!important;height:100%!important;object-fit:contain!important}
       .no-print{display:none!important}
     }
   </style>
@@ -241,15 +251,41 @@
       <div id="exchangeMeals" class="exchange-meals"></div>
       <p class="helper cooked-note"><b>请区分两种换算：</b>“同类可换”的馒头35g、熟米饭75g是每份90 kcal的等能量重量，不是生熟比；实际烹调后重量按馒头＝面粉×1.5、粗细搭配杂粮饭＝生米×2.2估算。品种、浸泡和加水量会影响熟重，临床配餐仍以烹调前可食部生重为准。</p>
       <details class="yield-reference">
-        <summary>🍚 查看常用生重→熟重参考</summary>
+        <summary>⚖️ 生重→熟重图解（教学参考）</summary>
         <div class="yield-body">
-          <div class="yield-grid">
-            <article class="yield-card"><b>粳米饭</b><div class="yield-flow"><span>生米100g</span><span>→</span><strong>约230g</strong></div><small>短粒米，如东北米；约×2.3</small></article>
-            <article class="yield-card"><b>粗细搭配杂粮饭</b><div class="yield-flow"><span>生米100g</span><span>→</span><strong>约220g</strong></div><small>本工具默认：约2/3粳米＋1/3全谷杂豆；约×2.2</small></article>
-            <article class="yield-card"><b>馒头</b><div class="yield-flow"><span>面粉100g</span><span>→</span><strong>约150g</strong></div><small>加水和发酵程度不同会有波动；约×1.5</small></article>
-            <article class="yield-card"><b>熟瘦肉</b><div class="yield-flow"><span>生肉100g</span><span>→</span><strong>约60g</strong></div><small>清炖、酱卤或快炒的经验成品率；约×0.6</small></article>
+          <div class="yield-intro"><span class="yield-intro-icon" aria-hidden="true">💧</span><div><b>一眼看懂：主食多因吸水变重，肉类多因失水变轻</b><p>下图均以烹调前可食部100g为起点。营养计算仍以生重为准；熟重只用于把菜单换成餐桌上更直观的量。</p></div></div>
+
+          <div class="yield-section">
+            <div class="yield-section-head"><h4>🍚 主食与薯类</h4><span>加水量影响越大，熟重波动越大</span></div>
+            <div class="yield-grid">
+              <article class="yield-card"><div class="yield-card-head"><b>白米饭</b><i aria-hidden="true">🍚</i></div><div class="yield-flow"><span class="yield-weight">生大米<strong>100g</strong></span><span class="yield-arrow">→</span><span class="yield-weight">熟米饭<strong>230g</strong></span></div><span class="yield-badge">约 ×2.3</span><small>家庭电饭煲实测参考</small></article>
+              <article class="yield-card"><div class="yield-card-head"><b>杂粮米饭</b><i aria-hidden="true">🌾</i></div><div class="yield-flow"><span class="yield-weight">生杂粮米<strong>100g</strong></span><span class="yield-arrow">→</span><span class="yield-weight">熟杂粮饭<strong>230g</strong></span></div><span class="yield-badge">约 ×2.3</span><small>本计算器为便于估算采用×2.2</small></article>
+              <article class="yield-card"><div class="yield-card-head"><b>红豆米饭</b><i aria-hidden="true">🫘</i></div><div class="yield-flow"><span class="yield-weight">生原料<strong>100g</strong></span><span class="yield-arrow">→</span><span class="yield-weight">熟饭<strong>210g</strong></span></div><span class="yield-badge">约 ×2.1</span><small>浸泡与豆米比例会改变熟重</small></article>
+              <article class="yield-card"><div class="yield-card-head"><b>全麦馒头</b><i aria-hidden="true">🥖</i></div><div class="yield-flow"><span class="yield-weight">生面粉<strong>100g</strong></span><span class="yield-arrow">→</span><span class="yield-weight">熟馒头<strong>150g</strong></span></div><span class="yield-badge">约 ×1.5</span><small>与本计算器默认系数一致</small></article>
+              <article class="yield-card"><div class="yield-card-head"><b>荞麦面条</b><i aria-hidden="true">🍜</i></div><div class="yield-flow"><span class="yield-weight">干面<strong>100g</strong></span><span class="yield-arrow">→</span><span class="yield-weight">熟面<strong>315g</strong></span></div><span class="yield-badge">约 ×3.2</span><small>沥水程度影响称量结果</small></article>
+              <article class="yield-card"><div class="yield-card-head"><b>蒸红薯</b><i aria-hidden="true">🍠</i></div><div class="yield-flow"><span class="yield-weight">生红薯<strong>100g</strong></span><span class="yield-arrow">→</span><span class="yield-weight">蒸熟<strong>95g</strong></span></div><span class="yield-badge">约保留95%</span><small>与烤制相比，蒸制失水较少</small></article>
+            </div>
+            <details class="yield-all"><summary>查看文章中的更多主食换算</summary><div class="yield-table-wrap"><table class="yield-table"><thead><tr><th>食物</th><th>生重100g→熟重</th><th>约数</th><th>食物</th><th>生重100g→熟重</th><th>约数</th></tr></thead><tbody>
+              <tr><td>糙米饭</td><td>220g</td><td>×2.2</td><td>二米饭</td><td>220g</td><td>×2.2</td></tr><tr><td>燕麦米饭</td><td>220g</td><td>×2.2</td><td>荞麦米饭</td><td>220g</td><td>×2.2</td></tr><tr><td>黑米饭</td><td>215g</td><td>×2.15</td><td>薏米饭</td><td>215g</td><td>×2.15</td></tr><tr><td>高粱米饭</td><td>215g</td><td>×2.15</td><td>窝窝头</td><td>145g</td><td>×1.45</td></tr><tr><td>意大利面</td><td>295g</td><td>×2.95</td><td>花卷</td><td>180g</td><td>×1.8</td></tr><tr><td>粉丝</td><td>302g</td><td>×3.02</td><td>小米粥</td><td>576g</td><td>×5.76</td></tr><tr><td>红豆粥</td><td>453g</td><td>×4.53</td><td>杂豆粥</td><td>498g</td><td>×4.98</td></tr><tr><td>黑米粥</td><td>543g</td><td>×5.43</td><td>燕麦粥</td><td>534g</td><td>×5.34</td></tr>
+            </tbody></table></div></details>
           </div>
-          <p class="yield-source">扩展参考：籼米饭约×2.5，糯米饭及浸泡后的糙米、荞麦、小米、燕麦粒约×2.0；蒸煮薯类重量变化较小，烤红薯约保留70%～80%。这些是家用估算，不参与交换份或能量计算。来源：<a href="https://mp.weixin.qq.com/s/JaKA9OugoW8slHnDHDQYdQ" target="_blank" rel="noopener">《食物的生熟重量怎么换算？》</a>。</p>
+
+          <div class="yield-section">
+            <div class="yield-section-head"><h4>🥩 肉、蛋与水产</h4><span>烹调方法和时间决定失水程度</span></div>
+            <div class="yield-grid">
+              <article class="yield-card" data-change="loss"><div class="yield-card-head"><b>炒瘦猪肉</b><i aria-hidden="true">🥩</i></div><div class="yield-flow"><span class="yield-weight">生肉<strong>100g</strong></span><span class="yield-arrow">→</span><span class="yield-weight">炒熟<strong>71g</strong></span></div><span class="yield-badge">约保留71%</span><small>比计算器通用保守值稍高</small></article>
+              <article class="yield-card" data-change="loss"><div class="yield-card-head"><b>炒鸡胸肉</b><i aria-hidden="true">🍗</i></div><div class="yield-flow"><span class="yield-weight">生肉<strong>100g</strong></span><span class="yield-arrow">→</span><span class="yield-weight">炒熟<strong>80g</strong></span></div><span class="yield-badge">约保留80%</span><small>炖鸡胸肉约保留65%</small></article>
+              <article class="yield-card" data-change="loss"><div class="yield-card-head"><b>酱牛腱</b><i aria-hidden="true">🥩</i></div><div class="yield-flow"><span class="yield-weight">生肉<strong>100g</strong></span><span class="yield-arrow">→</span><span class="yield-weight">熟肉<strong>49g</strong></span></div><span class="yield-badge">约保留49%</span><small>长时间加热，失水较多</small></article>
+              <article class="yield-card" data-change="loss"><div class="yield-card-head"><b>煮鸡蛋</b><i aria-hidden="true">🥚</i></div><div class="yield-flow"><span class="yield-weight">生蛋<strong>100g</strong></span><span class="yield-arrow">→</span><span class="yield-weight">熟蛋<strong>99g</strong></span></div><span class="yield-badge">重量几乎不变</span><small>均按可食部比较</small></article>
+              <article class="yield-card" data-change="loss"><div class="yield-card-head"><b>红烧黄花鱼</b><i aria-hidden="true">🐟</i></div><div class="yield-flow"><span class="yield-weight">生鱼肉<strong>100g</strong></span><span class="yield-arrow">→</span><span class="yield-weight">熟鱼肉<strong>85g</strong></span></div><span class="yield-badge">约保留85%</span><small>注意去骨、去内脏后的可食部</small></article>
+              <article class="yield-card" data-change="loss"><div class="yield-card-head"><b>水煮虾仁</b><i aria-hidden="true">🦐</i></div><div class="yield-flow"><span class="yield-weight">生虾仁<strong>100g</strong></span><span class="yield-arrow">→</span><span class="yield-weight">熟虾仁<strong>69g</strong></span></div><span class="yield-badge">约保留69%</span><small>带壳虾与虾仁不可混算</small></article>
+            </div>
+            <details class="yield-all"><summary>查看文章中的更多肉蛋水产换算</summary><div class="yield-table-wrap"><table class="yield-table"><thead><tr><th>食物与做法</th><th>生重100g→熟重</th><th>保留率</th><th>食物与做法</th><th>生重100g→熟重</th><th>保留率</th></tr></thead><tbody>
+              <tr><td>红烧排骨</td><td>79g</td><td>79%</td><td>煎羊排</td><td>75g</td><td>75%</td></tr><tr><td>煎牛排</td><td>87g</td><td>87%</td><td>炖鸡胸肉</td><td>65g</td><td>65%</td></tr><tr><td>炖鸡腿</td><td>79g</td><td>79%</td><td>炖鸭肉</td><td>73g</td><td>73%</td></tr><tr><td>炒猪肝</td><td>88g</td><td>88%</td><td>煮鸭肝</td><td>69g</td><td>69%</td></tr><tr><td>煮鸭血／猪血</td><td>95g</td><td>95%</td><td>煎带鱼</td><td>63g</td><td>63%</td></tr><tr><td>红烧带鱼</td><td>72g</td><td>72%</td><td>红烧多宝鱼</td><td>77g</td><td>77%</td></tr><tr><td>带壳虾水煮</td><td>89g</td><td>89%</td><td>煮扇贝肉</td><td>67g</td><td>67%</td></tr><tr><td>煎三文鱼</td><td>88g</td><td>88%</td><td>煮蛤蜊肉</td><td>74g</td><td>74%</td></tr><tr><td>煮海螺肉</td><td>86g</td><td>86%</td><td>—</td><td>—</td><td>—</td></tr>
+            </tbody></table></div></details>
+          </div>
+
+          <p class="yield-source"><b>使用边界：</b>上述为作者家庭实测经验值，并非固定标准；品种、净重/毛重、浸泡、加水量、火力和时间都会改变结果，粥类尤其不宜用固定熟重反推。页面菜单仍采用便于临床沟通的馒头×1.5、粗细搭配饭×2.2；这些图解不参与交换份或能量计算。资料来源：<a href="https://mp.weixin.qq.com/s/CpytkuYRlyokQQsOd1gvYQ" target="_blank" rel="noopener">《不掌握常见食物的生熟比，食谱就很难落实》</a>。</p>
         </div>
       </details>
     </section>
