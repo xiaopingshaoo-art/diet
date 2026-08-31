@@ -114,7 +114,7 @@
       .sheet-plan td:nth-child(2)::before,.sheet-plan td:nth-child(3)::before{display:block;margin-bottom:3px;color:var(--muted);font-size:9px;font-weight:650}.sheet-plan td:nth-child(2)::before{content:"各类交换份"}.sheet-plan td:nth-child(3)::before{content:"食物和数量"}
       .sheet-bottom-grid{grid-template-columns:1fr;min-height:0}.sheet-panel{padding:12px}.sheet-checklist{grid-template-columns:1fr}.sheet-footer{display:block}.row-buttons{display:grid;grid-template-columns:1fr}.row-buttons button{width:100%}
       .tier-reference>summary{gap:10px}.tier-reference>summary::after{flex:none}.tier-intro{font-size:11px}
-      .portion-modal{align-items:end;padding:0}.portion-dialog{width:100%;max-height:88dvh;padding:17px 16px max(18px,env(safe-area-inset-bottom));border-radius:24px 24px 0 0}.portion-photo{max-width:390px;margin:0 auto}.portion-info{width:24px;height:24px;min-height:24px!important}
+      .portion-modal{align-items:end;padding:0}.portion-dialog{width:100%;max-height:88dvh;padding:17px 16px max(18px,env(safe-area-inset-bottom));border-radius:24px 24px 0 0}.portion-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.portion-gallery.single{grid-template-columns:1fr}.portion-caption{padding:6px 7px;font-size:9.5px}.portion-info{width:24px;height:24px;min-height:24px!important}
     }
     /* v1.0 information and responsive refinements */
     .section-emoji{display:inline-block;margin-right:7px;font-size:.9em;line-height:1;vertical-align:.02em}
@@ -134,8 +134,8 @@
     .portion-info{display:inline-grid;place-items:center;width:22px;height:22px;min-height:22px!important;margin-left:5px;padding:0;border:1px solid rgba(0,122,255,.24);border-radius:50%;background:#edf5ff;color:var(--blue);font:750 12px/1 Georgia,serif;box-shadow:none;vertical-align:middle}.portion-info:hover{filter:none;background:#e2efff}.portion-info:focus-visible{outline:3px solid rgba(0,122,255,.22);outline-offset:2px}
     .exchange-line>strong{display:flex;align-items:center;flex-wrap:wrap;gap:3px}.exchange-line>strong .portion{margin-left:1px}
     .portion-modal{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:18px}.portion-modal[hidden]{display:none}.portion-backdrop{position:absolute;inset:0;background:rgba(20,24,22,.48);-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px)}
-    .portion-dialog{position:relative;width:min(430px,100%);max-height:min(720px,90dvh);overflow:auto;padding:18px;border-radius:24px;background:#fff;box-shadow:0 24px 80px rgba(0,0,0,.24);overscroll-behavior:contain}.portion-dialog-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}.portion-dialog-head h3{margin:0;font-size:21px}.portion-dialog-head p{margin:4px 0 0;color:var(--muted);font-size:12px}.portion-close{display:grid;place-items:center;flex:none;width:34px;height:34px;min-height:34px!important;padding:0;border-radius:50%;background:var(--fill);color:var(--muted);font-size:22px;font-weight:500;box-shadow:none}
-    .portion-photo{display:block;width:100%;aspect-ratio:16/9;border:1px solid rgba(0,0,0,.07);border-radius:18px;background:#f2f2f7;object-fit:contain;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}.portion-current{margin-top:12px;padding:11px 12px;border-radius:13px;background:var(--green-soft);color:#4b6652;font-size:12px;line-height:1.55}.portion-current b{display:block;color:var(--green);font-size:14px}.portion-reference{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.portion-reference span{padding:6px 9px;border-radius:999px;background:var(--fill);color:var(--muted);font-size:11px}.portion-dialog-note{margin:10px 2px 0;color:var(--muted);font-size:11px;line-height:1.55}
+    .portion-dialog{position:relative;width:min(560px,100%);max-height:min(760px,90dvh);overflow:auto;padding:18px;border-radius:24px;background:#fff;box-shadow:0 24px 80px rgba(0,0,0,.24);overscroll-behavior:contain}.portion-dialog-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}.portion-dialog-head h3{margin:0;font-size:21px}.portion-dialog-head p{margin:4px 0 0;color:var(--muted);font-size:12px}.portion-close{display:grid;place-items:center;flex:none;width:34px;height:34px;min-height:34px!important;padding:0;border-radius:50%;background:var(--fill);color:var(--muted);font-size:22px;font-weight:500;box-shadow:none}
+    .portion-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.portion-gallery.single{grid-template-columns:1fr}.portion-figure{min-width:0;margin:0;overflow:hidden;border:1px solid rgba(0,0,0,.07);border-radius:16px;background:#f2f2f7}.portion-photo{display:block;width:100%;aspect-ratio:16/9;background:#f2f2f7;object-fit:contain}.portion-caption{padding:7px 9px;color:var(--muted);font-size:10.5px;line-height:1.45}.portion-current{margin-top:12px;padding:11px 12px;border-radius:13px;background:var(--green-soft);color:#4b6652;font-size:12px;line-height:1.55}.portion-current b{display:block;color:var(--green);font-size:14px}.portion-reference{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.portion-reference span{padding:6px 9px;border-radius:999px;background:var(--fill);color:var(--muted);font-size:11px}.portion-comparison{margin-top:10px;padding:10px 11px;border-radius:13px;background:#edf5ff;color:#41586f;font-size:11px;line-height:1.6}.portion-comparison b{display:block;margin-bottom:2px;color:#185f9e;font-size:12px}.portion-dialog-note{margin:10px 2px 0;color:var(--muted);font-size:11px;line-height:1.55}
     .yield-reference{margin-top:12px;border:1px solid rgba(0,0,0,.07);border-radius:18px;background:#fff;overflow:hidden}
     .yield-reference>summary{display:flex;align-items:center;gap:9px;padding:14px 16px;color:var(--text);font-size:14px;font-weight:650}
     .yield-reference>summary::after{margin-left:auto;color:var(--blue);font-size:12px}
@@ -365,9 +365,10 @@
     <div class="portion-backdrop" data-portion-close></div>
     <section class="portion-dialog" role="dialog" aria-modal="true" aria-labelledby="portionModalTitle">
       <div class="portion-dialog-head"><div><h3 id="portionModalTitle">手量大小参考</h3><p id="portionModalSubtitle">查看文章中的手掌、拳头或捧量对照</p></div><button type="button" class="portion-close" id="portionCloseButton" aria-label="关闭">×</button></div>
-      <img id="portionPhoto" class="portion-photo" src="./portion-hand-rice.jpg" alt="食物与手部大小对照图">
+      <div id="portionGallery" class="portion-gallery" aria-label="食物生熟重量与手量对照图"></div>
       <div class="portion-current"><b>本餐计算结果</b><span id="portionCurrentText">—</span></div>
       <div class="portion-reference"><span id="portionReferenceText">—</span><span>手量仅作粗略估算</span></div>
+      <div class="portion-comparison"><b>与计算器系数对照</b><span id="portionComparisonText">—</span></div>
       <p id="portionGuideNote" class="portion-dialog-note">图片用于帮助理解体积，处方仍以页面显示的克数为准。</p>
     </section>
   </div>
@@ -382,15 +383,66 @@
     const numberValue = id => Number(byId(id).value);
     const unit = {grain:25,veg:250,fruit:150,meat:50,egg:60,fish:75,milk:150,tofu:90,oil:10};
     const cookedYield={steamedBun:1.5,mixedRice:2.2,leanMeat:0.6,roastedSweetPotato:0.75};
-    const portionGuideByLine={bGrain:'bun',bVeg:'veg',lGrain:'rice',fish:'fish',lVeg:'veg',dGrain:'rice',chicken:'chicken',dVeg:'veg'};
+    const portionGuideByLine={bGrain:'bun',bVeg:'veg',lGrain:'rice',fish:'fish',lVeg:'veg',lOil:'oil',dGrain:'rice',chicken:'chicken',dVeg:'veg',dOil:'oil'};
     const portionGuideConfig={
-      bun:{title:'馒头的拳头参考',image:'./portion-hand-bun.jpg',alt:'100克面粉制成馒头与拳头大小对照',baseGrams:100,baseHands:1,handUnit:'个拳头',reference:'文章实拍：100g面粉制成的馒头约1个拳头',note:'图片标注的成品实测约174.5g；面团含水量和蒸制失水不同，成品重量会波动。交换份仍按面粉生重计算。'},
-      rice:{title:'杂粮饭的拳头参考',image:'./portion-hand-rice.jpg',alt:'100克杂粮煮成熟饭与拳头大小对照',baseGrams:100,baseHands:1.5,handUnit:'个拳头',reference:'文章实拍：100g杂粮生重煮成饭约1.5个拳头',note:'图片实测熟饭约271.7g，反映该次加水与烹调条件；本计算器的熟重提示仍按约×2.2估算，交换份和能量始终按生重计算。'},
-      chicken:{title:'鸡胸肉的掌心参考',image:'./portion-hand-chicken.jpg',alt:'70克生鸡胸肉与成人掌心大小对照',baseGrams:70,baseHands:2/3,handUnit:'个掌心',reference:'文章实拍：70g生鸡胸肉约2/3掌心',note:'掌心指不含手指的面积。鸡肉部位、厚度和个人手掌大小不同，优先按去皮可食部生重称量。'},
-      fish:{title:'鱼肉的掌心参考',image:'./portion-hand-fish.jpg',alt:'300克生鱼肉与成人掌心大小对照',baseGrams:300,baseHands:3,handUnit:'个掌心',reference:'文章实拍：300g生鱼肉约3个掌心',note:'图片展示的是300g鱼肉，弹窗会按本餐克数作比例提示；鱼片厚度与可食部差异较大，优先称重。'},
-      veg:{title:'绿叶菜的捧量参考',image:'./portion-hand-vegetable.jpg',alt:'300克生小白菜与成人手部大小对照',baseGrams:300,baseHands:3,handUnit:'大捧',reference:'文章实拍：300g生小白菜约3大捧',note:'绿叶菜品种、切法和松紧程度会明显影响体积；本计算器仍按烹调前可食部生重计算。'}
+      bun:{
+        title:'馒头的拳头参考',
+        images:[{src:'./portion-guide-bun.jpg',alt:'100克面粉制成馒头与拳头大小对照',caption:'100g面粉 → 馒头实测174.5g，约1个拳头'}],
+        reference:'图片基准：100g面粉制成的馒头约1个拳头',
+        estimate:amount=>`本餐按面粉重量比例粗估约${portionText(Math.round(amount/100*10)/10)}个拳头`,
+        comparison:'图片实测生熟重量比约1∶1.75；计算器采用面粉×1.5。差约16%，受和面加水和蒸制失水影响，不直接替换算法。'
+      },
+      rice:{
+        title:'米饭与杂粮饭的拳头参考',
+        images:[
+          {src:'./portion-guide-rice-raw.jpg',alt:'100克生大米与成人手掌大小对照',caption:'白米：生重100g'},
+          {src:'./portion-guide-rice-cooked.jpg',alt:'100克生大米煮成209.7克米饭与拳头大小对照',caption:'白米：熟重209.7g，约1个拳头'},
+          {src:'./portion-guide-mixed-rice-raw.jpg',alt:'100克生杂粮与成人手掌大小对照',caption:'混合杂粮：生重100g'},
+          {src:'./portion-guide-mixed-rice-cooked.jpg',alt:'100克生杂粮煮成271.7克杂粮饭与拳头大小对照',caption:'混合杂粮：熟重271.7g，约1.5个拳头'}
+        ],
+        reference:'图片基准：100g生米；白米约1拳，混合杂粮约1.5拳',
+        estimate:amount=>`本餐粗估：按白米实例约${portionText(Math.round(amount/100*10)/10)}拳；按杂粮实例约${portionText(Math.round(amount/100*1.5*10)/10)}拳`,
+        comparison:'白米实测约×2.10，与计算器×2.2相差约5%，可直接作为大小参考；该混合杂粮实测×2.72，差异较大，提示浸泡、品种与加水量会改变熟重。算法仍统一按×2.2估算。'
+      },
+      chicken:{
+        title:'鸡胸肉的生熟掌心参考',
+        images:[
+          {src:'./portion-guide-chicken-raw.jpg',alt:'70克生鸡胸肉与成人掌心大小对照',caption:'生鸡胸肉70g，约2/3掌心'},
+          {src:'./portion-guide-chicken-cooked.jpg',alt:'70克生鸡胸肉煮熟后约40克与成人掌心大小对照',caption:'同份煮熟约40g，约1/2掌心'}
+        ],
+        reference:'图片基准：70g生鸡胸肉约2/3掌心',
+        estimate:amount=>`本餐按生重比例粗估约${portionText(Math.round(amount/70*2/3*10)/10)}个掌心`,
+        comparison:'图片实测熟重/生重约0.57；计算器肉类熟重提示采用×0.6，相差约5%，可直接作为大小参考，计算系数不变。'
+      },
+      fish:{
+        title:'鱼肉的生熟掌心参考',
+        images:[
+          {src:'./portion-guide-fish-raw.jpg',alt:'300克生鱼肉与成人掌心大小对照',caption:'生鱼肉300g，约3个掌心'},
+          {src:'./portion-guide-fish-cooked.jpg',alt:'300克生鱼肉煮熟后263.5克与成人掌心大小对照',caption:'同份煮熟263.5g，约2个掌心'}
+        ],
+        reference:'图片基准：300g生鱼肉约3个掌心',
+        estimate:amount=>`本餐按生重比例粗估约${portionText(Math.round(amount/300*3*10)/10)}个掌心`,
+        comparison:'图片实测熟重/生重约0.88。当前计算器不使用该系数换算鱼肉熟重，因此只用于理解大小，不进入计算。'
+      },
+      veg:{
+        title:'绿叶菜的生熟体积参考',
+        images:[
+          {src:'./portion-guide-vegetable-raw.jpg',alt:'300克生绿叶菜与成人手掌大小对照',caption:'生绿叶菜300g，约3大捧'},
+          {src:'./portion-guide-vegetable-cooked.jpg',alt:'300克生绿叶菜煮熟后272克与拳头大小对照',caption:'同份煮熟272g，约1.5拳'}
+        ],
+        reference:'图片基准：300g生绿叶菜约3大捧',
+        estimate:amount=>`本餐按生重比例粗估约${portionText(Math.round(amount/300*3*10)/10)}大捧`,
+        comparison:'图片实测熟重/生重约0.91，但叶菜体积收缩远大于重量变化。计算器仍按烹调前可食部生重计量，不设置蔬菜熟重系数。'
+      },
+      oil:{
+        title:'烹调油的手指宽度参考',
+        images:[{src:'./portion-guide-oil.jpg',alt:'10克烹调油与成人手指宽度大小对照',caption:'烹调油10g，约2平茶匙'}],
+        reference:'图片基准：10g烹调油为1份',
+        estimate:amount=>`本餐${amount}g，约为图示量的${portionText(Math.round(amount/10*10)/10)}倍`,
+        comparison:'油脂没有生熟比。图片只帮助辨认10g的大致体积；实际烹调时优先使用控油壶、量勺或厨房秤。'
+      }
     };
-    const portionGuidePreloads=Object.values(portionGuideConfig).map(config=>{const image=new Image();image.src=config.image;return image});
+    const portionGuidePreloads=Object.values(portionGuideConfig).flatMap(config=>config.images.map(item=>{const image=new Image();image.src=item.src;return image}));
     const householdServing={steamedBun:75,riceBowl:150};
     function cookedEstimate(rawWeight,type){return Math.round(rawWeight*cookedYield[type])}
 
@@ -696,11 +748,12 @@ ${mealRows.map(row=>`${row.title}（${mealCategoryText(row.group)}）：${row.fo
       byId('portionModalTitle').textContent=config.title;
       byId('portionCurrentText').textContent=button.dataset.current;
       const currentAmount=Number(button.dataset.amount);
-      const handEstimate=currentAmount/config.baseGrams*config.baseHands;
-      byId('portionReferenceText').textContent=`${config.reference}；本餐按重量比例粗估约${portionText(Math.round(handEstimate*10)/10)}${config.handUnit}`;
-      byId('portionGuideNote').textContent=config.note+' 图片来源：营养师顾中一《67张「用手做对照」的食物分量图》；手量只帮助理解体积，处方仍以克数为准。';
-      byId('portionPhoto').src=config.image;
-      byId('portionPhoto').alt=config.alt;
+      const gallery=byId('portionGallery');
+      gallery.classList.toggle('single',config.images.length===1);
+      gallery.innerHTML=config.images.map(item=>`<figure class="portion-figure"><img class="portion-photo" src="${item.src}" alt="${item.alt}" decoding="async"><figcaption class="portion-caption">${item.caption}</figcaption></figure>`).join('');
+      byId('portionReferenceText').textContent=`${config.reference}；${config.estimate(currentAmount)}`;
+      byId('portionComparisonText').textContent=config.comparison;
+      byId('portionGuideNote').textContent='图片来源：营养师顾中一《67张「用手做对照」的食物分量图》。图片为特定食材和烹调条件下的实测示例，手掌大小也因人而异；仅用于帮助理解体积，处方与交换份仍以页面显示的生重克数为准。';
       const modal=byId('portionModal');
       modal.hidden=false;
       modal.setAttribute('aria-hidden','false');
