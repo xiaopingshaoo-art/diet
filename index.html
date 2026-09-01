@@ -871,27 +871,7 @@ ${mealRows.map(row=>`${row.title}（${mealCategoryText(row.group)}）：${row.fo
       document.body.style.overflow=previousBodyOverflow;
       if(restoreFocus&&lastPortionTrigger)lastPortionTrigger.focus();
     }
-    function browserNeedsPrintPreview(){
-      const ua=navigator.userAgent||'';
-      const isiOS=/iPhone|iPad|iPod/i.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
-      return typeof window.print!=='function'||isiOS||/MiuiBrowser|XiaoMi|Quark|UCBrowser|HuaweiBrowser|VivoBrowser|HeyTapBrowser|OppoBrowser/i.test(ua);
-    }
-    function openPrintPreview(){
-      const popup=window.open('','_blank');
-      if(!popup){alert('浏览器阻止了打印预览，请允许此网站打开新窗口后重试。');return}
-      const styles=Array.from(document.querySelectorAll('style')).map(style=>style.textContent).join('\n');
-      const previewCss='@media screen{body{margin:0;padding:72px 12px 28px;background:#f2f2f7}.print-bundle{display:grid!important;width:100%!important;max-width:210mm!important;gap:16px;margin:0 auto!important}.print-guide-page,.print-poster-page{display:flex!important;box-sizing:border-box!important;width:210mm!important;max-width:100%!important;min-width:0!important;height:auto!important;max-height:none!important;min-height:297mm!important;margin:0 auto!important;padding:8mm 9mm 7mm!important;border:0!important;border-radius:12px!important;background:#fff!important;box-shadow:0 8px 30px rgba(0,0,0,.10)!important;overflow:visible!important}.print-poster-page{align-items:flex-start!important;justify-content:center!important}.print-poster-page img{display:block!important;width:100%!important;max-width:190mm!important;height:auto!important;max-height:none!important;object-fit:contain!important}.print-toolbar{position:fixed;z-index:20;top:0;right:0;left:0;display:flex;align-items:center;justify-content:center;gap:12px;padding:10px max(12px,env(safe-area-inset-right)) 10px max(12px,env(safe-area-inset-left));background:rgba(255,255,255,.96);box-shadow:0 1px 10px rgba(0,0,0,.12);font:14px -apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif}.print-toolbar button{min-height:42px;padding:0 18px;border:0;border-radius:12px;background:#248a3d;color:#fff;font-weight:750}.print-toolbar span{color:#636366}}@media(max-width:580px) and (screen){.print-toolbar span{display:none}.print-guide-page,.print-poster-page{border-radius:8px!important}}@media print{.print-toolbar{display:none!important}}';
-      popup.document.open();
-      popup.document.write('<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><base href="'+document.baseURI+'"><title>糖尿病饮食指导单</title><style>'+styles+'\n'+previewCss+'</style></head><body><div class="print-toolbar"><button type="button" onclick="window.print()">打印或另存为 PDF</button><span>若未自动弹出，请点此按钮或使用浏览器菜单打印</span></div>'+byId('printBundle').outerHTML+'</body></html>');
-      popup.document.close();
-      popup.focus();
-      window.setTimeout(()=>{try{popup.print()}catch(error){}},700);
-    }
-    function printPatientSheet(){
-      closePortionGuide(false);
-      if(browserNeedsPrintPreview()){openPrintPreview();return}
-      try{window.print()}catch(error){openPrintPreview()}
-    }
+    function printPatientSheet(){closePortionGuide(false);window.print()}
     byId('calculateButton').addEventListener('click',calculate);
     byId('copyButton').addEventListener('click',copyReport);
     byId('printButton').addEventListener('click',printPatientSheet);
