@@ -182,17 +182,28 @@
     }
     @media(max-width:700px){.yield-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
     @media(max-width:380px){.yield-grid{grid-template-columns:1fr}.yield-section-head{align-items:flex-start;flex-direction:column;gap:2px}}
+    .reference-panel{margin-top:14px;overflow:hidden;border:1px solid rgba(0,0,0,.08);border-radius:17px;background:#fff}
+    .reference-panel>summary{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:50px;padding:13px 15px;background:var(--fill);color:var(--text);font-size:15px;font-weight:750}
+    .reference-panel>summary::after{content:"展开";flex:none;margin-left:auto;color:var(--blue);font-size:12px;font-weight:650}
+    .reference-panel[open]>summary::after{content:"收起"}.reference-panel[open]>summary{border-bottom:1px solid var(--separator)}
+    .reference-panel>.tier-intro,.reference-panel>.helper,.gallery-intro{margin:12px 14px 10px;color:var(--muted);font-size:12px;line-height:1.65}
+    .reference-panel>.tier-table-wrap,.reference-panel>.tier-basis,.reference-panel>.table-wrap{margin-right:14px;margin-left:14px}.reference-panel>.tier-basis,.reference-panel>.table-wrap{margin-bottom:14px}
+    .portion-library{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;padding:0 14px 14px}
+    .portion-library-card{display:flex;min-width:0;flex-direction:column;overflow:hidden;border:1px solid rgba(0,0,0,.07);border-radius:14px;background:#fafafa;color:var(--text);text-decoration:none}
+    .portion-library-card img{display:block;width:100%;aspect-ratio:16/9;background:#f2f2f7;object-fit:contain}.portion-library-card span{padding:8px 9px;color:var(--muted);font-size:11px;line-height:1.45}.gallery-reference>summary>span{display:grid;gap:2px;min-width:0}.gallery-reference>summary small{color:var(--muted);font-size:11px;font-weight:550;line-height:1.35}
+    @media(max-width:900px){.portion-library{grid-template-columns:repeat(3,minmax(0,1fr))}}
+    @media(max-width:600px){.portion-library{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;padding:0 10px 10px}.portion-library-card span{font-size:10px}.reference-panel>.tier-intro,.reference-panel>.helper,.gallery-intro{margin-right:10px;margin-left:10px}.reference-panel>.tier-table-wrap,.reference-panel>.tier-basis,.reference-panel>.table-wrap{margin-right:10px;margin-left:10px}}
     @media(pointer:coarse){
       button,input,select,summary{min-height:48px}
       summary{display:flex;align-items:center}
     }
-    @page{size:A4 portrait;margin:8mm}
+    @page{size:A4 portrait;margin:0}
     @media print{
       *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
-      html,body{width:auto!important;min-width:0!important;margin:0!important;padding:0!important;overflow:visible!important;background:#fff!important}
+      html,body{width:210mm!important;min-width:210mm!important;min-height:0!important;margin:0!important;padding:0!important;overflow:visible!important;background:#fff!important}
       body>header,body>main,.portion-modal{display:none!important}
-      .print-bundle{display:block!important;width:194mm!important;max-width:194mm!important;margin:0!important;padding:0!important;overflow:hidden!important}
-      .print-guide-page{display:flex!important;flex-direction:column!important;box-sizing:border-box!important;width:194mm!important;max-width:194mm!important;min-width:0!important;min-height:279mm!important;height:279mm!important;max-height:279mm!important;margin:0!important;padding:3mm 4mm 2.5mm!important;border:0!important;border-radius:0!important;box-shadow:none!important;break-inside:avoid!important;page-break-inside:avoid!important;break-after:page!important;page-break-after:always!important;overflow:hidden!important}
+      .print-bundle{display:block!important;width:210mm!important;max-width:210mm!important;margin:0!important;padding:0!important;overflow:visible!important}
+      .print-guide-page{display:block!important;box-sizing:border-box!important;width:210mm!important;max-width:210mm!important;min-width:210mm!important;min-height:294mm!important;height:294mm!important;max-height:294mm!important;margin:0!important;padding:8mm 10mm 7mm!important;border:0!important;border-radius:0!important;box-shadow:none!important;break-inside:avoid!important;page-break-inside:avoid!important;break-after:page!important;page-break-after:always!important;overflow:hidden!important}
       .print-guide-page .sheet-brand{display:flex!important;gap:8mm!important;padding-bottom:2.2mm!important}
       .print-guide-page .sheet-brand img{width:56mm!important}
       .print-guide-page .sheet-brand-dept{font-size:16px!important;letter-spacing:.07em!important}
@@ -214,9 +225,15 @@
       .print-guide-page .sheet-follow-list{display:grid!important;grid-template-columns:1fr!important;gap:1.8mm!important;align-content:start!important;margin-top:.2mm!important}
       .print-guide-page .sheet-follow-item{display:grid!important;grid-template-columns:3.8mm minmax(0,1fr)!important;font-size:9.2px!important;line-height:1.4!important;break-inside:avoid!important;page-break-inside:avoid!important}
       .print-guide-page .sheet-footer{display:flex!important;margin-top:2.2mm!important;padding-top:2.2mm!important;font-size:8px!important;line-height:1.36!important}
-      .print-poster-page{display:flex!important;align-items:flex-start!important;justify-content:center!important;box-sizing:border-box!important;width:194mm!important;max-width:194mm!important;height:279mm!important;max-height:279mm!important;margin:0!important;padding:0!important;break-inside:avoid!important;page-break-inside:avoid!important;break-before:auto!important;page-break-before:auto!important;break-after:auto!important;page-break-after:auto!important;overflow:hidden!important}
-      .print-poster-page img{display:block!important;width:auto!important;max-width:190mm!important;height:auto!important;max-height:276mm!important;margin:0 auto!important;object-fit:contain!important}
+      .print-poster-page{display:block!important;box-sizing:border-box!important;width:210mm!important;max-width:210mm!important;min-width:210mm!important;min-height:294mm!important;height:294mm!important;max-height:294mm!important;margin:0!important;padding:8mm 10mm!important;break-inside:avoid!important;page-break-inside:avoid!important;break-before:auto!important;page-break-before:auto!important;break-after:auto!important;page-break-after:auto!important;overflow:hidden!important}
+      .print-poster-page img{display:block!important;width:auto!important;max-width:190mm!important;height:auto!important;max-height:280mm!important;margin:0 auto!important;object-fit:contain!important}
       .no-print{display:none!important}
+    }
+    @supports (-webkit-touch-callout:none){
+      @media print{
+        html,body,.print-bundle{width:210mm!important;min-width:210mm!important;max-width:210mm!important}
+        .print-guide-page,.print-poster-page{width:210mm!important;min-width:210mm!important;max-width:210mm!important;min-height:293mm!important;height:293mm!important;max-height:293mm!important}
+      }
     }
   </style>
 </head>
@@ -258,9 +275,9 @@
       <div class="section-head"><span class="step">03</span><h2><span class="section-emoji" aria-hidden="true">🍽️</span>每餐交换份与食物量</h2></div>
       <div class="exchange-hero"><span>全天合计</span><b id="exchangeTotalBig">—</b><span>份</span></div>
       <div id="groupSummary" class="group-summary"></div>
-      <p class="helper">交换份克数统一采用 T/CNSS 020—2023；烹调后熟重与手量按本次食物生重另行估算。</p>
+      <p class="helper">烹调后熟重与手量仅供参考。</p>
       <div id="exchangeMeals" class="exchange-meals"></div>
-      <p class="helper cooked-note"><b>请区分两种换算：</b>“同类可换”的馒头35g、熟米饭75g是每份90 kcal的等能量重量，不是生熟比；实际烹调后重量按馒头＝面粉×1.5、粗细搭配杂粮饭＝生米×2.2估算。品种、浸泡和加水量会影响熟重，临床配餐仍以烹调前可食部生重为准。</p>
+      <p class="helper cooked-note">实际烹调后重量按馒头＝面粉×1.5、粗细搭配杂粮饭＝生米×2.2估算。品种、浸泡和加水量会影响熟重，临床配餐仍以烹调前可食部生重为准。</p>
       <details class="yield-reference">
         <summary>⚖️ 生重→熟重图解（教学参考）</summary>
         <div class="yield-body">
@@ -305,7 +322,6 @@
       <div class="section-head"><span class="step">04</span><h2><span class="section-emoji" aria-hidden="true">📅</span>两天五餐参考</h2></div>
       <div id="meals" class="menu-days"></div>
       <div class="principles"><span class="chip">🌾 全谷物和杂豆≥主食1/3</span><span class="chip">🥬 蔬菜≥500g</span><span class="chip">🌈 深色蔬菜占一半以上</span><span class="chip">🫗 油≤25g</span><span class="chip">🧂 盐≤5g</span></div>
-      <p class="helper">菜品名称参考《成人糖尿病食养指南（2023年版）》华东地区食谱；指南明确食谱重量均为烹调前可食部生重。本页熟重仅按馒头×1.5、粗细搭配杂粮饭×2.2作便于理解的估算。</p>
     </section>
 
 
@@ -319,7 +335,7 @@
       <div id="report" hidden></div>
       <div class="row-buttons no-print"><button type="button" id="copyButton">复制指导单</button><button type="button" class="secondary" id="printButton">打印指导单（2页）</button></div>
       <p class="download-help no-print">打印为两页：第1页是患者饮食指导单，第2页自动附食物交换份速查图；也可在打印窗口中另存为PDF。</p>
-      <details class="tier-reference">
+      <details class="tier-reference reference-panel">
         <summary>各能量档位的分类交换份方案</summary>
         <p class="tier-intro">本工具以1份＝90 kcal为步长，共设置13～30份。绿色行是当前方案；“估算能量区间”决定采用哪一行。</p>
         <div id="tierTable" class="tier-table-wrap"></div>
@@ -329,8 +345,8 @@
           <article><b>本工具的分配方法</b><p>各能量档固定六类交换份，按当前示例食物把碳水供能比控制在约50%～55%；肉蛋水产随能量逐档增加，优先鱼、禽、蛋等瘦蛋白，减少“剩余能量全部补主食”的偏差。</p></article>
         </div>
       </details>
-      <details class="exchange-table"><summary>查看换算系数与手量参考</summary>
-        <p class="helper">表内克数是 T/CNSS 020—2023 的90 kcal等能量交换重量；质量估算摘自《成人糖尿病食养指南（2023年版）》。其中生谷物25g、馒头35g、米饭75g不能直接解释为同一食物的生熟产出比。</p>
+      <details class="exchange-table reference-panel"><summary>查看换算系数与手量参考</summary>
+        <p class="helper">表内克数是 T/CNSS 020—2023 的90 kcal等能量交换重量；质量估算摘自《成人糖尿病食养指南（2023年版）》。</p>
         <div class="table-wrap"><table>
           <thead><tr><th>类别</th><th>T/CNSS 1份质量</th><th>食物示例</th><th>质量估算</th></tr></thead>
           <tbody>
@@ -354,6 +370,79 @@
           </tbody>
         </table></div>
       </details>
+      <details class="gallery-reference reference-panel">
+        <summary><span>查看67张食物手量与生熟图片<small>来自公众号：营养师顾中一</small></span></summary>
+        <p class="gallery-intro">图片重量为该次拍摄的标注或实测值；手掌、拳头和一元硬币仅帮助理解体积，不参与本页交换份计算。</p>
+        <div class="portion-library">
+          <a class="portion-library-card" href="./portion-gallery-01.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-01.jpg" alt="食盐 1g｜约1个指甲盖大小" loading="lazy" decoding="async"><span>食盐 1g｜约1个指甲盖大小</span></a>
+          <a class="portion-library-card" href="./portion-gallery-02.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-02.jpg" alt="食盐 1g｜约1枚一元硬币大小、1枚硬币高" loading="lazy" decoding="async"><span>食盐 1g｜约1枚一元硬币大小、1枚硬币高</span></a>
+          <a class="portion-library-card" href="./portion-gallery-03.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-03.jpg" alt="鸡精 1g（约含盐0.5g）｜约1/2个大拇指大小" loading="lazy" decoding="async"><span>鸡精 1g（约含盐0.5g）｜约1/2个大拇指大小</span></a>
+          <a class="portion-library-card" href="./portion-gallery-04.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-04.jpg" alt="鸡精 1g（约含盐0.5g）｜约1.5枚一元硬币大小、1枚硬币高" loading="lazy" decoding="async"><span>鸡精 1g（约含盐0.5g）｜约1.5枚一元硬币大小、1枚硬币高</span></a>
+          <a class="portion-library-card" href="./portion-gallery-05.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-05.jpg" alt="食盐 2g｜约1/2个大拇指大小" loading="lazy" decoding="async"><span>食盐 2g｜约1/2个大拇指大小</span></a>
+          <a class="portion-library-card" href="./portion-gallery-06.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-06.jpg" alt="食盐 2g｜约1枚一元硬币大小、2枚硬币高" loading="lazy" decoding="async"><span>食盐 2g｜约1枚一元硬币大小、2枚硬币高</span></a>
+          <a class="portion-library-card" href="./portion-gallery-07.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-07.jpg" alt="鸡精 2g（约含盐1g）｜约1个大拇指大小" loading="lazy" decoding="async"><span>鸡精 2g（约含盐1g）｜约1个大拇指大小</span></a>
+          <a class="portion-library-card" href="./portion-gallery-08.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-08.jpg" alt="鸡精 2g（约含盐1g）｜约2枚一元硬币大小、1.5枚硬币高" loading="lazy" decoding="async"><span>鸡精 2g（约含盐1g）｜约2枚一元硬币大小、1.5枚硬币高</span></a>
+          <a class="portion-library-card" href="./portion-gallery-09.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-09.jpg" alt="食盐 5g｜约1/7掌心大小" loading="lazy" decoding="async"><span>食盐 5g｜约1/7掌心大小</span></a>
+          <a class="portion-library-card" href="./portion-gallery-10.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-10.jpg" alt="食盐 5g｜约1.5枚一元硬币大小、3枚硬币高" loading="lazy" decoding="async"><span>食盐 5g｜约1.5枚一元硬币大小、3枚硬币高</span></a>
+          <a class="portion-library-card" href="./portion-gallery-11.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-11.jpg" alt="鸡精 5g（约含盐2.5g）｜约1/3掌心大小" loading="lazy" decoding="async"><span>鸡精 5g（约含盐2.5g）｜约1/3掌心大小</span></a>
+          <a class="portion-library-card" href="./portion-gallery-12.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-12.jpg" alt="鸡精 5g（约含盐2.5g）｜约4枚一元硬币大小、2枚硬币高" loading="lazy" decoding="async"><span>鸡精 5g（约含盐2.5g）｜约4枚一元硬币大小、2枚硬币高</span></a>
+          <a class="portion-library-card" href="./portion-gallery-13.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-13.jpg" alt="烹调油 10g｜小杯装，与拇指高度比较" loading="lazy" decoding="async"><span>烹调油 10g｜小杯装，与拇指高度比较</span></a>
+          <a class="portion-library-card" href="./portion-gallery-14.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-14.jpg" alt="烹调油 10g｜小杯装，与一元硬币比较" loading="lazy" decoding="async"><span>烹调油 10g｜小杯装，与一元硬币比较</span></a>
+          <a class="portion-library-card" href="./portion-gallery-15.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-15.jpg" alt="烹调油 25g｜小杯装，与拇指高度比较" loading="lazy" decoding="async"><span>烹调油 25g｜小杯装，与拇指高度比较</span></a>
+          <a class="portion-library-card" href="./portion-gallery-16.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-16.jpg" alt="烹调油 25g｜小杯装，与一元硬币比较" loading="lazy" decoding="async"><span>烹调油 25g｜小杯装，与一元硬币比较</span></a>
+          <a class="portion-library-card" href="./portion-gallery-17.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-17.jpg" alt="烹调油 30g｜小杯装，与拇指高度比较" loading="lazy" decoding="async"><span>烹调油 30g｜小杯装，与拇指高度比较</span></a>
+          <a class="portion-library-card" href="./portion-gallery-18.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-18.jpg" alt="烹调油 30g｜小杯装，与一元硬币比较" loading="lazy" decoding="async"><span>烹调油 30g｜小杯装，与一元硬币比较</span></a>
+          <a class="portion-library-card" href="./portion-gallery-19.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-19.jpg" alt="生山药 50g（去皮可食部）｜约1/4掌心大小" loading="lazy" decoding="async"><span>生山药 50g（去皮可食部）｜约1/4掌心大小</span></a>
+          <a class="portion-library-card" href="./portion-gallery-20.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-20.jpg" alt="生山药 50g（去皮可食部）｜以一元硬币作尺寸参照" loading="lazy" decoding="async"><span>生山药 50g（去皮可食部）｜以一元硬币作尺寸参照</span></a>
+          <a class="portion-library-card" href="./portion-gallery-21.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-21.jpg" alt="生鸡胸肉 70g｜约2/3掌心大小" loading="lazy" decoding="async"><span>生鸡胸肉 70g｜约2/3掌心大小</span></a>
+          <a class="portion-library-card" href="./portion-gallery-22.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-22.jpg" alt="生鸡胸肉 70g｜以一元硬币作尺寸参照" loading="lazy" decoding="async"><span>生鸡胸肉 70g｜以一元硬币作尺寸参照</span></a>
+          <a class="portion-library-card" href="./portion-gallery-23.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-23.jpg" alt="生鸡胸肉 70g，煮熟后40g｜约1/2掌心大小" loading="lazy" decoding="async"><span>生鸡胸肉 70g，煮熟后40g｜约1/2掌心大小</span></a>
+          <a class="portion-library-card" href="./portion-gallery-24.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-24.jpg" alt="生鸡胸肉 70g，煮熟后40g｜以一元硬币作尺寸参照" loading="lazy" decoding="async"><span>生鸡胸肉 70g，煮熟后40g｜以一元硬币作尺寸参照</span></a>
+          <a class="portion-library-card" href="./portion-gallery-25.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-25.jpg" alt="生猪瘦肉丝 70g，煮熟后34.6g｜约2/3掌心大小" loading="lazy" decoding="async"><span>生猪瘦肉丝 70g，煮熟后34.6g｜约2/3掌心大小</span></a>
+          <a class="portion-library-card" href="./portion-gallery-26.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-26.jpg" alt="生猪瘦肉丝 70g，煮熟后34.6g｜以一元硬币作尺寸参照" loading="lazy" decoding="async"><span>生猪瘦肉丝 70g，煮熟后34.6g｜以一元硬币作尺寸参照</span></a>
+          <a class="portion-library-card" href="./portion-gallery-27.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-27.jpg" alt="生猪瘦肉丝 70g｜约1掌心大小" loading="lazy" decoding="async"><span>生猪瘦肉丝 70g｜约1掌心大小</span></a>
+          <a class="portion-library-card" href="./portion-gallery-28.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-28.jpg" alt="生猪瘦肉丝 70g｜以一元硬币作尺寸参照" loading="lazy" decoding="async"><span>生猪瘦肉丝 70g｜以一元硬币作尺寸参照</span></a>
+          <a class="portion-library-card" href="./portion-gallery-29.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-29.jpg" alt="生山药 100g（去皮可食部）｜约1/2掌心大小" loading="lazy" decoding="async"><span>生山药 100g（去皮可食部）｜约1/2掌心大小</span></a>
+          <a class="portion-library-card" href="./portion-gallery-30.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-30.jpg" alt="生山药 100g（去皮可食部）｜以一元硬币作尺寸参照" loading="lazy" decoding="async"><span>生山药 100g（去皮可食部）｜以一元硬币作尺寸参照</span></a>
+          <a class="portion-library-card" href="./portion-gallery-31.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-31.jpg" alt="生杂粮 100g，煮熟后271.7g｜约1.5拳大小" loading="lazy" decoding="async"><span>生杂粮 100g，煮熟后271.7g｜约1.5拳大小</span></a>
+          <a class="portion-library-card" href="./portion-gallery-32.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-32.jpg" alt="生杂粮 100g｜约2把" loading="lazy" decoding="async"><span>生杂粮 100g｜约2把</span></a>
+          <a class="portion-library-card" href="./portion-gallery-33.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-33.jpg" alt="生大米 100g，煮熟后209.7g｜约1拳大小" loading="lazy" decoding="async"><span>生大米 100g，煮熟后209.7g｜约1拳大小</span></a>
+          <a class="portion-library-card" href="./portion-gallery-34.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-34.jpg" alt="生大米 100g｜约2把" loading="lazy" decoding="async"><span>生大米 100g｜约2把</span></a>
+          <a class="portion-library-card" href="./portion-gallery-35.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-35.jpg" alt="生红薯 100g（去皮可食部）｜约1/2掌心大小" loading="lazy" decoding="async"><span>生红薯 100g（去皮可食部）｜约1/2掌心大小</span></a>
+          <a class="portion-library-card" href="./portion-gallery-36.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-36.jpg" alt="生红薯 100g（去皮可食部）｜以一元硬币作尺寸参照" loading="lazy" decoding="async"><span>生红薯 100g（去皮可食部）｜以一元硬币作尺寸参照</span></a>
+          <a class="portion-library-card" href="./portion-gallery-37.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-37.jpg" alt="面粉 100g制成馒头，实测熟重174.5g｜约1拳大小" loading="lazy" decoding="async"><span>面粉 100g制成馒头，实测熟重174.5g｜约1拳大小</span></a>
+          <a class="portion-library-card" href="./portion-gallery-38.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-38.jpg" alt="生鸡胸肉 150g｜约1.2个掌心大小" loading="lazy" decoding="async"><span>生鸡胸肉 150g｜约1.2个掌心大小</span></a>
+          <a class="portion-library-card" href="./portion-gallery-39.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-39.jpg" alt="生鸡胸肉 150g｜以一元硬币作尺寸参照" loading="lazy" decoding="async"><span>生鸡胸肉 150g｜以一元硬币作尺寸参照</span></a>
+          <a class="portion-library-card" href="./portion-gallery-40.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-40.jpg" alt="生猪瘦肉丝 150g，煮熟后86.9g｜约1.5个掌心大小" loading="lazy" decoding="async"><span>生猪瘦肉丝 150g，煮熟后86.9g｜约1.5个掌心大小</span></a>
+          <a class="portion-library-card" href="./portion-gallery-41.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-41.jpg" alt="生猪瘦肉丝 150g，煮熟后86.9g｜以一元硬币作尺寸参照" loading="lazy" decoding="async"><span>生猪瘦肉丝 150g，煮熟后86.9g｜以一元硬币作尺寸参照</span></a>
+          <a class="portion-library-card" href="./portion-gallery-42.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-42.jpg" alt="生猪瘦肉丝 150g｜约1.5个掌心大小" loading="lazy" decoding="async"><span>生猪瘦肉丝 150g｜约1.5个掌心大小</span></a>
+          <a class="portion-library-card" href="./portion-gallery-43.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-43.jpg" alt="生猪瘦肉丝 150g｜以一元硬币作尺寸参照" loading="lazy" decoding="async"><span>生猪瘦肉丝 150g｜以一元硬币作尺寸参照</span></a>
+          <a class="portion-library-card" href="./portion-gallery-44.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-44.jpg" alt="生鸡胸肉 150g，煮熟后112g｜约1个掌心大小" loading="lazy" decoding="async"><span>生鸡胸肉 150g，煮熟后112g｜约1个掌心大小</span></a>
+          <a class="portion-library-card" href="./portion-gallery-45.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-45.jpg" alt="生鸡胸肉 150g，煮熟后112g｜以一元硬币作尺寸参照" loading="lazy" decoding="async"><span>生鸡胸肉 150g，煮熟后112g｜以一元硬币作尺寸参照</span></a>
+          <a class="portion-library-card" href="./portion-gallery-46.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-46.jpg" alt="生虾仁 200g，煮熟后154g｜约1.5个掌心大小" loading="lazy" decoding="async"><span>生虾仁 200g，煮熟后154g｜约1.5个掌心大小</span></a>
+          <a class="portion-library-card" href="./portion-gallery-47.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-47.jpg" alt="生虾仁 200g，煮熟后154g｜以一元硬币作尺寸参照" loading="lazy" decoding="async"><span>生虾仁 200g，煮熟后154g｜以一元硬币作尺寸参照</span></a>
+          <a class="portion-library-card" href="./portion-gallery-48.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-48.jpg" alt="生虾仁 200g｜约2个掌心大小" loading="lazy" decoding="async"><span>生虾仁 200g｜约2个掌心大小</span></a>
+          <a class="portion-library-card" href="./portion-gallery-49.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-49.jpg" alt="生虾仁 200g｜以一元硬币作尺寸参照" loading="lazy" decoding="async"><span>生虾仁 200g｜以一元硬币作尺寸参照</span></a>
+          <a class="portion-library-card" href="./portion-gallery-50.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-50.jpg" alt="彩椒生重300g，烹调后272g｜约1捧" loading="lazy" decoding="async"><span>彩椒生重300g，烹调后272g｜约1捧</span></a>
+          <a class="portion-library-card" href="./portion-gallery-51.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-51.jpg" alt="彩椒生重300g，烹调后272g｜以一元硬币作尺寸参照" loading="lazy" decoding="async"><span>彩椒生重300g，烹调后272g｜以一元硬币作尺寸参照</span></a>
+          <a class="portion-library-card" href="./portion-gallery-52.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-52.jpg" alt="小白菜生重300g｜以一元硬币作尺寸参照" loading="lazy" decoding="async"><span>小白菜生重300g｜以一元硬币作尺寸参照</span></a>
+          <a class="portion-library-card" href="./portion-gallery-53.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-53.jpg" alt="小白菜生重300g，煮熟后272g｜约1.5拳大小" loading="lazy" decoding="async"><span>小白菜生重300g，煮熟后272g｜约1.5拳大小</span></a>
+          <a class="portion-library-card" href="./portion-gallery-54.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-54.jpg" alt="小白菜生重300g，煮熟后272g｜以一元硬币作尺寸参照" loading="lazy" decoding="async"><span>小白菜生重300g，煮熟后272g｜以一元硬币作尺寸参照</span></a>
+          <a class="portion-library-card" href="./portion-gallery-55.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-55.jpg" alt="小白菜生重300g｜约3大捧" loading="lazy" decoding="async"><span>小白菜生重300g｜约3大捧</span></a>
+          <a class="portion-library-card" href="./portion-gallery-56.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-56.jpg" alt="鱼肉生重300g，煮熟后263.5g｜约2个掌心大小" loading="lazy" decoding="async"><span>鱼肉生重300g，煮熟后263.5g｜约2个掌心大小</span></a>
+          <a class="portion-library-card" href="./portion-gallery-57.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-57.jpg" alt="鱼肉生重300g，煮熟后263.5g｜以一元硬币作尺寸参照" loading="lazy" decoding="async"><span>鱼肉生重300g，煮熟后263.5g｜以一元硬币作尺寸参照</span></a>
+          <a class="portion-library-card" href="./portion-gallery-58.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-58.jpg" alt="生鱼肉 300g｜约3个掌心大小" loading="lazy" decoding="async"><span>生鱼肉 300g｜约3个掌心大小</span></a>
+          <a class="portion-library-card" href="./portion-gallery-59.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-59.jpg" alt="生鱼肉 300g｜以一元硬币作尺寸参照" loading="lazy" decoding="async"><span>生鱼肉 300g｜以一元硬币作尺寸参照</span></a>
+          <a class="portion-library-card" href="./portion-gallery-60.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-60.jpg" alt="彩椒生重500g，烹调后460g｜约2捧" loading="lazy" decoding="async"><span>彩椒生重500g，烹调后460g｜约2捧</span></a>
+          <a class="portion-library-card" href="./portion-gallery-61.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-61.jpg" alt="彩椒生重500g，烹调后460g｜以一元硬币作尺寸参照" loading="lazy" decoding="async"><span>彩椒生重500g，烹调后460g｜以一元硬币作尺寸参照</span></a>
+          <a class="portion-library-card" href="./portion-gallery-62.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-62.jpg" alt="小白菜生重500g，煮熟后460g｜约2拳大小" loading="lazy" decoding="async"><span>小白菜生重500g，煮熟后460g｜约2拳大小</span></a>
+          <a class="portion-library-card" href="./portion-gallery-63.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-63.jpg" alt="小白菜生重500g，煮熟后460g｜以一元硬币作尺寸参照" loading="lazy" decoding="async"><span>小白菜生重500g，煮熟后460g｜以一元硬币作尺寸参照</span></a>
+          <a class="portion-library-card" href="./portion-gallery-64.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-64.jpg" alt="沙拉菜生重500g｜约5大捧" loading="lazy" decoding="async"><span>沙拉菜生重500g｜约5大捧</span></a>
+          <a class="portion-library-card" href="./portion-gallery-65.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-65.jpg" alt="小白菜生重500g｜约5大捧" loading="lazy" decoding="async"><span>小白菜生重500g｜约5大捧</span></a>
+          <a class="portion-library-card" href="./portion-gallery-66.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-66.jpg" alt="沙拉菜生重500g｜以一元硬币作尺寸参照" loading="lazy" decoding="async"><span>沙拉菜生重500g｜以一元硬币作尺寸参照</span></a>
+          <a class="portion-library-card" href="./portion-gallery-67.jpg" target="_blank" rel="noopener"><img src="./portion-gallery-67.jpg" alt="小白菜生重500g｜以一元硬币作尺寸参照" loading="lazy" decoding="async"><span>小白菜生重500g｜以一元硬币作尺寸参照</span></a>
+        </div>
+      </details>
     </section>
 
     <details class="scope"><summary>适用范围</summary><p>适合一般成年糖尿病患者作饮食初步参考。妊娠或哺乳、1型糖尿病并使用餐时胰岛素、慢性肾病或透析、反复低血糖、近期明显进食减少或消瘦者，应由营养师结合病情另行制定。</p></details>
@@ -364,12 +453,12 @@
   <div id="portionModal" class="portion-modal" hidden aria-hidden="true">
     <div class="portion-backdrop" data-portion-close></div>
     <section class="portion-dialog" role="dialog" aria-modal="true" aria-labelledby="portionModalTitle">
-      <div class="portion-dialog-head"><div><h3 id="portionModalTitle">手量大小参考</h3><p id="portionModalSubtitle">查看文章中的手掌、拳头或捧量对照</p></div><button type="button" class="portion-close" id="portionCloseButton" aria-label="关闭">×</button></div>
+      <div class="portion-dialog-head"><div><h3 id="portionModalTitle">手量大小参考</h3><p id="portionModalSubtitle">查看食物的手掌、拳头或捧量对照</p></div><button type="button" class="portion-close" id="portionCloseButton" aria-label="关闭">×</button></div>
       <div id="portionGallery" class="portion-gallery" aria-label="食物生熟重量与手量对照图"></div>
       <div class="portion-current"><b>本餐计算结果</b><span id="portionCurrentText">—</span></div>
       <div class="portion-reference"><span id="portionReferenceText">—</span><span>手量仅作粗略估算</span></div>
-      <div class="portion-comparison"><b>与计算器系数对照</b><span id="portionComparisonText">—</span></div>
-      <p id="portionGuideNote" class="portion-dialog-note">图片用于帮助理解体积，处方仍以页面显示的克数为准。</p>
+      <div id="portionComparison" class="portion-comparison"><b>与计算器系数对照</b><span id="portionComparisonText">—</span></div>
+      <p id="portionGuideNote" class="portion-dialog-note">图片用于帮助理解体积，方案与交换份仍以页面显示的生重克数为准。</p>
     </section>
   </div>
 
@@ -383,63 +472,73 @@
     const numberValue = id => Number(byId(id).value);
     const unit = {grain:25,veg:250,fruit:150,meat:50,egg:60,fish:75,milk:150,tofu:90,oil:10};
     const cookedYield={steamedBun:1.5,mixedRice:2.2,leanMeat:0.6,roastedSweetPotato:0.75};
-    const portionGuideByLine={bGrain:'bun',bVeg:'veg',lGrain:'rice',fish:'fish',lVeg:'veg',lOil:'oil',dGrain:'rice',chicken:'chicken',dVeg:'veg',dOil:'oil'};
+    const portionGuideByLine={bGrain:'breakfastGrain',bVeg:'veg',lGrain:'rice',fish:'fish',lVeg:'veg',lOil:'oil',dGrain:'rice',chicken:'chicken',dVeg:'veg',dOil:'oil'};
     const portionGuideConfig={
-      bun:{
-        title:'馒头的拳头参考',
-        images:[{src:'./portion-guide-bun.jpg',alt:'100克面粉制成馒头与拳头大小对照',caption:'100g面粉 → 馒头实测174.5g，约1个拳头'}],
-        reference:'图片基准：100g面粉制成的馒头约1个拳头',
-        estimate:amount=>`本餐按面粉重量比例粗估约${portionText(Math.round(amount/100*10)/10)}个拳头`,
-        comparison:'图片实测生熟重量比约1∶1.75；计算器采用面粉×1.5。差约16%，受和面加水和蒸制失水影响，不直接替换算法。'
+      breakfastGrain:{
+        title:'早餐主食的手量参考',
+        images:[
+          {src:'./portion-guide-bun.jpg',alt:'100克面粉制成馒头与拳头大小对照',caption:'100g面粉制成馒头，约1个拳头'},
+          {src:'./portion-guide-rice-raw.jpg',alt:'100克生大米与成人手掌大小对照',caption:'生大米100g'},
+          {src:'./portion-guide-rice-cooked.jpg',alt:'100克生大米煮成米饭与拳头大小对照',caption:'同份白米煮熟约209.7g'},
+          {src:'./portion-guide-sweet-potato.jpg',alt:'100克生红薯与成人手掌大小对照',caption:'生红薯100g，约1个掌心'}
+        ],
+        reference:'生粮、馒头、米饭和薯芋的大小参考',
+        estimate:amount=>`本餐${amount}g生粮：馒头约${cookedEstimate(amount,'steamedBun')}g，米饭约${cookedEstimate(amount,'mixedRice')}g；同份薯芋约${Math.round(amount/25*100)}g`,
+        comparison:'白米实测约×2.10，接近页面采用的×2.2；馒头和红薯图片仅作成品大小参考。'
       },
       rice:{
         title:'米饭与杂粮饭的拳头参考',
         images:[
-          {src:'./portion-guide-rice-raw.jpg',alt:'100克生大米与成人手掌大小对照',caption:'白米：生重100g'},
-          {src:'./portion-guide-rice-cooked.jpg',alt:'100克生大米煮成209.7克米饭与拳头大小对照',caption:'白米：熟重209.7g，约1个拳头'},
-          {src:'./portion-guide-mixed-rice-raw.jpg',alt:'100克生杂粮与成人手掌大小对照',caption:'混合杂粮：生重100g'},
-          {src:'./portion-guide-mixed-rice-cooked.jpg',alt:'100克生杂粮煮成271.7克杂粮饭与拳头大小对照',caption:'混合杂粮：熟重271.7g，约1.5个拳头'}
+          {src:'./portion-guide-rice-raw.jpg',alt:'100克生大米与成人手掌大小对照',caption:'白米生重100g'},
+          {src:'./portion-guide-rice-cooked.jpg',alt:'100克生大米煮成209.7克米饭与拳头大小对照',caption:'同份白米熟重209.7g'},
+          {src:'./portion-guide-mixed-rice-raw.jpg',alt:'100克生杂粮与成人手掌大小对照',caption:'混合杂粮生重100g'},
+          {src:'./portion-guide-mixed-rice-cooked.jpg',alt:'100克生杂粮煮成271.7克杂粮饭与拳头大小对照',caption:'同份混合杂粮熟重271.7g'}
         ],
-        reference:'图片基准：100g生米；白米约1拳，混合杂粮约1.5拳',
-        estimate:amount=>`本餐粗估：按白米实例约${portionText(Math.round(amount/100*10)/10)}拳；按杂粮实例约${portionText(Math.round(amount/100*1.5*10)/10)}拳`,
-        comparison:'白米实测约×2.10，与计算器×2.2相差约5%，可直接作为大小参考；该混合杂粮实测×2.72，差异较大，提示浸泡、品种与加水量会改变熟重。算法仍统一按×2.2估算。'
+        reference:'图片基准：100g生米',
+        estimate:amount=>`本餐${amount}g生米，页面估算熟饭约${cookedEstimate(amount,'mixedRice')}g`,
+        comparison:'白米实测约×2.10，接近页面采用的×2.2；混合杂粮吸水量不同，图片仅作大小参考。'
       },
       chicken:{
-        title:'鸡胸肉的生熟掌心参考',
+        title:'鸡胸肉与肉丝的生熟掌心参考',
         images:[
           {src:'./portion-guide-chicken-raw.jpg',alt:'70克生鸡胸肉与成人掌心大小对照',caption:'生鸡胸肉70g，约2/3掌心'},
-          {src:'./portion-guide-chicken-cooked.jpg',alt:'70克生鸡胸肉煮熟后约40克与成人掌心大小对照',caption:'同份煮熟约40g，约1/2掌心'}
+          {src:'./portion-guide-chicken-cooked.jpg',alt:'70克生鸡胸肉煮熟后约40克与成人掌心大小对照',caption:'同份鸡胸肉煮熟约40g'},
+          {src:'./portion-guide-meat-strips-raw.jpg',alt:'70克生肉丝与成人手掌大小对照',caption:'生肉丝70g，与手掌大小比较'},
+          {src:'./portion-guide-meat-strips-cooked.jpg',alt:'70克生肉丝烹调后34.6克与成人手掌大小对照',caption:'同份肉丝熟重约34.6g'}
         ],
-        reference:'图片基准：70g生鸡胸肉约2/3掌心',
-        estimate:amount=>`本餐按生重比例粗估约${portionText(Math.round(amount/70*2/3*10)/10)}个掌心`,
-        comparison:'图片实测熟重/生重约0.57；计算器肉类熟重提示采用×0.6，相差约5%，可直接作为大小参考，计算系数不变。'
+        reference:'图片基准：70g生鸡胸肉或肉丝',
+        estimate:amount=>`本餐${amount}g生禽肉；图片中的70g鸡胸肉和肉丝可帮助比较体积`,
+        comparison:'鸡胸肉70g熟重约40g，肉丝70g熟重约34.6g，仅作大小参考。'
       },
       fish:{
-        title:'鱼肉的生熟掌心参考',
+        title:'鱼肉与虾仁的生熟掌心参考',
         images:[
           {src:'./portion-guide-fish-raw.jpg',alt:'300克生鱼肉与成人掌心大小对照',caption:'生鱼肉300g，约3个掌心'},
-          {src:'./portion-guide-fish-cooked.jpg',alt:'300克生鱼肉煮熟后263.5克与成人掌心大小对照',caption:'同份煮熟263.5g，约2个掌心'}
+          {src:'./portion-guide-fish-cooked.jpg',alt:'300克生鱼肉煮熟后263.5克与成人掌心大小对照',caption:'同份鱼肉熟重263.5g'},
+          {src:'./portion-guide-shrimp-raw.jpg',alt:'200克生虾仁与成人手掌大小对照',caption:'生虾仁200g，与手掌大小比较'},
+          {src:'./portion-guide-shrimp-cooked.jpg',alt:'200克生虾仁烹调后154克与成人手掌大小对照',caption:'同份虾仁熟重约154g'}
         ],
-        reference:'图片基准：300g生鱼肉约3个掌心',
-        estimate:amount=>`本餐按生重比例粗估约${portionText(Math.round(amount/300*3*10)/10)}个掌心`,
-        comparison:'图片实测熟重/生重约0.88。当前计算器不使用该系数换算鱼肉熟重，因此只用于理解大小，不进入计算。'
+        reference:'图片基准：300g鱼肉或200g虾仁',
+        estimate:amount=>`本餐鱼肉${amount}g；图片另示200g虾仁的生熟体积`,
+        comparison:'鱼肉和虾仁的熟重会随烹调方式变化，图片仅作大小参考。'
       },
       veg:{
-        title:'绿叶菜的生熟体积参考',
+        title:'蔬菜与彩椒的体积参考',
         images:[
-          {src:'./portion-guide-vegetable-raw.jpg',alt:'300克生绿叶菜与成人手掌大小对照',caption:'生绿叶菜300g，约3大捧'},
-          {src:'./portion-guide-vegetable-cooked.jpg',alt:'300克生绿叶菜煮熟后272克与拳头大小对照',caption:'同份煮熟272g，约1.5拳'}
+          {src:'./portion-guide-vegetable-raw.jpg',alt:'300克生蔬菜与成人手掌大小对照',caption:'生蔬菜300g，约3大捧'},
+          {src:'./portion-guide-vegetable-cooked.jpg',alt:'300克生蔬菜煮熟后与拳头大小对照',caption:'同份蔬菜煮熟后体积明显缩小'},
+          {src:'./portion-guide-bell-pepper-cooked.jpg',alt:'300克彩椒烹调后272克与成人手掌大小对照',caption:'300g彩椒烹调后约272g'}
         ],
-        reference:'图片基准：300g生绿叶菜约3大捧',
-        estimate:amount=>`本餐按生重比例粗估约${portionText(Math.round(amount/300*3*10)/10)}大捧`,
-        comparison:'图片实测熟重/生重约0.91，但叶菜体积收缩远大于重量变化。计算器仍按烹调前可食部生重计量，不设置蔬菜熟重系数。'
+        reference:'图片基准：300g蔬菜或彩椒',
+        estimate:amount=>`本餐${amount}g生蔬菜，约${portionText(Math.round(amount/300*3*10)/10)}大捧`,
+        comparison:''
       },
       oil:{
         title:'烹调油的手指宽度参考',
         images:[{src:'./portion-guide-oil.jpg',alt:'10克烹调油与成人手指宽度大小对照',caption:'烹调油10g，约2平茶匙'}],
         reference:'图片基准：10g烹调油为1份',
         estimate:amount=>`本餐${amount}g，约为图示量的${portionText(Math.round(amount/10*10)/10)}倍`,
-        comparison:'油脂没有生熟比。图片只帮助辨认10g的大致体积；实际烹调时优先使用控油壶、量勺或厨房秤。'
+        comparison:''
       }
     };
     const portionGuidePreloads=Object.values(portionGuideConfig).flatMap(config=>config.images.map(item=>{const image=new Image();image.src=item.src;return image}));
@@ -556,7 +655,7 @@
       byId('energyRange').textContent=`简便范围 ${lowerEnergy}～${upperEnergy} kcal`;
       byId('menuEnergy').textContent=menuEnergy;
       byId('proteinTotal').textContent=macro.proteinGrams.toFixed(1);
-      byId('methodText').textContent=`目标体重按身高－105估算；BMI为${bmi.toFixed(1)}（${bodyClass}），本活动水平取${coefficient} kcal/(kg·d)，计算为${targetWeight.toFixed(1)}×${coefficient}≈${energy} kcal。按T/CNSS 020—2023每份90 kcal，${exchangeRoundingText}，折算${menuEnergy} kcal，与估算值相差${Math.abs(energy-menuEnergy)} kcal。本档分类：谷薯${portionText(profile.grain)}份、蔬菜${portionText(profile.veg)}份、水果${portionText(profile.fruit)}份、肉蛋水产${portionText(profile.protein)}份、奶豆${portionText(profile.milkSoy)}份、油脂${portionText(profile.oil)}份。按页面当前示例食物及T/CNSS成分估算，碳水、蛋白质、脂肪供能比分别约为${macro.carbohydrate}%、${macro.protein}%、${macro.fat}%，全天蛋白质约${macro.proteinGrams.toFixed(1)}g（用于核查分配结构，不替代营养分析软件）。《成人糖尿病食养指南（2023年版）》食谱克数均按烹调前可食部生重；熟重另按馒头×1.5、粗细搭配杂粮饭×2.2估算。杂粮饭系数按约2/3粳米（×2.3）与1/3全谷杂豆（×2.0）的常见搭配折中，熟重不参与交换份及能量计算。`;
+      byId('methodText').textContent=`目标体重按身高－105估算；BMI为${bmi.toFixed(1)}（${bodyClass}），本活动水平取${coefficient} kcal/(kg·d)，计算为${targetWeight.toFixed(1)}×${coefficient}≈${energy} kcal。按T/CNSS 020—2023每份90 kcal，${exchangeRoundingText}，折算${menuEnergy} kcal，与估算值相差${Math.abs(energy-menuEnergy)} kcal。本档分类：谷薯${portionText(profile.grain)}份、蔬菜${portionText(profile.veg)}份、水果${portionText(profile.fruit)}份、肉蛋水产${portionText(profile.protein)}份、奶豆${portionText(profile.milkSoy)}份、油脂${portionText(profile.oil)}份。按页面当前示例食物及T/CNSS成分估算，碳水、蛋白质、脂肪供能比分别约为${macro.carbohydrate}%、${macro.protein}%、${macro.fat}%，全天蛋白质约${macro.proteinGrams.toFixed(1)}g。`;
       buildResultCategories(profile);
       buildTierReference(exchangeTarget);
       const exchangePlan=buildExchange(profile);
@@ -582,7 +681,8 @@
     }
     function createExchangePlan(profile){
       const line=(key,name,type,portion,gramsPerPortion,food,unitLabel,swap,estimate=null,prepared=null)=>({key,name,type,portion,ideal:portion,minimum:portion,gramsPerPortion,food,unitLabel,swap,estimate,prepared});
-      const grainSwap=portion=>`生谷物 ${Math.round(portion*25)}g；馒头 ${Math.round(portion*35)}g或熟米饭 ${Math.round(portion*75)}g（等能量交换）；薯芋 ${Math.round(portion*100)}g`;
+      const grainSwap=portion=>`生谷物 ${Math.round(portion*25)}g；馒头 ${Math.round(portion*35)}g；薯芋 ${Math.round(portion*100)}g`;
+      const breakfastGrainSwap=portion=>`薯芋 ${Math.round(portion*100)}g`;
       const vegetableSwap=portion=>`综合蔬菜 ${Math.round(portion*250)}g；深色嫩茎叶花菜 ${Math.round(portion*300)}g`;
       const breakfastGrain=Math.max(1,Math.round(profile.grain*0.3*2)/2);
       const lunchGrain=Math.max(1.5,Math.round((profile.grain-breakfastGrain)*0.5*2)/2);
@@ -594,7 +694,7 @@
       const dinnerOil=profile.oil-lunchOil;
       const groups=[
         {title:'早餐',lines:[
-          line('bGrain','主食','grain',breakfastGrain,25,'面粉/全麦粉（生重）','g',grainSwap,(p,a)=>`约${fmt(cookedEstimate(a,'steamedBun')/householdServing.steamedBun)}个中等馒头`,(p,a)=>`烹调后估算：杂粮馒头约${cookedEstimate(a,'steamedBun')}g（面粉×1.5）`),
+          line('bGrain','主食','grain',breakfastGrain,25,'大米/面粉/全麦粉（生重）','g',breakfastGrainSwap,(p,a)=>`馒头约${cookedEstimate(a,'steamedBun')}g / 米饭约${cookedEstimate(a,'mixedRice')}g`,(p,a)=>`烹调后估算：杂粮馒头约${cookedEstimate(a,'steamedBun')}g（面粉×1.5） / 米饭约${cookedEstimate(a,'mixedRice')}g（大米×2.2）`),
           line('egg','蛋类','protein',1,60,'鸡蛋（可食部）','g',portion=>`蛋类 ${Math.round(portion*60)}g`,p=>`约${portionText(p)}个鸡蛋`),
           line('bVeg','蔬菜','veg',0.5,250,'黄瓜、金针菇等混合蔬菜','g',vegetableSwap,(p,a)=>`切后约${fmt(a/100)}双手捧（松装）`)
         ]},
@@ -719,7 +819,7 @@
             <div class="sheet-follow-item"><i>•</i><span>遵医嘱用药，不因减少主食自行减停降糖药。</span></div>
           </div></section>
         </div>
-        <div class="sheet-footer"><span>指南食谱重量均为烹调前可食部生重；熟重按馒头＝面粉×1.5、粗细搭配杂粮饭＝生米×2.2估算，实际受品种、浸泡和加水量影响。T/CNSS所列馒头35g、米饭75g是90 kcal等能量交换值，不是生熟比。适用于一般成年糖尿病患者的初步参考，特殊人群需个体化制定。</span></div>`;
+        <div class="sheet-footer"><span>指南食谱重量均为烹调前可食部生重；熟重按馒头＝面粉×1.5、粗细搭配杂粮饭＝生米×2.2估算，实际受品种、浸泡和加水量影响。适用于一般成年糖尿病患者的初步参考，特殊人群需个体化制定。</span></div>`;
       byId('patientSheet').innerHTML=sheetHtml;
       byId('printGuidePage').innerHTML=sheetHtml;
       byId('report').textContent=`糖尿病饮食指导单
@@ -732,7 +832,7 @@ ${mealRows.map(row=>`${row.title}（${mealCategoryText(row.group)}）：${row.fo
 
 同份换一天：${alternateMenu}
 
-熟重说明：馒头约按面粉×1.5、粗细搭配杂粮饭约按生米×2.2估算；交换表中的馒头35g、米饭75g是等能量替换重量，不是生熟比。
+熟重说明：馒头约按面粉×1.5、粗细搭配杂粮饭约按生米×2.2估算。
 
 饮食原则：控制总量、定时定量；主食粗细搭配；蔬菜不少于500g；水果两餐间完整吃；薯芋替代同类主食；少油少盐，优先蒸煮炖焖；餐后适量活动并定期复诊。`;
     }    async function copyReport(){
@@ -752,8 +852,10 @@ ${mealRows.map(row=>`${row.title}（${mealCategoryText(row.group)}）：${row.fo
       gallery.classList.toggle('single',config.images.length===1);
       gallery.innerHTML=config.images.map(item=>`<figure class="portion-figure"><img class="portion-photo" src="${item.src}" alt="${item.alt}" decoding="async"><figcaption class="portion-caption">${item.caption}</figcaption></figure>`).join('');
       byId('portionReferenceText').textContent=`${config.reference}；${config.estimate(currentAmount)}`;
-      byId('portionComparisonText').textContent=config.comparison;
-      byId('portionGuideNote').textContent='图片来源：营养师顾中一《67张「用手做对照」的食物分量图》。图片为特定食材和烹调条件下的实测示例，手掌大小也因人而异；仅用于帮助理解体积，处方与交换份仍以页面显示的生重克数为准。';
+      const comparisonBox=byId('portionComparison');
+      comparisonBox.hidden=!config.comparison;
+      byId('portionComparisonText').textContent=config.comparison||'';
+      byId('portionGuideNote').textContent='图片为特定食材和烹调条件下的实测示例，手掌大小因人而异；仅用于帮助理解体积，方案与交换份仍以页面显示的生重克数为准。';
       const modal=byId('portionModal');
       modal.hidden=false;
       modal.setAttribute('aria-hidden','false');
@@ -769,7 +871,27 @@ ${mealRows.map(row=>`${row.title}（${mealCategoryText(row.group)}）：${row.fo
       document.body.style.overflow=previousBodyOverflow;
       if(restoreFocus&&lastPortionTrigger)lastPortionTrigger.focus();
     }
-    function printPatientSheet(){closePortionGuide(false);window.print()}
+    function browserNeedsPrintPreview(){
+      const ua=navigator.userAgent||'';
+      const isiOS=/iPhone|iPad|iPod/i.test(ua)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+      return typeof window.print!=='function'||isiOS||/MiuiBrowser|XiaoMi|Quark|UCBrowser|HuaweiBrowser|VivoBrowser|HeyTapBrowser|OppoBrowser/i.test(ua);
+    }
+    function openPrintPreview(){
+      const popup=window.open('','_blank');
+      if(!popup){alert('浏览器阻止了打印预览，请允许此网站打开新窗口后重试。');return}
+      const styles=Array.from(document.querySelectorAll('style')).map(style=>style.textContent).join('\n');
+      const previewCss='@media screen{body{margin:0;padding:72px 12px 28px;background:#f2f2f7}.print-bundle{display:grid!important;width:100%!important;max-width:210mm!important;gap:16px;margin:0 auto!important}.print-guide-page,.print-poster-page{display:flex!important;box-sizing:border-box!important;width:210mm!important;max-width:100%!important;min-width:0!important;height:auto!important;max-height:none!important;min-height:297mm!important;margin:0 auto!important;padding:8mm 9mm 7mm!important;border:0!important;border-radius:12px!important;background:#fff!important;box-shadow:0 8px 30px rgba(0,0,0,.10)!important;overflow:visible!important}.print-poster-page{align-items:flex-start!important;justify-content:center!important}.print-poster-page img{display:block!important;width:100%!important;max-width:190mm!important;height:auto!important;max-height:none!important;object-fit:contain!important}.print-toolbar{position:fixed;z-index:20;top:0;right:0;left:0;display:flex;align-items:center;justify-content:center;gap:12px;padding:10px max(12px,env(safe-area-inset-right)) 10px max(12px,env(safe-area-inset-left));background:rgba(255,255,255,.96);box-shadow:0 1px 10px rgba(0,0,0,.12);font:14px -apple-system,BlinkMacSystemFont,\"Segoe UI\",sans-serif}.print-toolbar button{min-height:42px;padding:0 18px;border:0;border-radius:12px;background:#248a3d;color:#fff;font-weight:750}.print-toolbar span{color:#636366}}@media(max-width:580px) and (screen){.print-toolbar span{display:none}.print-guide-page,.print-poster-page{border-radius:8px!important}}@media print{.print-toolbar{display:none!important}}';
+      popup.document.open();
+      popup.document.write('<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><base href="'+document.baseURI+'"><title>糖尿病饮食指导单</title><style>'+styles+'\n'+previewCss+'</style></head><body><div class="print-toolbar"><button type="button" onclick="window.print()">打印或另存为 PDF</button><span>若未自动弹出，请点此按钮或使用浏览器菜单打印</span></div>'+byId('printBundle').outerHTML+'</body></html>');
+      popup.document.close();
+      popup.focus();
+      window.setTimeout(()=>{try{popup.print()}catch(error){}},700);
+    }
+    function printPatientSheet(){
+      closePortionGuide(false);
+      if(browserNeedsPrintPreview()){openPrintPreview();return}
+      try{window.print()}catch(error){openPrintPreview()}
+    }
     byId('calculateButton').addEventListener('click',calculate);
     byId('copyButton').addEventListener('click',copyReport);
     byId('printButton').addEventListener('click',printPatientSheet);
