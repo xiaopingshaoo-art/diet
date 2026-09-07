@@ -82,18 +82,15 @@
     .row-buttons{display:flex;gap:9px;flex-wrap:wrap;margin-top:12px}
     .button-link{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 18px;border-radius:13px;text-decoration:none;font-weight:750}
     .patient-fields{display:grid;grid-template-columns:1fr 1.4fr;gap:10px;margin-bottom:14px}
-    .patient-sheet{width:210mm;max-width:100%;min-height:297mm;margin:0 auto;padding:8mm 9mm 7mm;border:1px solid rgba(0,0,0,.09);border-radius:18px;background:#fff;color:#1c1c1e;display:flex;flex-direction:column}
-    .sheet-brand{display:flex;align-items:center;justify-content:space-between;gap:8mm;padding-bottom:3mm;border-bottom:1px solid var(--separator)}.sheet-brand img{display:block;width:58mm;max-height:15mm;object-fit:contain;object-position:left center}.sheet-brand-dept{color:var(--green);font-size:17px;font-weight:800;letter-spacing:.08em;white-space:nowrap}
-    .sheet-titlebar{display:flex;align-items:flex-end;justify-content:space-between;gap:8mm;margin:4mm 0 3mm}.sheet-titlebar h3{margin:0;font-size:26px;letter-spacing:.05em}.sheet-subtitle{margin:1mm 0 0;color:var(--muted);font-size:11px}.sheet-badge{padding:1.4mm 2.6mm;border-radius:999px;background:var(--green-soft);color:var(--green);font-size:10px;font-weight:750;white-space:nowrap}
-    .sheet-meta{display:grid;grid-template-columns:1.2fr 1.35fr repeat(3,minmax(0,1fr));gap:2mm}.meta-item{min-width:0;padding:2.2mm 2.5mm;border-radius:2.5mm;background:#f5f7f6}.meta-item span{display:block;color:var(--muted);font-size:9px}.meta-item b{display:block;margin-top:.8mm;font-size:12px;line-height:1.35;overflow-wrap:anywhere}
-    .sheet-summary{display:grid;grid-template-columns:repeat(5,1fr);gap:1.7mm;margin:3mm 0}.sheet-stat{padding:2.2mm;border:1px solid #dce9e2;border-radius:2.8mm;background:var(--green-soft);font-size:9px;color:var(--muted)}.sheet-stat b{display:block;margin-top:1mm;color:var(--text);font-size:15px;line-height:1.05;white-space:nowrap}
-    .sheet-section-head{display:flex;align-items:baseline;justify-content:space-between;gap:4mm;margin:3mm 0 1.8mm}.sheet-section-head h4{margin:0;font-size:13px}.sheet-section-head span{color:var(--muted);font-size:9px}
-    .sheet-category-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.8mm}.sheet-category{padding:2.1mm 2.5mm;border:1px solid #dce5e0;border-radius:2.5mm;background:#fafcfb;color:#50565a;font-size:10.5px;font-weight:650}.sheet-category-top{display:flex;align-items:center;justify-content:space-between;gap:2mm}.sheet-category-top b{color:var(--green);font-size:15px;line-height:1;white-space:nowrap}.sheet-category-data{display:flex;justify-content:space-between;gap:1.5mm;margin-top:1.2mm;color:var(--muted);font-size:8.5px;font-weight:500;white-space:nowrap}
-    .sheet-plan{width:100%;min-width:0;border:1px solid #dfe5e2;border-radius:2.5mm;border-collapse:separate;border-spacing:0;overflow:hidden;font-size:10.5px}.sheet-plan th,.sheet-plan td{padding:2.25mm 2.3mm;border-bottom:1px solid #e4e8e6;vertical-align:top;line-height:1.42}.sheet-plan tr:last-child td{border-bottom:0}.sheet-plan th{background:#f2f5f3;color:var(--muted);font-size:9px}.sheet-plan th:nth-child(1){width:12%}.sheet-plan th:nth-child(2){width:32%}.sheet-plan th:nth-child(3){width:56%}.meal-portions{display:flex;flex-wrap:wrap;gap:1mm}.meal-portions span{display:inline-flex;gap:.8mm;align-items:center;padding:.7mm 1.2mm;border:1px solid #dce5e0;border-radius:999px;background:#f7faf8;color:#4f5853;font-size:9.2px;white-space:nowrap}.meal-portions b{color:var(--green);font-size:9.8px}.sheet-menu-alt{margin-top:2mm;padding:2mm 2.6mm;border-radius:2.5mm;background:#f5f7f6;color:#4f5853;font-size:9px;line-height:1.45}.sheet-menu-alt b{color:var(--green)}
-    .sheet-bottom-grid{display:grid;grid-template-columns:1.18fr .82fr;gap:3mm;margin-top:3mm;min-height:68mm}.sheet-panel{padding:3mm;border:1px solid #dfe5e2;border-radius:3mm;display:flex;flex-direction:column}.sheet-panel h4{margin:0 0 1.8mm;font-size:12.5px}.sheet-checklist{display:grid;grid-template-columns:1fr;gap:2.2mm;align-content:space-between;flex:1}.sheet-check{display:grid;grid-template-columns:4.5mm minmax(0,1fr);gap:1.5mm;align-items:start;font-size:10px;line-height:1.48}.sheet-check i{display:grid;place-items:center;width:4.5mm;height:4.5mm;border-radius:50%;background:var(--green-soft);color:var(--green);font-size:7.5px;font-style:normal;font-weight:800}.sheet-follow-list{display:grid;gap:1.6mm;margin-top:.2mm;align-content:space-between;flex:1}.sheet-follow-item{display:grid;grid-template-columns:3.8mm minmax(0,1fr);gap:1.2mm;font-size:9.6px;line-height:1.45}.sheet-follow-item i{color:var(--green);font-style:normal;font-weight:850}
-    .sheet-order{display:flex;align-items:center;justify-content:center;gap:1.5mm;margin-bottom:2mm;padding:1.8mm;border-radius:2.5mm;background:var(--green-soft);font-size:9.5px;font-weight:750}.sheet-order b{color:var(--green)}.sheet-monitor-title{margin:0 0 1.3mm;color:var(--muted);font-size:9px}.sheet-monitor{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5mm;margin-bottom:2.5mm}.sheet-monitor span{padding:1.6mm 1.3mm;border:1px solid #e1e6e3;border-radius:2mm;color:var(--muted);font-size:8px;text-align:center}.sheet-monitor b{display:block;height:4mm;margin-top:1mm;border-bottom:1px solid #aeb7b2}
-    .sheet-note-label{color:var(--muted);font-size:9px}.sheet-note-line{height:8mm;border-bottom:1px solid #bfc7c3}.sheet-followup{display:grid;grid-template-columns:1fr 1fr;gap:2mm;margin-top:3mm;font-size:9.5px}.sheet-followup span{padding-bottom:1.5mm;border-bottom:1px solid #9fa8a3}
-    .sheet-footer{display:flex;justify-content:space-between;align-items:flex-end;gap:8mm;margin-top:auto;padding-top:3mm;border-top:1px solid var(--separator);color:var(--muted);font-size:8.5px;line-height:1.45}.sheet-footer .sheet-sign{color:var(--text);font-size:9.5px;white-space:nowrap}
+    .patient-sheet{--sheet-blue:#1b365d;--sheet-paper:#faf9f5;--sheet-pale:#f5f6f7;--sheet-line:#d7d9dc;--sheet-text:#25272a;--sheet-muted:#686d73;width:210mm;max-width:100%;min-height:297mm;margin:0 auto;padding:8mm 10mm 7mm;border:1px solid rgba(0,0,0,.08);border-radius:18px;background:#fff;color:var(--sheet-text);font-family:"TsangerJinKai02","STKaiti","KaiTi","Songti SC","STSong",serif;font-weight:400;line-height:1.4;display:flex;flex-direction:column}
+    .sheet-brand{display:flex;align-items:center;gap:2.5mm;margin-bottom:1.5mm}.sheet-brand img{display:block;width:27mm;height:10mm;object-fit:contain;object-position:left center;mix-blend-mode:multiply}.sheet-brand-copy{display:flex;align-items:baseline;gap:2mm}.sheet-brand-copy strong{color:var(--sheet-blue);font-size:10.5pt;font-weight:500}.sheet-brand-copy span{color:var(--sheet-muted);font-size:9pt}
+    .sheet-titlebar{display:flex;align-items:center;justify-content:space-between;gap:5mm;margin:0 0 2.2mm}.sheet-titlebar h3{margin:0;color:var(--sheet-text);font-family:inherit;font-size:24pt;font-weight:500;line-height:1.1;letter-spacing:0;white-space:nowrap}.sheet-titlebar h3>strong{color:var(--sheet-blue);font-size:32pt;font-weight:500}.sheet-titlebar h3>span{margin-right:2mm;color:var(--sheet-blue);font-size:15pt}.sheet-exchange-total{display:flex;align-items:center;gap:2mm;flex:none;padding:2.8mm 4mm;background:var(--sheet-blue);color:#fff}.sheet-exchange-total strong{font-size:24pt;font-weight:500;line-height:1}.sheet-exchange-total span{font-size:10pt;white-space:nowrap}
+    .sheet-patientbar{display:grid;grid-template-columns:1.15fr 1.25fr repeat(4,minmax(0,1fr));border-top:.6pt solid var(--sheet-line);border-bottom:.6pt solid var(--sheet-line)}.sheet-patientbar>div{min-width:0;padding:1.8mm 2mm}.sheet-patientbar>div+div{border-left:.35pt solid var(--sheet-line)}.sheet-patientbar span{display:block;color:var(--sheet-muted);font-size:7.8pt}.sheet-patientbar b{display:block;margin-top:.4mm;color:var(--sheet-text);font-size:9.4pt;font-weight:500;line-height:1.25;overflow-wrap:anywhere}
+    .sheet-macro-row{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:.6pt solid var(--sheet-line)}.sheet-macro-row>div{display:flex;align-items:baseline;justify-content:center;gap:2mm;padding:2.4mm 2mm}.sheet-macro-row>div+div{border-left:.35pt solid var(--sheet-line)}.sheet-macro-row span{color:var(--sheet-muted);font-size:9pt}.sheet-macro-row strong{color:var(--sheet-blue);font-size:14pt;font-weight:500;white-space:nowrap}.sheet-macro-row small{color:var(--sheet-muted);font-size:8pt;white-space:nowrap}
+    .sheet-exchange-categories{display:grid;grid-template-columns:repeat(6,1fr);border-bottom:.6pt solid var(--sheet-line)}.sheet-exchange-categories span{padding:1.8mm 1mm;text-align:center;font-size:9pt;white-space:nowrap}.sheet-exchange-categories strong{color:var(--sheet-blue);font-weight:500}
+    .sheet-section-head{display:flex;align-items:center;gap:2mm;margin:3mm 0 1.8mm}.sheet-section-head b{color:var(--sheet-blue);font-size:9pt;font-weight:500;letter-spacing:.08em}.sheet-section-head h4{margin:0;color:var(--sheet-text);font-family:inherit;font-size:15pt;font-weight:500}.sheet-section-head span{margin-left:auto;color:var(--sheet-muted);font-size:8.5pt}
+    .sheet-meal-list{border-top:.7pt solid var(--sheet-line)}.sheet-meal-row{display:grid;grid-template-columns:30mm 1fr;align-items:stretch;border-bottom:.5pt solid var(--sheet-line);break-inside:avoid;page-break-inside:avoid}.sheet-meal-name{display:flex;flex-direction:column;justify-content:center;padding:2.3mm 3mm;background:var(--sheet-pale)}.sheet-meal-name strong{color:var(--sheet-blue);font-size:13pt;font-weight:500}.sheet-meal-name span{margin-top:.7mm;color:var(--sheet-muted);font-size:7.4pt;line-height:1.3}.sheet-meal-items{display:grid;grid-template-columns:repeat(3,1fr)}.sheet-meal-items.four-col{grid-template-columns:repeat(4,1fr)}.sheet-meal-items.breakfast-items{grid-template-columns:2fr 1fr 1fr}.sheet-meal-items>div{display:flex;flex-direction:column;justify-content:center;min-width:0;min-height:20mm;padding:2.1mm 3mm}.sheet-meal-items>div+div{border-left:.35pt solid var(--sheet-line)}.sheet-meal-items small{color:var(--sheet-muted);font-size:8pt}.sheet-meal-items strong{margin:.6mm 0;color:var(--sheet-text);font-size:10.5pt;font-weight:500;line-height:1.25}.sheet-meal-items span{color:var(--sheet-muted);font-size:8.2pt;line-height:1.3}.sheet-meal-items.four-col strong{font-size:9.7pt}.sheet-breakfast-choice{gap:.5mm}.sheet-choice-line{display:flex;align-items:baseline;gap:1.3mm;min-width:0;line-height:1.25}.sheet-choice-line b{flex:none;color:var(--sheet-blue);font-size:8pt;font-weight:500}.sheet-choice-line strong{margin:0;font-size:9.3pt;white-space:nowrap}.sheet-choice-line span{margin-left:auto;font-size:7.7pt;white-space:nowrap}.sheet-snack-row{min-height:10.5mm}.sheet-snack-row .sheet-meal-name{padding-top:1.1mm;padding-bottom:1.1mm}.sheet-snack-row .sheet-meal-name strong{font-size:11pt}.sheet-snack-main{display:flex;align-items:center;gap:5mm;padding:1.4mm 3mm}.sheet-snack-main strong{color:var(--sheet-text);font-size:11pt;font-weight:500}.sheet-snack-main span{color:var(--sheet-muted);font-size:8.5pt}.sheet-menu-alt{margin-top:2mm;padding:2mm 3mm;border-radius:3pt;background:var(--sheet-pale);color:var(--sheet-text);font-size:8.5pt;line-height:1.4}.sheet-menu-alt b{color:var(--sheet-blue);font-weight:500}
+    .sheet-guidance{display:grid;grid-template-columns:1.35fr .65fr;gap:3mm}.sheet-principles{display:grid;grid-template-columns:1fr 1fr;gap:1.8mm 4mm}.sheet-check{display:grid;grid-template-columns:4.5mm minmax(0,1fr);gap:1.4mm;align-items:start;color:var(--sheet-text);font-size:8.7pt;line-height:1.4}.sheet-check i{display:grid;place-items:center;width:4.3mm;height:4.3mm;border-radius:50%;background:#e4ecf5;color:var(--sheet-blue);font-size:7.2pt;font-style:normal;font-weight:500}.sheet-practical{padding:2.6mm 3mm;border-radius:4pt;background:var(--sheet-pale)}.sheet-practical h5{margin:0 0 1.5mm;color:var(--sheet-blue);font-size:10.5pt;font-weight:500}.sheet-order{display:flex;align-items:center;justify-content:center;gap:1.3mm;margin-bottom:1.8mm;padding:1.6mm;background:#e4ecf5;font-size:8.5pt}.sheet-order b{color:var(--sheet-blue);font-weight:500}.sheet-follow-list{display:grid;gap:1.3mm}.sheet-follow-item{display:grid;grid-template-columns:3mm minmax(0,1fr);gap:1mm;color:var(--sheet-text);font-size:8.2pt;line-height:1.35}.sheet-follow-item i{color:var(--sheet-blue);font-style:normal}.sheet-footer{margin-top:auto;padding-top:2mm;border-top:.4pt solid var(--sheet-line);color:var(--sheet-muted);font-size:7.5pt;line-height:1.4}
     .print-bundle,.print-poster-page{display:none}.download-help{margin:9px 2px 0;color:var(--muted);font-size:12px;line-height:1.5}
     .exchange-table{margin-top:14px}.exchange-table summary{padding:8px 0}
     .table-wrap{overflow-x:auto;margin-top:6px;border:1px solid rgba(0,0,0,.07);border-radius:14px}
@@ -118,7 +115,7 @@
     }
     /* v1.0 information and responsive refinements */
     .section-emoji{display:inline-block;margin-right:7px;font-size:.9em;line-height:1;vertical-align:.02em}
-    .results{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .results{grid-template-columns:repeat(4,minmax(0,1fr))}
     .result{min-height:102px}
     .result-detail-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin:20px 2px 10px}
     .result-detail-head b{font-size:16px}.result-detail-head span{color:var(--muted);font-size:12px;text-align:right;line-height:1.45}
@@ -197,6 +194,24 @@
       button,input,select,summary{min-height:48px}
       summary{display:flex;align-items:center}
     }
+    @media(max-width:820px){
+      .sheet-patientbar{grid-template-columns:repeat(3,minmax(0,1fr))}
+      .sheet-patientbar>div:nth-child(4){border-left:0}
+      .sheet-exchange-categories{grid-template-columns:repeat(3,minmax(0,1fr))}
+      .sheet-exchange-categories span:nth-child(n+4){border-top:.35pt solid var(--sheet-line)}
+    }
+    @media(max-width:580px){
+      .patient-sheet{width:100%;min-height:0;padding:14px;border-radius:16px}
+      .sheet-brand{gap:8px;margin-bottom:8px}.sheet-brand img{width:78px;height:30px}.sheet-brand-copy{display:grid;gap:0}.sheet-brand-copy strong{font-size:13px}.sheet-brand-copy span{font-size:11px}
+      .sheet-titlebar{display:flex;align-items:flex-start;flex-direction:column;gap:8px;margin-bottom:10px}.sheet-titlebar h3{font-size:20px;white-space:normal}.sheet-titlebar h3>strong{font-size:30px}.sheet-titlebar h3>span{font-size:13px}.sheet-exchange-total{padding:8px 11px}.sheet-exchange-total strong{font-size:25px}.sheet-exchange-total span{font-size:12px}
+      .sheet-patientbar{grid-template-columns:1fr 1fr}.sheet-patientbar>div{padding:7px 8px}.sheet-patientbar>div:nth-child(odd){border-left:0}.sheet-patientbar>div:nth-child(n+3){border-top:1px solid var(--sheet-line)}.sheet-patientbar span{font-size:10px}.sheet-patientbar b{font-size:12px}
+      .sheet-macro-row>div{align-items:center;flex-direction:column;gap:1px;padding:8px 4px;text-align:center}.sheet-macro-row span{font-size:10px}.sheet-macro-row strong{font-size:16px}.sheet-macro-row small{font-size:9px}
+      .sheet-exchange-categories span{padding:7px 3px;font-size:11px}
+      .sheet-section-head{align-items:flex-end;margin:14px 0 8px}.sheet-section-head b{font-size:10px}.sheet-section-head h4{font-size:19px}.sheet-section-head span{max-width:48%;font-size:10px;line-height:1.3;text-align:right}
+      .sheet-meal-list{border-top:0}.sheet-meal-row{display:block;margin-bottom:9px;border:1px solid var(--sheet-line);border-radius:10px;overflow:hidden}.sheet-meal-name{padding:8px 10px}.sheet-meal-name strong{font-size:16px}.sheet-meal-name span{font-size:10px}.sheet-meal-items,.sheet-meal-items.four-col,.sheet-meal-items.breakfast-items{grid-template-columns:1fr 1fr}.sheet-meal-items>div{min-height:0;padding:9px 10px;border-top:1px solid var(--sheet-line)}.sheet-meal-items>div+div{border-left:0}.sheet-meal-items>div:nth-child(even){border-left:1px solid var(--sheet-line)}.sheet-meal-items small{font-size:10px}.sheet-meal-items strong,.sheet-meal-items.four-col strong{font-size:13px}.sheet-meal-items span{font-size:10px}.sheet-breakfast-choice{grid-column:1/-1}.sheet-choice-line{display:grid;grid-template-columns:auto minmax(0,1fr);gap:3px 7px}.sheet-choice-line strong{font-size:12px;white-space:normal}.sheet-choice-line span{grid-column:2;margin-left:0;font-size:10px;white-space:normal}.sheet-snack-row{min-height:0}.sheet-snack-main{display:flex;flex-wrap:wrap;padding:9px 10px}.sheet-snack-main strong{font-size:13px}.sheet-snack-main span{font-size:10px}
+      .sheet-menu-alt{padding:9px 10px;font-size:11px}
+      .sheet-guidance{grid-template-columns:1fr}.sheet-principles{grid-template-columns:1fr;gap:8px}.sheet-check{font-size:11px}.sheet-practical{padding:11px 12px}.sheet-practical h5{font-size:14px}.sheet-order{font-size:11px}.sheet-follow-item{font-size:11px}.sheet-footer{font-size:10px}
+    }
     @page{size:A4 portrait;margin:0}
     @media print{
       *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
@@ -204,27 +219,24 @@
       body>header,body>main,.portion-modal{display:none!important}
       .print-bundle{display:block!important;width:210mm!important;max-width:210mm!important;margin:0!important;padding:0!important;overflow:visible!important}
       .print-guide-page{display:block!important;box-sizing:border-box!important;width:210mm!important;max-width:210mm!important;min-width:210mm!important;min-height:294mm!important;height:294mm!important;max-height:294mm!important;margin:0!important;padding:8mm 10mm 7mm!important;border:0!important;border-radius:0!important;box-shadow:none!important;break-inside:avoid!important;page-break-inside:avoid!important;break-after:page!important;page-break-after:always!important;overflow:hidden!important}
-      .print-guide-page .sheet-brand{display:flex!important;gap:8mm!important;padding-bottom:2.2mm!important}
-      .print-guide-page .sheet-brand img{width:56mm!important}
-      .print-guide-page .sheet-brand-dept{font-size:16px!important;letter-spacing:.07em!important}
-      .print-guide-page .sheet-titlebar{display:flex!important;align-items:flex-end!important;margin:3mm 0 2.2mm!important}
-      .print-guide-page .sheet-titlebar h3{font-size:24px!important}
-      .print-guide-page .sheet-meta{display:grid!important;grid-template-columns:1.2fr 1.35fr repeat(3,minmax(0,1fr))!important}
-      .print-guide-page .sheet-summary{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;margin:2.2mm 0!important}
-      .print-guide-page .sheet-category-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important}
-      .print-guide-page .sheet-section-head{display:flex!important;align-items:baseline!important;margin:2.2mm 0 1.3mm!important}
-      .print-guide-page .sheet-plan{display:table!important;width:100%!important}
-      .print-guide-page .sheet-plan thead{display:table-header-group!important}.print-guide-page .sheet-plan tbody{display:table-row-group!important}.print-guide-page .sheet-plan tr{display:table-row!important;margin:0!important;padding:0!important;border:0!important;background:transparent!important}
-      .print-guide-page .sheet-plan th,.print-guide-page .sheet-plan td{display:table-cell!important;width:auto!important;padding:1.9mm 2mm!important;border-bottom:1px solid #e4e8e6!important}
-      .print-guide-page .sheet-plan th:nth-child(1){width:12%!important}.print-guide-page .sheet-plan th:nth-child(2){width:32%!important}.print-guide-page .sheet-plan th:nth-child(3){width:56%!important}
-      .print-guide-page .sheet-plan td:nth-child(2)::before,.print-guide-page .sheet-plan td:nth-child(3)::before{display:none!important;content:none!important}
-      .print-guide-page .sheet-bottom-grid{display:grid!important;grid-template-columns:1.18fr .82fr!important;gap:2.6mm!important;margin-top:2.2mm!important;min-height:0!important}
-      .print-guide-page .sheet-panel{display:block!important;min-width:0!important;padding:2.4mm!important}
-      .print-guide-page .sheet-checklist{display:grid!important;grid-template-columns:1fr!important;gap:1.7mm!important;align-content:start!important}
-      .print-guide-page .sheet-check{display:grid!important;grid-template-columns:4.5mm minmax(0,1fr)!important;font-size:9.6px!important;line-height:1.42!important;break-inside:avoid!important;page-break-inside:avoid!important}
-      .print-guide-page .sheet-follow-list{display:grid!important;grid-template-columns:1fr!important;gap:1.8mm!important;align-content:start!important;margin-top:.2mm!important}
-      .print-guide-page .sheet-follow-item{display:grid!important;grid-template-columns:3.8mm minmax(0,1fr)!important;font-size:9.2px!important;line-height:1.4!important;break-inside:avoid!important;page-break-inside:avoid!important}
-      .print-guide-page .sheet-footer{display:flex!important;margin-top:2.2mm!important;padding-top:2.2mm!important;font-size:8px!important;line-height:1.36!important}
+      .print-guide-page .sheet-brand{display:flex!important;align-items:center!important;gap:2.5mm!important;margin-bottom:1.5mm!important;padding:0!important;border:0!important}
+      .print-guide-page .sheet-brand img{width:27mm!important;height:10mm!important}
+      .print-guide-page .sheet-brand-copy{display:flex!important;align-items:baseline!important;gap:2mm!important}
+      .print-guide-page .sheet-titlebar{display:flex!important;align-items:center!important;justify-content:space-between!important;flex-direction:row!important;gap:5mm!important;margin:0 0 2.2mm!important}
+      .print-guide-page .sheet-titlebar h3{font-size:24pt!important;white-space:nowrap!important}.print-guide-page .sheet-titlebar h3>strong{font-size:32pt!important}.print-guide-page .sheet-titlebar h3>span{font-size:15pt!important}
+      .print-guide-page .sheet-exchange-total{display:flex!important;align-items:center!important;gap:2mm!important;padding:2.8mm 4mm!important}.print-guide-page .sheet-exchange-total strong{font-size:24pt!important}.print-guide-page .sheet-exchange-total span{font-size:10pt!important}
+      .print-guide-page .sheet-patientbar{display:grid!important;grid-template-columns:1.15fr 1.25fr repeat(4,minmax(0,1fr))!important}
+      .print-guide-page .sheet-patientbar>div{padding:1.6mm 2mm!important;border-top:0!important}.print-guide-page .sheet-patientbar>div+div{border-left:.35pt solid var(--sheet-line)!important}
+      .print-guide-page .sheet-macro-row{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important}.print-guide-page .sheet-macro-row>div{display:flex!important;align-items:baseline!important;justify-content:center!important;flex-direction:row!important;gap:2mm!important;padding:2.2mm 2mm!important;text-align:left!important}
+      .print-guide-page .sheet-exchange-categories{display:grid!important;grid-template-columns:repeat(6,minmax(0,1fr))!important}.print-guide-page .sheet-exchange-categories span{padding:1.7mm 1mm!important;border-top:0!important;font-size:8.7pt!important}
+      .print-guide-page .sheet-section-head{display:flex!important;align-items:center!important;margin:2.7mm 0 1.5mm!important}.print-guide-page .sheet-section-head h4{font-size:14.5pt!important}.print-guide-page .sheet-section-head span{max-width:none!important;font-size:8.2pt!important;text-align:left!important}
+      .print-guide-page .sheet-meal-list{border-top:.7pt solid var(--sheet-line)!important}.print-guide-page .sheet-meal-row{display:grid!important;grid-template-columns:30mm 1fr!important;margin:0!important;border:0!important;border-bottom:.5pt solid var(--sheet-line)!important;border-radius:0!important;overflow:visible!important}
+      .print-guide-page .sheet-meal-name{padding:2.1mm 3mm!important}.print-guide-page .sheet-meal-name strong{font-size:12.5pt!important}.print-guide-page .sheet-meal-name span{font-size:7.2pt!important}
+      .print-guide-page .sheet-meal-items{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important}.print-guide-page .sheet-meal-items.four-col{grid-template-columns:repeat(4,minmax(0,1fr))!important}.print-guide-page .sheet-meal-items.breakfast-items{grid-template-columns:2fr 1fr 1fr!important}.print-guide-page .sheet-meal-items>div{display:flex!important;min-height:19mm!important;padding:1.9mm 2.7mm!important;border-top:0!important}.print-guide-page .sheet-meal-items>div+div{border-left:.35pt solid var(--sheet-line)!important}.print-guide-page .sheet-breakfast-choice{grid-column:auto!important}.print-guide-page .sheet-choice-line{display:flex!important;grid-template-columns:none!important;gap:1.2mm!important}.print-guide-page .sheet-choice-line strong{font-size:9.1pt!important;white-space:nowrap!important}.print-guide-page .sheet-choice-line span{grid-column:auto!important;margin-left:auto!important;font-size:7.5pt!important;white-space:nowrap!important}
+      .print-guide-page .sheet-snack-row{display:grid!important;min-height:10mm!important}.print-guide-page .sheet-snack-main{display:flex!important;flex-wrap:nowrap!important;padding:1.2mm 2.7mm!important}
+      .print-guide-page .sheet-menu-alt{margin-top:1.7mm!important;padding:1.7mm 2.7mm!important;font-size:8.1pt!important}
+      .print-guide-page .sheet-guidance{display:grid!important;grid-template-columns:1.35fr .65fr!important;gap:3mm!important}.print-guide-page .sheet-principles{display:grid!important;grid-template-columns:1fr 1fr!important;gap:1.5mm 3.5mm!important}.print-guide-page .sheet-check{display:grid!important;grid-template-columns:4.3mm minmax(0,1fr)!important;font-size:8.3pt!important;line-height:1.36!important}.print-guide-page .sheet-practical{padding:2.3mm 2.7mm!important}.print-guide-page .sheet-order{font-size:8.2pt!important}.print-guide-page .sheet-follow-list{display:grid!important;gap:1.1mm!important}.print-guide-page .sheet-follow-item{display:grid!important;grid-template-columns:3mm minmax(0,1fr)!important;font-size:7.9pt!important;line-height:1.32!important}
+      .print-guide-page .sheet-footer{display:block!important;margin-top:auto!important;padding-top:1.6mm!important;font-size:7.2pt!important;line-height:1.32!important}
       .print-poster-page{display:block!important;box-sizing:border-box!important;width:210mm!important;max-width:210mm!important;min-width:210mm!important;min-height:294mm!important;height:294mm!important;max-height:294mm!important;margin:0!important;padding:8mm 10mm!important;break-inside:avoid!important;page-break-inside:avoid!important;break-before:auto!important;page-break-before:auto!important;break-after:auto!important;page-break-after:auto!important;overflow:hidden!important}
       .print-poster-page img{display:block!important;width:auto!important;max-width:190mm!important;height:auto!important;max-height:280mm!important;margin:0 auto!important;object-fit:contain!important}
       .no-print{display:none!important}
@@ -261,10 +273,12 @@
       <div class="results">
         <div class="result">⚖️ 目标体重<b id="ibw">—</b>kg<em>身高－105</em></div>
         <div class="result">📐 BMI<b id="bmi">—</b><em id="bmiText">—</em></div>
-        <div class="result">🔥 能量估算<b id="energy">—</b>kcal/天<em id="energyRange">—</em></div>
+        <div class="result">🔥 标准能量档<b id="energy">—</b>kcal/天<em id="energyRange">—</em></div>
         <div class="result">⚡ 交换份折算能量<b id="menuEnergy">—</b>kcal<em>全天交换份×90 kcal</em></div>
-        <div class="result">🧮 全天交换份<b id="exchangeTotal">—</b>份<em>能量÷90后向下取整</em></div>
-        <div class="result">🥚 蛋白质估算<b id="proteinTotal">—</b>g/天<em>按当前示例食物估算</em></div>
+        <div class="result">🧮 全天交换份<b id="exchangeTotal">—</b>份<em>按标准能量档固定配置</em></div>
+        <div class="result">🍚 碳水化合物<b id="carbohydrateTotal">—</b>g/天<em id="carbohydrateRatio">—</em></div>
+        <div class="result">🥚 蛋白质估算<b id="proteinTotal">—</b>g/天<em id="proteinRatio">—</em></div>
+        <div class="result">🫗 脂肪估算<b id="fatTotal">—</b>g/天<em id="fatRatio">—</em></div>
       </div>
       <div class="result-detail-head"><b>六类食物分配</b><span>每类能量按交换份×90 kcal；蛋白质按当前示例食物估算</span></div>
       <div id="resultCategorySummary" class="result-categories"></div>
@@ -337,7 +351,7 @@
       <p class="download-help no-print">打印为两页：第1页是患者饮食指导单，第2页自动附食物交换份速查图；也可在打印窗口中另存为PDF。</p>
       <details class="tier-reference reference-panel">
         <summary>各能量档位的分类交换份方案</summary>
-        <p class="tier-intro">本工具以1份＝90 kcal为步长，共设置13～30份。绿色行是当前方案；“估算能量区间”决定采用哪一行。</p>
+        <p class="tier-intro">本工具设置1400～2500 kcal、每100 kcal递进的临床实用方案。先估算能量，再匹配最接近的标准档位；绿色行是当前采用方案。</p>
         <div id="tierTable" class="tier-table-wrap"></div>
         <div class="tier-basis">
           <article><b>标准直接规定</b><p>T/CNSS 020—2023规定每份食物约90 kcal；先确定能量，再确定各类份数；同类可互换，非同类不宜直接互换。</p></article>
@@ -365,6 +379,7 @@
             <tr><td>蛋／鱼／虾蟹贝</td><td>60g／75g／115g</td><td>鸡蛋／鲈鱼等／海虾等</td><td>鸡蛋1个；鱼1块；海虾5只或河蟹2只</td></tr>
             <tr><td>北豆腐／南豆腐</td><td>90g／150g</td><td>豆腐</td><td>北豆腐约1/3盒；南豆腐半盒</td></tr>
             <tr><td>全脂液态乳</td><td>150g</td><td>全脂牛奶</td><td>约2/3杯</td></tr>
+            <tr><td>全脂发酵乳</td><td>100g</td><td>原味全脂酸奶等</td><td>牛奶250ml等能量约为全脂发酵乳170g；不同产品需看营养标签</td></tr>
             <tr><td>高脂坚果</td><td>15g</td><td>核桃、杏仁、葵花子等</td><td>核桃2颗；杏仁或葵花子1把</td></tr>
             <tr><td>油脂类</td><td>10g</td><td>植物油或动物油</td><td>建议称量</td></tr>
           </tbody>
@@ -472,19 +487,18 @@
     const numberValue = id => Number(byId(id).value);
     const unit = {grain:25,veg:250,fruit:150,meat:50,egg:60,fish:75,milk:150,tofu:90,oil:10};
     const cookedYield={steamedBun:1.5,mixedRice:2.2,leanMeat:0.6,roastedSweetPotato:0.75};
-    const portionGuideByLine={bGrain:'breakfastGrain',bVeg:'veg',lGrain:'rice',fish:'fish',lVeg:'veg',lOil:'oil',dGrain:'rice',chicken:'chicken',dVeg:'veg',dOil:'oil'};
+    const portionGuideByLine={bGrain:'breakfastGrain',lGrain:'rice',fish:'fish',lVeg:'veg',lOil:'oil',dGrain:'rice',chicken:'chicken',dVeg:'veg',dOil:'oil'};
     const portionGuideConfig={
       breakfastGrain:{
-        title:'早餐主食的手量参考',
+        title:'早餐两种主食方案',
         images:[
           {src:'./portion-guide-bun.jpg',alt:'100克面粉制成馒头与拳头大小对照',caption:'100g面粉制成馒头，约1个拳头'},
-          {src:'./portion-guide-rice-raw.jpg',alt:'100克生大米与成人手掌大小对照',caption:'生大米100g'},
-          {src:'./portion-guide-rice-cooked.jpg',alt:'100克生大米煮成米饭与拳头大小对照',caption:'同份白米煮熟约209.7g'},
-          {src:'./portion-guide-sweet-potato.jpg',alt:'100克生红薯与成人手掌大小对照',caption:'生红薯100g，约1个掌心'}
+          {src:'./portion-guide-sweet-potato.jpg',alt:'100克生红薯与成人手掌大小对照',caption:'生红薯100g，约1个掌心'},
+          {src:'./portion-gallery-19.jpg',alt:'50克去皮生山药与成人手掌大小对照',caption:'去皮生山药50g，约1/4掌心'}
         ],
-        reference:'生粮、馒头、米饭和薯芋的大小参考',
-        estimate:amount=>`本餐${amount}g生粮：馒头约${cookedEstimate(amount,'steamedBun')}g，米饭约${cookedEstimate(amount,'mixedRice')}g；同份薯芋约${Math.round(amount/25*100)}g`,
-        comparison:'白米实测约×2.10，接近页面采用的×2.2；馒头和红薯图片仅作成品大小参考。'
+        reference:'方案A为杂粮馒头，方案B为红薯或山药，两者选一种',
+        estimate:amount=>`方案A：全麦/玉米面${amount}g，馒头约${cookedEstimate(amount,'steamedBun')}g；方案B：红薯/山药约${amount*4}g`,
+        comparison:''
       },
       rice:{
         title:'米饭与杂粮饭的拳头参考',
@@ -519,7 +533,7 @@
           {src:'./portion-guide-shrimp-cooked.jpg',alt:'200克生虾仁烹调后154克与成人手掌大小对照',caption:'同份虾仁熟重约154g'}
         ],
         reference:'图片基准：300g鱼肉或200g虾仁',
-        estimate:amount=>`本餐鱼肉${amount}g；图片另示200g虾仁的生熟体积`,
+        estimate:amount=>`本餐鱼或虾仁${amount}g；可用图片比较对应掌心大小`,
         comparison:'鱼肉和虾仁的熟重会随烹调方式变化，图片仅作大小参考。'
       },
       veg:{
@@ -530,7 +544,7 @@
           {src:'./portion-guide-bell-pepper-cooked.jpg',alt:'300克彩椒烹调后272克与成人手掌大小对照',caption:'300g彩椒烹调后约272g'}
         ],
         reference:'图片基准：300g蔬菜或彩椒',
-        estimate:amount=>`本餐${amount}g生蔬菜，约${portionText(Math.round(amount/300*3*10)/10)}大捧`,
+        estimate:amount=>`本餐蔬菜250～300g，约2.5～3大捧`,
         comparison:''
       },
       oil:{
@@ -557,50 +571,37 @@
       };
       return table[activity][bodyClass];
     }
+    const standardTiers=[
+      {targetEnergy:1400,exchangeTotal:16,grainPortions:6.5,proteinPortions:3,oilPortions:1,grainGrams:[50,60,50],fishGrams:75,chickenGrams:50,oilGrams:[5,5],mealGrainPortions:[2,2.5,2],mealProteinPortions:[1,1,1],macro:{carbohydrateGrams:192.6,proteinGrams:73.8,fatGrams:43.6,carbohydrate:52.8,protein:20.3,fat:26.9}},
+      {targetEnergy:1500,exchangeTotal:17,grainPortions:7,proteinPortions:3,oilPortions:1.5,grainGrams:[50,65,60],fishGrams:75,chickenGrams:50,oilGrams:[5,10],mealGrainPortions:[2,2.5,2.5],mealProteinPortions:[1,1,1],macro:{carbohydrateGrams:202.1,proteinGrams:75.1,fatGrams:48.9,carbohydrate:52.2,protein:19.4,fat:28.4}},
+      {targetEnergy:1600,exchangeTotal:18,grainPortions:7.5,proteinPortions:3.5,oilPortions:1.5,grainGrams:[50,70,70],fishGrams:120,chickenGrams:50,oilGrams:[5,10],mealGrainPortions:[2,3,2.5],mealProteinPortions:[1,1.5,1],macro:{carbohydrateGrams:212.1,proteinGrams:83.2,fatGrams:50.7,carbohydrate:51.8,protein:20.3,fat:27.9}},
+      {targetEnergy:1700,exchangeTotal:19,grainPortions:8,proteinPortions:3.5,oilPortions:2,grainGrams:[60,70,70],fishGrams:120,chickenGrams:50,oilGrams:[10,10],mealGrainPortions:[2.5,3,2.5],mealProteinPortions:[1,1.5,1],macro:{carbohydrateGrams:221.6,proteinGrams:84.5,fatGrams:56,carbohydrate:51.3,protein:19.5,fat:29.2}},
+      {targetEnergy:1800,exchangeTotal:20,grainPortions:8.5,proteinPortions:4,oilPortions:2,grainGrams:[60,75,75],fishGrams:120,chickenGrams:75,oilGrams:[10,10],mealGrainPortions:[2.5,3,3],mealProteinPortions:[1,1.5,1.5],macro:{carbohydrateGrams:231.5,proteinGrams:90.1,fatGrams:59.2,carbohydrate:50.9,protein:19.8,fat:29.3}},
+      {targetEnergy:1900,exchangeTotal:21,grainPortions:9.5,proteinPortions:4,oilPortions:2,grainGrams:[70,85,85],fishGrams:120,chickenGrams:75,oilGrams:[10,10],mealGrainPortions:[2.5,3.5,3.5],mealProteinPortions:[1,1.5,1.5],macro:{carbohydrateGrams:250.5,proteinGrams:92.6,fatGrams:59.7,carbohydrate:52.5,protein:19.4,fat:28.1}},
+      {targetEnergy:2000,exchangeTotal:22,grainPortions:10,proteinPortions:4.5,oilPortions:2,grainGrams:[70,90,90],fishGrams:150,chickenGrams:75,oilGrams:[10,10],mealGrainPortions:[3,3.5,3.5],mealProteinPortions:[1,2,1.5],macro:{carbohydrateGrams:260.5,proteinGrams:100.7,fatGrams:61.6,carbohydrate:52.1,protein:20.2,fat:27.7}},
+      {targetEnergy:2100,exchangeTotal:23,grainPortions:10.5,proteinPortions:4.5,oilPortions:2.5,grainGrams:[75,95,95],fishGrams:150,chickenGrams:75,oilGrams:[10,15],mealGrainPortions:[3,4,3.5],mealProteinPortions:[1,2,1.5],macro:{carbohydrateGrams:270,proteinGrams:102,fatGrams:66.8,carbohydrate:51.7,protein:19.5,fat:28.8}},
+      {targetEnergy:2200,exchangeTotal:24,grainPortions:11,proteinPortions:5,oilPortions:2.5,grainGrams:[80,100,95],fishGrams:150,chickenGrams:100,oilGrams:[10,15],mealGrainPortions:[3,4,4],mealProteinPortions:[1,2,2],macro:{carbohydrateGrams:279.8,proteinGrams:107.6,fatGrams:70.1,carbohydrate:51.3,protein:19.7,fat:28.9}},
+      {targetEnergy:2300,exchangeTotal:25,grainPortions:11.5,proteinPortions:5.5,oilPortions:2.5,grainGrams:[85,100,100],fishGrams:190,chickenGrams:100,oilGrams:[10,15],mealGrainPortions:[3.5,4,4],mealProteinPortions:[1,2.5,2],macro:{carbohydrateGrams:289.8,proteinGrams:115.7,fatGrams:71.9,carbohydrate:51.1,protein:20.4,fat:28.5}},
+      {targetEnergy:2400,exchangeTotal:26,grainPortions:12.5,proteinPortions:5.5,oilPortions:2.5,grainGrams:[90,110,110],fishGrams:190,chickenGrams:100,oilGrams:[10,15],mealGrainPortions:[3.5,4.5,4.5],mealProteinPortions:[1,2.5,2],macro:{carbohydrateGrams:308.8,proteinGrams:118.2,fatGrams:72.4,carbohydrate:52.3,protein:20,fat:27.6}},
+      {targetEnergy:2500,exchangeTotal:27,grainPortions:13,proteinPortions:6,oilPortions:2.5,grainGrams:[100,115,110],fishGrams:190,chickenGrams:125,oilGrams:[10,15],mealGrainPortions:[4,4.5,4.5],mealProteinPortions:[1,2.5,2.5],macro:{carbohydrateGrams:318.7,proteinGrams:123.9,fatGrams:75.7,carbohydrate:52,protein:20.2,fat:27.8}}
+    ];
+    function standardTierForEnergy(estimatedEnergy){
+      return standardTiers.reduce((best,item)=>Math.abs(item.targetEnergy-estimatedEnergy)<Math.abs(best.targetEnergy-estimatedEnergy)?item:best,standardTiers[0]);
+    }
+    function standardTierForExchange(total){return standardTiers.find(item=>item.exchangeTotal===total)||standardTiers.reduce((best,item)=>Math.abs(item.exchangeTotal-total)<Math.abs(best.exchangeTotal-total)?item:best,standardTiers[2])}
     function exchangeProfile(total){
-      const veg=2;
-      const fruit=1;
-      const milkSoy=total<=15?2:2.5;
-      const oil=total<=16?1:total<=19?1.5:total<=23?2:2.5;
-      const protein=
-        total===13?2:
-        total===14?2.5:
-        total<=16?3:
-        total<=18?3.5:
-        total<=20?4:
-        total<=22?4.5:
-        total<=24?5:
-        total<=26?5.5:
-        total<=28?6:6.5;
-      const grain=total-veg-fruit-milkSoy-protein-oil;
-      return {total,grain,veg,fruit,protein,milkSoy,oil};
+      const tier=standardTierForExchange(total);
+      return {total:tier.exchangeTotal,grain:tier.grainPortions,veg:2,fruit:1,protein:tier.proteinPortions,milkSoy:2.5,oil:tier.oilPortions};
     }
     function macroEstimate(profile){
-      const remainingProtein=Math.max(0,profile.protein-1);
-      const fish=Math.round(remainingProtein)/2;
-      const chicken=remainingProtein-fish;
-      const milk=profile.milkSoy-0.5;
-      const tofu=0.5;
-      const protein=profile.grain*2.5+profile.veg*4.5+profile.fruit+7.6+fish*13.7+chicken*8.8+milk*5+tofu*11;
-      const fat=profile.grain*0.5+profile.veg*0.7+profile.fruit*0.6+6.6+fish*3.2+chicken*6+milk*5.4+tofu*4.3+profile.oil*10;
-      const carbohydrate=profile.grain*19+profile.veg*16+profile.fruit*20+1.6+fish+chicken*0.7+milk*7.4+tofu*1.8;
-      const energy=protein*4+carbohydrate*4+fat*9;
-      const one=value=>Math.round(value*10)/10;
-      return {
-        carbohydrate:one(carbohydrate*4/energy*100),
-        protein:one(protein*4/energy*100),
-        fat:one(fat*9/energy*100),
-        carbohydrateGrams:one(carbohydrate),
-        proteinGrams:one(protein),
-        fatGrams:one(fat)
-      };
+      return {...standardTierForExchange(profile.total).macro};
     }
     function categoryNutrition(profile){
       const remainingProtein=Math.max(0,profile.protein-1);
       const fish=Math.round(remainingProtein)/2;
       const chicken=remainingProtein-fish;
-      const milk=profile.milkSoy-0.5;
-      const tofu=0.5;
+      const milk=Math.min(profile.milkSoy,5/3);
+      const tofu=Math.max(0,profile.milkSoy-milk);
       return [
         {key:'grain',icon:'🌾',label:'谷薯',portion:profile.grain,protein:profile.grain*2.5},
         {key:'veg',icon:'🥬',label:'蔬菜',portion:profile.veg,protein:profile.veg*4.5},
@@ -614,22 +615,22 @@
       byId('resultCategorySummary').innerHTML=categoryNutrition(profile).map(item=>`
         <div class="category-result">
           <div class="category-result-head"><span>${item.icon} ${item.label}</span><b>${portionText(item.portion)}份</b></div>
-          <div class="category-result-data"><span>${Math.round(item.portion*90)} kcal</span><span>蛋白质约${(Math.round(item.protein*10)/10).toFixed(1)}g</span></div>
+          <div class="category-result-data"><span>${Math.round(item.portion*90)} kcal</span><span>蛋白质约${Math.round(item.protein)}g</span></div>
         </div>`).join('');
     }
-    function tierEnergyRange(total){
-      if(total===13)return '≤1259';
-      if(total===30)return '≥2700';
-      return `${total*90}～${(total+1)*90-1}`;
+    function tierEnergyRange(targetEnergy){
+      if(targetEnergy===standardTiers[0].targetEnergy)return `≤${targetEnergy+50}`;
+      if(targetEnergy===standardTiers[standardTiers.length-1].targetEnergy)return `≥${targetEnergy-49}`;
+      return `${targetEnergy-49}～${targetEnergy+50}`;
     }
     function buildTierReference(currentTotal){
-      const rows=Array.from({length:18},(_,index)=>index+13).map(total=>{
-        const item=exchangeProfile(total);
-        const current=total===currentTotal?' class="current-tier"':'';
+      const rows=standardTiers.map(tier=>{
+        const item=exchangeProfile(tier.exchangeTotal);
+        const current=tier.exchangeTotal===currentTotal?' class="current-tier"':'';
         const macro=macroEstimate(item);
-        return `<tr${current}><td>${tierEnergyRange(total)}</td><td>${total*90}</td><td>${total}</td><td>${portionText(item.grain)}</td><td>${portionText(item.veg)}</td><td>${portionText(item.fruit)}</td><td>${portionText(item.protein)}</td><td>${portionText(item.milkSoy)}</td><td>${portionText(item.oil)}</td><td>${macro.carbohydrate}%</td><td>${macro.protein}%</td><td>${macro.fat}%</td></tr>`;
+        return `<tr${current}><td>${tierEnergyRange(tier.targetEnergy)}</td><td>${tier.targetEnergy}</td><td>${tier.exchangeTotal*90}</td><td>${tier.exchangeTotal}</td><td>${portionText(item.grain)}</td><td>${portionText(item.veg)}</td><td>${portionText(item.fruit)}</td><td>${portionText(item.protein)}</td><td>${portionText(item.milkSoy)}</td><td>${portionText(item.oil)}</td><td>${Math.round(macro.carbohydrate)}%</td><td>${Math.round(macro.protein)}%</td><td>${Math.round(macro.fat)}%</td></tr>`;
       }).join('');
-      byId('tierTable').innerHTML=`<table class="tier-table"><thead><tr><th>估算能量区间<br>kcal</th><th>折算能量<br>kcal</th><th>总份数</th><th>谷薯</th><th>蔬菜</th><th>水果</th><th>肉蛋水产</th><th>奶豆</th><th>油脂</th><th>碳水<br>供能比</th><th>蛋白质<br>供能比</th><th>脂肪<br>供能比</th></tr></thead><tbody>${rows}</tbody></table>`;
+      byId('tierTable').innerHTML=`<table class="tier-table"><thead><tr><th>原始估算区间<br>kcal</th><th>标准档位<br>kcal</th><th>交换份能量<br>kcal</th><th>总份数</th><th>谷薯</th><th>蔬菜</th><th>水果</th><th>肉蛋水产</th><th>奶豆</th><th>油脂</th><th>碳水<br>供能比</th><th>蛋白质<br>供能比</th><th>脂肪<br>供能比</th></tr></thead><tbody>${rows}</tbody></table>`;
     }
     function calculate(){
       const height=numberValue('height'),weight=numberValue('weight');
@@ -638,24 +639,32 @@
       const bmi=weight/Math.pow(height/100,2);
       const bodyClass=bmiClass(bmi);
       const coefficient=energyCoefficient(bodyClass,byId('activity').value);
-      const energy=roundTo(targetWeight*coefficient,50);
+      const estimatedEnergy=roundTo(targetWeight*coefficient,50);
       const lowerEnergy=roundTo(targetWeight*Math.max(15,coefficient-2.5),50);
       const upperEnergy=roundTo(targetWeight*(coefficient+2.5),50);
-      const rawExchangeTarget=Math.floor(energy/90);
-      const exchangeTarget=Math.max(13,Math.min(30,rawExchangeTarget));
+      const tier=standardTierForEnergy(estimatedEnergy);
+      const energy=tier.targetEnergy;
+      const exchangeTarget=tier.exchangeTotal;
       const profile=exchangeProfile(exchangeTarget);
       const menuEnergy=exchangeTarget*90;
       const macro=macroEstimate(profile);
-      const exchangeRoundingText=exchangeTarget===rawExchangeTarget?`将${energy}÷90向下取整为${exchangeTarget}份`:`${energy}÷90向下取整原为${rawExchangeTarget}份；一般成人初步菜单暂按${exchangeTarget}份边界生成，超出范围需个体化评估`;
+      const minimumTier=standardTiers[0].targetEnergy;
+      const maximumTier=standardTiers[standardTiers.length-1].targetEnergy;
+      const tierBoundaryText=estimatedEnergy<minimumTier?`；原始估算低于本工具下限，按${minimumTier} kcal档显示，需结合营养风险调整`:estimatedEnergy>maximumTier?`；原始估算高于本工具上限，按${maximumTier} kcal档显示，需进一步个体化增加`:`，匹配最接近的${energy} kcal标准档`;
 
       byId('ibw').textContent=targetWeight.toFixed(1);
       byId('bmi').textContent=bmi.toFixed(1);
       byId('bmiText').textContent=bodyClass;
       byId('energy').textContent=energy;
-      byId('energyRange').textContent=`简便范围 ${lowerEnergy}～${upperEnergy} kcal`;
+      byId('energyRange').textContent=`原始估算 ${estimatedEnergy} kcal；参考范围 ${lowerEnergy}～${upperEnergy} kcal`;
       byId('menuEnergy').textContent=menuEnergy;
-      byId('proteinTotal').textContent=macro.proteinGrams.toFixed(1);
-      byId('methodText').textContent=`目标体重按身高－105估算；BMI为${bmi.toFixed(1)}（${bodyClass}），本活动水平取${coefficient} kcal/(kg·d)，计算为${targetWeight.toFixed(1)}×${coefficient}≈${energy} kcal。按T/CNSS 020—2023每份90 kcal，${exchangeRoundingText}，折算${menuEnergy} kcal，与估算值相差${Math.abs(energy-menuEnergy)} kcal。本档分类：谷薯${portionText(profile.grain)}份、蔬菜${portionText(profile.veg)}份、水果${portionText(profile.fruit)}份、肉蛋水产${portionText(profile.protein)}份、奶豆${portionText(profile.milkSoy)}份、油脂${portionText(profile.oil)}份。按页面当前示例食物及T/CNSS成分估算，碳水、蛋白质、脂肪供能比分别约为${macro.carbohydrate}%、${macro.protein}%、${macro.fat}%，全天蛋白质约${macro.proteinGrams.toFixed(1)}g。`;
+      byId('carbohydrateTotal').textContent=Math.round(macro.carbohydrateGrams);
+      byId('carbohydrateRatio').textContent=`约${Math.round(macro.carbohydrate)}%供能`;
+      byId('proteinTotal').textContent=Math.round(macro.proteinGrams);
+      byId('proteinRatio').textContent=`约${Math.round(macro.protein)}%供能`;
+      byId('fatTotal').textContent=Math.round(macro.fatGrams);
+      byId('fatRatio').textContent=`约${Math.round(macro.fat)}%供能`;
+      byId('methodText').textContent=`目标体重按身高－105估算；BMI为${bmi.toFixed(1)}（${bodyClass}），本活动水平取${coefficient} kcal/(kg·d)，原始估算为${targetWeight.toFixed(1)}×${coefficient}≈${estimatedEnergy} kcal${tierBoundaryText}。本档配置${exchangeTarget}份食物交换份，按每份90 kcal折算为${menuEnergy} kcal。分类为：谷薯${portionText(profile.grain)}份、蔬菜${portionText(profile.veg)}份、水果${portionText(profile.fruit)}份、肉蛋水产${portionText(profile.protein)}份、奶豆${portionText(profile.milkSoy)}份、油脂${portionText(profile.oil)}份。按本档示例食物估算，碳水化合物约${Math.round(macro.carbohydrateGrams)}g（${Math.round(macro.carbohydrate)}%供能）、蛋白质约${Math.round(macro.proteinGrams)}g（${Math.round(macro.protein)}%供能）、脂肪约${Math.round(macro.fatGrams)}g（${Math.round(macro.fat)}%供能）。单餐食物克数按临床称量习惯取整。`;
       buildResultCategories(profile);
       buildTierReference(exchangeTarget);
       const exchangePlan=buildExchange(profile);
@@ -664,57 +673,56 @@
     }
     function portionText(value){return Number.isInteger(value)?String(value):value.toFixed(1)}
     function halfPortion(value,minimum){return Math.max(minimum,Math.round(value*2)/2)}
-    function foodAmount(line){return Math.round(line.portion*line.gramsPerPortion)}
+    function foodAmount(line){return line.amountOverride??Math.round(line.portion*line.gramsPerPortion)}
     function exchangeLine(line){
       const amount=foodAmount(line);
       const preparedText=line.prepared?(typeof line.prepared==='function'?line.prepared(line.portion,amount):line.prepared):'';
       const estimateText=line.estimate?(typeof line.estimate==='function'?line.estimate(line.portion,amount):line.estimate):'';
       const prepared=preparedText?`<span class="prepared">${preparedText}</span>`:'';
       const estimate=estimateText?`<span class="estimate">本餐手量参考：${estimateText}</span>`:'';
+      const swapText=line.swap(line.portion,amount);
       const guideKey=portionGuideByLine[line.key];
       const guideButton=guideKey?`<button type="button" class="portion-info" data-portion-guide="${guideKey}" data-current="${line.food} ${amount}${line.unitLabel}" data-amount="${amount}" aria-label="查看${line.name}手量大小参考" aria-haspopup="dialog">i</button>`:'';
-      return `<div class="exchange-line"><strong>${line.name} <span class="portion">${portionText(line.portion)}份</span>${guideButton}</strong><div>${line.food} ${amount}${line.unitLabel}</div>${prepared}<span class="swap">同类可换：${line.swap(line.portion)}</span>${estimate}</div>`;
+      return `<div class="exchange-line"><strong>${line.name} <span class="portion">${portionText(line.portion)}份</span>${guideButton}</strong><div>${line.food} ${amount}${line.unitLabel}</div>${prepared}<span class="swap">${line.swapLabel}：${swapText}</span>${estimate}</div>`;
     }
     function exchangeMeal(group){
       const total=group.lines.reduce((sum,line)=>sum+line.portion,0);
       return `<article class="exchange-meal"><div class="exchange-meal-head"><h3>${group.title}</h3><span class="meal-total">${portionText(total)}份</span></div>${group.lines.map(exchangeLine).join('')}</article>`;
     }
     function createExchangePlan(profile){
-      const line=(key,name,type,portion,gramsPerPortion,food,unitLabel,swap,estimate=null,prepared=null)=>({key,name,type,portion,ideal:portion,minimum:portion,gramsPerPortion,food,unitLabel,swap,estimate,prepared});
-      const grainSwap=portion=>`生谷物 ${Math.round(portion*25)}g；馒头 ${Math.round(portion*35)}g；薯芋 ${Math.round(portion*100)}g`;
-      const breakfastGrainSwap=portion=>`薯芋 ${Math.round(portion*100)}g`;
+      const tier=standardTierForExchange(profile.total);
+      const line=(key,name,type,portion,gramsPerPortion,food,unitLabel,swap,estimate=null,prepared=null,amountOverride=null,swapLabel='同类可换')=>({key,name,type,portion,ideal:portion,minimum:portion,gramsPerPortion,food,unitLabel,swap,estimate,prepared,amountOverride,swapLabel});
+      const grainSwap=(portion,amount)=>`生谷物 ${amount}g；馒头约${Math.round(amount*1.4)}g；薯芋 ${Math.round(amount*4)}g`;
+      const breakfastGrainSwap=(portion,amount)=>`方案B｜红薯/山药 ${Math.round(amount*4)}g`;
       const vegetableSwap=portion=>`综合蔬菜 ${Math.round(portion*250)}g；深色嫩茎叶花菜 ${Math.round(portion*300)}g`;
-      const breakfastGrain=Math.max(1,Math.round(profile.grain*0.3*2)/2);
-      const lunchGrain=Math.max(1.5,Math.round((profile.grain-breakfastGrain)*0.5*2)/2);
-      const dinnerGrain=profile.grain-breakfastGrain-lunchGrain;
-      const fishPortion=Math.round(((profile.protein-1)/2)*2)/2;
-      const chickenPortion=profile.protein-1-fishPortion;
-      const milkPortion=profile.milkSoy-0.5;
-      const lunchOil=Math.floor((profile.oil/2)*2)/2;
-      const dinnerOil=profile.oil-lunchOil;
+      const [breakfastGrain,lunchGrain,dinnerGrain]=tier.mealGrainPortions;
+      const [,fishPortion,chickenPortion]=tier.mealProteinPortions;
+      const milkPortion=1.5;
+      const tofuPortion=1;
+      const lunchOil=tier.oilGrams[0]/10;
+      const dinnerOil=tier.oilGrams[1]/10;
       const groups=[
         {title:'早餐',lines:[
-          line('bGrain','主食','grain',breakfastGrain,25,'大米/面粉/全麦粉（生重）','g',breakfastGrainSwap,(p,a)=>`馒头约${cookedEstimate(a,'steamedBun')}g / 米饭约${cookedEstimate(a,'mixedRice')}g`,(p,a)=>`烹调后估算：杂粮馒头约${cookedEstimate(a,'steamedBun')}g（面粉×1.5） / 米饭约${cookedEstimate(a,'mixedRice')}g（大米×2.2）`),
-          line('egg','蛋类','protein',1,60,'鸡蛋（可食部）','g',portion=>`蛋类 ${Math.round(portion*60)}g`,p=>`约${portionText(p)}个鸡蛋`),
-          line('bVeg','蔬菜','veg',0.5,250,'黄瓜、金针菇等混合蔬菜','g',vegetableSwap,(p,a)=>`切后约${fmt(a/100)}双手捧（松装）`)
+          line('bGrain','主食','grain',breakfastGrain,25,'方案A｜全麦/玉米面（生重）','g',breakfastGrainSwap,(p,a)=>`杂粮馒头约${cookedEstimate(a,'steamedBun')}g`,(p,a)=>`成品参考：杂粮馒头约${cookedEstimate(a,'steamedBun')}g（面粉×1.5）`,tier.grainGrams[0],'另一方案'),
+          line('egg','蛋类','protein',1,60,'鸡蛋（可食部）','g',portion=>`蛋类 ${Math.round(portion*60)}g`,p=>`约${portionText(p)}个鸡蛋`)
         ]},
         {title:'上午加餐',lines:[
-          line('milk','乳类','milkSoy',milkPortion,150,'全脂纯牛奶','ml',portion=>`全脂液态乳 ${Math.round(portion*150)}ml；北豆腐 ${Math.round(portion*90)}g（放在正餐）`,(p,a)=>`约${fmt(a/250)}杯（按250ml杯）`)
+          line('milk','乳类','milkSoy',milkPortion,150,'全脂纯牛奶','ml',portion=>`全脂发酵乳约170g；不同品牌酸奶按营养标签调整`,(p,a)=>`约1杯（按250ml杯）`,null,250)
         ]},
         {title:'午餐',lines:[
-          line('lGrain','主食','grain',lunchGrain,25,'大米/杂粮（生重）','g',grainSwap,(p,a)=>`约${fmt(cookedEstimate(a,'mixedRice')/householdServing.riceBowl)}碗熟米饭（150g/碗）`,(p,a)=>`烹调后估算：杂粮米饭约${cookedEstimate(a,'mixedRice')}g（生米×2.2）`),
-          line('fish','鱼类','protein',fishPortion,75,'鲈鱼（可食部）','g',portion=>`鱼类 ${Math.round(portion*75)}g；畜禽肉 ${Math.round(portion*50)}g`,p=>`约${portionText(p)}块掌心大小鱼肉，或海虾约${Math.round(p*5)}只`),
-          line('lVeg','蔬菜','veg',1,250,'混合蔬菜','g',vegetableSwap,(p,a)=>`切后约${fmt(a/100)}双手捧（松装）`),
-          line('tofu','豆制品','milkSoy',0.5,90,'北豆腐','g',portion=>`北豆腐 ${Math.round(portion*90)}g；南豆腐 ${Math.round(portion*150)}g`,p=>`北豆腐约${fmt(p/3)}盒，或南豆腐约${fmt(p/2)}盒`),
+          line('lGrain','主食','grain',lunchGrain,25,'大米/杂粮（生重）','g',grainSwap,(p,a)=>`约${fmt(cookedEstimate(a,'mixedRice')/householdServing.riceBowl)}碗熟米饭（150g/碗）`,(p,a)=>`烹调后估算：杂粮米饭约${cookedEstimate(a,'mixedRice')}g（生米×2.2）`,tier.grainGrams[1]),
+          line('fish','鱼虾','protein',fishPortion,75,'鱼或虾仁（生重可食部）','g',(portion,amount)=>`鱼虾约${amount}g；畜禽肉约${Math.round(portion*50)}g`,p=>`约${portionText(p)}块掌心大小鱼肉`,null,tier.fishGrams),
+          line('lVeg','蔬菜','veg',1,250,'混合蔬菜','～300g',vegetableSwap,(p,a)=>`切后约${fmt(a/100)}双手捧（松装）`),
+          line('tofu','豆制品','milkSoy',tofuPortion,90,'北豆腐','g',portion=>`北豆腐75g；南豆腐约125g`,p=>`北豆腐约1/4盒`,null,75),
           line('lOil','烹调油','oil',lunchOil,10,'烹调油','g',portion=>`烹调油 ${Math.round(portion*10)}g`,(p,a)=>`约${fmt(a/5)}茶匙（5g/茶匙）`)
         ]},
         {title:'下午加餐',lines:[
           line('fruit','水果','fruit',profile.fruit,150,'完整水果（综合值）','g',portion=>`综合水果 ${Math.round(portion*150)}g；苹果梨桃等 ${Math.round(portion*175)}g；柑橘类 ${Math.round(portion*200)}g`,p=>`苹果/梨约${fmt(p)}个，或橙子约${fmt(p)}个`)
         ]},
         {title:'晚餐',lines:[
-          line('dGrain','主食','grain',dinnerGrain,25,'大米/杂粮（生重）','g',grainSwap,(p,a)=>`约${fmt(cookedEstimate(a,'mixedRice')/householdServing.riceBowl)}碗熟米饭（150g/碗）`,(p,a)=>`烹调后估算：杂粮米饭约${cookedEstimate(a,'mixedRice')}g（生米×2.2）`),
-          line('chicken','禽肉','protein',chickenPortion,50,'鸡肉（去皮可食部）','g',portion=>`畜禽肉 ${Math.round(portion*50)}g；鱼类 ${Math.round(portion*75)}g`,p=>`约${portionText(p)}块成人半掌大小`),
-          line('dVeg','蔬菜','veg',0.5,250,'混合蔬菜','g',vegetableSwap,(p,a)=>`切后约${fmt(a/100)}双手捧（松装）`),
+          line('dGrain','主食','grain',dinnerGrain,25,'大米/杂粮（生重）','g',grainSwap,(p,a)=>`约${fmt(cookedEstimate(a,'mixedRice')/householdServing.riceBowl)}碗熟米饭（150g/碗）`,(p,a)=>`烹调后估算：杂粮米饭约${cookedEstimate(a,'mixedRice')}g（生米×2.2）`,tier.grainGrams[2]),
+          line('chicken','禽肉','protein',chickenPortion,50,'去皮禽肉（生重可食部）','g',portion=>`畜禽肉 ${Math.round(portion*50)}g；鱼类 ${Math.round(portion*75)}g`,p=>`约${portionText(p)}块成人半掌大小`,null,tier.chickenGrams),
+          line('dVeg','蔬菜','veg',1,250,'混合蔬菜','～300g',vegetableSwap,(p,a)=>`切后约${fmt(a/100)}双手捧（松装）`),
           line('dOil','烹调油','oil',dinnerOil,10,'烹调油','g',portion=>`烹调油 ${Math.round(portion*10)}g`,(p,a)=>`约${fmt(a/5)}茶匙（5g/茶匙）`)
         ]}
       ];
@@ -741,30 +749,31 @@
     }
     function buildMeals(plan){
       const breakfastRaw=amount(plan,'bGrain'),breakfastCooked=cookedBun(plan);
+      const breakfastTubers=breakfastRaw*4;
       const lunchRaw=amount(plan,'lGrain'),lunchCooked=cookedRice(plan,'lGrain');
       const dinnerRaw=amount(plan,'dGrain'),dinnerCooked=cookedRice(plan,'dGrain');
-      const milk=amount(plan,'milk'),egg=amount(plan,'egg'),breakfastVeg=amount(plan,'bVeg');
+      const milk=amount(plan,'milk'),egg=amount(plan,'egg'),breakfastVeg=100;
       const fish=amount(plan,'fish'),lunchVeg=amount(plan,'lVeg'),tofu=amount(plan,'tofu');
       const chicken=amount(plan,'chicken'),dinnerVeg=amount(plan,'dVeg');
       const fruit=amount(plan,'fruit'),orange=Math.round(portions(plan,'fruit')*200);
       const oil=amount(plan,'lOil')+amount(plan,'dOil');
       const day1=[
-        menuMeal('🌅','早餐',[ `杂粮馒头：面粉/全麦粉${breakfastRaw}g（生重），成品约${breakfastCooked}g`,`煮鸡蛋${egg}g（约1个）`,`凉拌黄瓜金针菇：蔬菜共${breakfastVeg}g`]),
+        menuMeal('🌅','早餐',[ `主食方案A：全麦/玉米面${breakfastRaw}g（生重），杂粮馒头约${breakfastCooked}g`,`煮鸡蛋${egg}g（约1个）`,`蔬菜可选：半根黄瓜或番茄等约${breakfastVeg}g`]),
         menuMeal('🥛','上午加餐',[`全脂纯牛奶${milk}ml`]),
-        menuMeal('☀️','午餐',[`杂粮米饭：大米搭配绿豆/小米共${lunchRaw}g（生重），熟饭约${lunchCooked}g`,`清蒸鲈鱼${fish}g`,`西兰花胡萝卜共${lunchVeg}g`,`荠菜豆腐羹：北豆腐${tofu}g`]),
+        menuMeal('☀️','午餐',[`杂粮米：大米搭配绿豆/小米共${lunchRaw}g（生重），熟杂粮饭约${lunchCooked}g`,`清蒸鱼或清炒虾仁${fish}g（生重可食部）`,`西兰花、胡萝卜等蔬菜${lunchVeg}～300g`,`北豆腐${tofu}g，可炖、蒸或凉拌`]),
         menuMeal('🍎','下午加餐',[`苹果、梨等完整水果约${fruit}g，不榨汁`]),
-        menuMeal('🌙','晚餐',[`二米饭：大米搭配小米/燕麦共${dinnerRaw}g（生重），熟饭约${dinnerCooked}g`,`芹菜鸡片：去皮鸡肉${chicken}g`,`香菇青菜等蔬菜共${dinnerVeg}g`])
+        menuMeal('🌙','晚餐',[`杂粮米：大米搭配小米/燕麦共${dinnerRaw}g（生重），熟杂粮饭约${dinnerCooked}g`,`芹菜鸡片：去皮禽肉${chicken}g（生重可食部）`,`香菇青菜等蔬菜${dinnerVeg}～300g`])
       ];
       const day2=[
-        menuMeal('🌅','早餐',[`全麦菜包或花卷：面粉/全麦粉${breakfastRaw}g（生重），成品约${breakfastCooked}g`,`茶叶蛋${egg}g（约1个）`,`凉拌黄瓜或金针菇${breakfastVeg}g`]),
-        menuMeal('🥛','上午加餐',[`全脂纯牛奶${milk}ml；也可在奶豆类中等份替换`]),
-        menuMeal('☀️','午餐',[`二米饭：大米搭配小米共${lunchRaw}g（生重），熟饭约${lunchCooked}g`,`葱油鲈鱼（少油版）：鲈鱼${fish}g`,`香菇炒油菜、清炒莴笋共${lunchVeg}g`,`冬瓜豆腐汤：北豆腐${tofu}g`]),
+        menuMeal('🌅','早餐',[`主食方案B：红薯或山药${breakfastTubers}g（生重可食部）`,`茶叶蛋${egg}g（约1个）`,`蔬菜可选：黄瓜、番茄等约${breakfastVeg}g`]),
+        menuMeal('🥛','上午加餐',[`全脂纯牛奶${milk}ml`]),
+        menuMeal('☀️','午餐',[`二米饭：大米搭配小米共${lunchRaw}g（生重），熟饭约${lunchCooked}g`,`少油葱油鱼或清炒虾仁${fish}g（生重可食部）`,`香菇油菜、清炒莴笋等蔬菜${lunchVeg}～300g`,`冬瓜豆腐汤：北豆腐${tofu}g`]),
         menuMeal('🍊','下午加餐',[`橙子约${orange}g，完整食用`]),
-        menuMeal('🌙','晚餐',[`糙米杂粮饭：生重共${dinnerRaw}g，熟饭约${dinnerCooked}g`,`西红柿牛肉煲：牛里脊${chicken}g，西红柿计入本餐蔬菜`,`马兰头或香菇青菜等蔬菜共${dinnerVeg}g`])
+        menuMeal('🌙','晚餐',[`糙米杂粮饭：生重共${dinnerRaw}g，熟饭约${dinnerCooked}g`,`西红柿牛肉煲：牛里脊${chicken}g（生重可食部）`,`马兰头或香菇青菜等蔬菜${dinnerVeg}～300g`])
       ];
       byId('meals').innerHTML=
-        menuDay('第1天','清蒸清拌','杂粮馒头、清蒸鱼和时蔬组合',day1,oil)+
-        menuDay('第2天','华东家常','菜包、二米饭和鲈鱼牛肉组合',day2,oil);
+        menuDay('第1天','主食方案A','杂粮馒头、鱼虾和时蔬组合',day1,oil)+
+        menuDay('第2天','主食方案B','薯类早餐、二米饭和家常菜组合',day2,oil);
     }
     function escapeHtml(value){return String(value??'').replace(/[&<>"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[char]))}
     function groupTotal(plan,title){const group=plan.groups.find(item=>item.title===title);return group?group.lines.reduce((sum,line)=>sum+line.portion,0):0}
@@ -781,56 +790,92 @@
       const macro=macroEstimate(profile);
       const groupByTitle=title=>plan.groups.find(item=>item.title===title);
       const breakfastRaw=amount(plan,'bGrain'),lunchRaw=amount(plan,'lGrain'),dinnerRaw=amount(plan,'dGrain');
+      const breakfastTubers=breakfastRaw*4;
       const breakfastCooked=cookedBun(plan);
       const lunchCooked=cookedRice(plan,'lGrain');
       const dinnerCooked=cookedRice(plan,'dGrain');
       const mealRows=[
-        {title:'早餐',group:groupByTitle('早餐'),foods:`杂粮馒头：面粉/全麦粉${breakfastRaw}g（生重），成品约${breakfastCooked}g；煮鸡蛋${amount(plan,'egg')}g；凉拌黄瓜金针菇${amount(plan,'bVeg')}g`},
+        {title:'早餐',group:groupByTitle('早餐'),foods:`主食二选一：A.全麦/玉米面${breakfastRaw}g（生重），杂粮馒头约${breakfastCooked}g；B.红薯/山药${breakfastTubers}g；另配鸡蛋1个，蔬菜可选约100g`},
         {title:'上午加餐',group:groupByTitle('上午加餐'),foods:`全脂纯牛奶${amount(plan,'milk')}ml`},
-        {title:'午餐',group:groupByTitle('午餐'),foods:`杂粮米饭：大米搭配绿豆/小米${lunchRaw}g（生重），熟饭约${lunchCooked}g；清蒸鲈鱼${amount(plan,'fish')}g；西兰花胡萝卜共${amount(plan,'lVeg')}g；荠菜豆腐羹：北豆腐${amount(plan,'tofu')}g；烹调油${amount(plan,'lOil')}g`},
+        {title:'午餐',group:groupByTitle('午餐'),foods:`杂粮米${lunchRaw}g（生重），熟杂粮饭约${lunchCooked}g；鱼或虾仁${amount(plan,'fish')}g；北豆腐${amount(plan,'tofu')}g；蔬菜${amount(plan,'lVeg')}～300g；烹调油${amount(plan,'lOil')}g`},
         {title:'下午加餐',group:groupByTitle('下午加餐'),foods:`苹果、梨等完整水果${amount(plan,'fruit')}g，不榨汁`},
-        {title:'晚餐',group:groupByTitle('晚餐'),foods:`二米饭：大米搭配小米/燕麦${dinnerRaw}g（生重），熟饭约${dinnerCooked}g；芹菜鸡片：去皮鸡肉${amount(plan,'chicken')}g；香菇青菜等蔬菜共${amount(plan,'dVeg')}g；烹调油${amount(plan,'dOil')}g`}
+        {title:'晚餐',group:groupByTitle('晚餐'),foods:`杂粮米${dinnerRaw}g（生重），熟杂粮饭约${dinnerCooked}g；去皮禽肉${amount(plan,'chicken')}g；蔬菜${amount(plan,'dVeg')}～300g；烹调油${amount(plan,'dOil')}g`}
       ];
-      const rowsHtml=mealRows.map(row=>`<tr><td><b>${row.title}</b></td><td>${mealCategoryHtml(row.group)}</td><td>${row.foods}</td></tr>`).join('');
       const categoryDetails=categoryNutrition(profile);
-      const categories=categoryDetails.map(item=>[item.label,item.portion]);
-      const categoryHtml=categoryDetails.map(item=>`<div class="sheet-category"><div class="sheet-category-top"><span>${item.label}</span><b>${portionText(item.portion)}份</b></div><div class="sheet-category-data"><span>${Math.round(item.portion*90)} kcal</span><span>蛋白质约${(Math.round(item.protein*10)/10).toFixed(1)}g</span></div></div>`).join('');
-      const alternateMenu='早餐可换全麦菜包或花卷、茶叶蛋和凉拌黄瓜；午餐可换二米饭、少油葱油鲈鱼、香菇油菜和冬瓜豆腐汤；晚餐可换糙米杂粮饭、番茄牛肉煲和绿叶菜。各类份数及本单克数不变。';
+      const categoryStrip=categoryDetails.map(item=>`<span>${item.label} <strong>${portionText(item.portion)}份</strong></span>`).join('');
+      const alternateMenu='同类食物可按本单克数替换：鱼可换虾仁，去皮禽肉可换同份瘦肉；杂粮米可在大米、小米、燕麦、杂豆之间搭配；蔬菜优先选择当季深色蔬菜。';
       const sheetHtml=`
-        <div class="sheet-brand"><img src="./hospital-logo.png" alt="昆山市第一人民医院"><div class="sheet-brand-dept">临床营养科</div></div>
-        <div class="sheet-titlebar"><div><h3>糖尿病饮食指导单</h3><p class="sheet-subtitle">从全天交换份分到五餐，并落实到食物克数</p></div><span class="sheet-badge">个体化饮食参考</span></div>
-        <div class="sheet-meta">
-          <div class="meta-item"><span>姓名</span><b>${escapeHtml(patientName)}</b></div><div class="meta-item"><span>诊断</span><b>${escapeHtml(diagnosis)}</b></div><div class="meta-item"><span>身高</span><b>${numberValue('height')} cm</b></div><div class="meta-item"><span>体重</span><b>${numberValue('weight')} kg</b></div><div class="meta-item"><span>BMI</span><b>${byId('bmi').textContent}（${byId('bmiText').textContent}）</b></div>
+        <div class="sheet-brand"><img src="./hospital-logo.png" alt="昆山市第一人民医院"><div class="sheet-brand-copy"><strong>昆山市第一人民医院</strong><span>临床营养科</span></div></div>
+        <div class="sheet-titlebar"><h3><strong>${byId('energy').textContent}</strong><span>kcal</span>糖尿病一日食谱</h3><div class="sheet-exchange-total"><strong>${exchangeTarget}</strong><span>全天交换份</span></div></div>
+        <div class="sheet-patientbar">
+          <div><span>姓名</span><b>${escapeHtml(patientName)}</b></div><div><span>诊断</span><b>${escapeHtml(diagnosis)}</b></div><div><span>身高</span><b>${numberValue('height')} cm</b></div><div><span>体重</span><b>${numberValue('weight')} kg</b></div><div><span>BMI</span><b>${byId('bmi').textContent}（${byId('bmiText').textContent}）</b></div><div><span>目标体重</span><b>${byId('ibw').textContent} kg</b></div>
         </div>
-        <div class="sheet-summary"><div class="sheet-stat">目标体重<b>${byId('ibw').textContent} kg</b></div><div class="sheet-stat">能量估算<b>${byId('energy').textContent} kcal</b></div><div class="sheet-stat">交换份能量<b>${menuEnergy} kcal</b></div><div class="sheet-stat">全天交换份<b>${exchangeTarget} 份</b></div><div class="sheet-stat">蛋白质参考<b>${macro.proteinGrams.toFixed(1)} g</b></div></div>
-        <div class="sheet-section-head"><h4>全天分类交换份与营养</h4><span>每份90 kcal；蛋白质按本单示例食物估算</span></div><div class="sheet-category-grid">${categoryHtml}</div>
-        <div class="sheet-section-head"><h4>一日五餐食谱示例</h4><span>主食同时标注生重和常见熟重</span></div><table class="sheet-plan"><thead><tr><th>餐次</th><th>各类交换份</th><th>菜品和食物数量</th></tr></thead><tbody>${rowsHtml}</tbody></table>
-        <div class="sheet-menu-alt"><b>同份换一天：</b>${alternateMenu}</div>
-        <div class="sheet-bottom-grid">
-          <section class="sheet-panel"><h4>饮食原则</h4><div class="sheet-checklist">
+        <div class="sheet-macro-row"><div><span>碳水化合物</span><strong>${Math.round(macro.carbohydrateGrams)} g</strong><small>${Math.round(macro.carbohydrate)}%供能</small></div><div><span>蛋白质</span><strong>${Math.round(macro.proteinGrams)} g</strong><small>${Math.round(macro.protein)}%供能</small></div><div><span>脂肪</span><strong>${Math.round(macro.fatGrams)} g</strong><small>${Math.round(macro.fat)}%供能</small></div></div>
+        <div class="sheet-exchange-categories">${categoryStrip}</div>
+        <div class="sheet-section-head"><b>01</b><h4>一日五餐</h4><span>每餐交换份与食物克数对应呈现</span></div>
+        <div class="sheet-meal-list">
+          <article class="sheet-meal-row">
+            <div class="sheet-meal-name"><strong>早餐</strong><span>${mealCategoryText(groupByTitle('早餐'))}<br>主食二选一＋鸡蛋</span></div>
+            <div class="sheet-meal-items breakfast-items">
+              <div class="sheet-breakfast-choice"><small>主食方案（二选一）</small><div class="sheet-choice-line"><b>方案A</b><strong>全麦/玉米面 ${breakfastRaw}g</strong><span>杂粮馒头约${breakfastCooked}g</span></div><div class="sheet-choice-line"><b>方案B</b><strong>红薯/山药 ${breakfastTubers}g</strong></div></div>
+              <div><small>蛋白质</small><strong>鸡蛋 1个</strong><span>约${amount(plan,'egg')}g</span></div>
+              <div><small>蔬菜</small><strong>约100g，可选</strong><span>如半根黄瓜</span></div>
+            </div>
+          </article>
+          <article class="sheet-meal-row sheet-snack-row">
+            <div class="sheet-meal-name"><strong>上午加餐</strong><span>${mealCategoryText(groupByTitle('上午加餐'))}</span></div>
+            <div class="sheet-snack-main"><strong>全脂纯牛奶 ${amount(plan,'milk')}ml</strong></div>
+          </article>
+          <article class="sheet-meal-row">
+            <div class="sheet-meal-name"><strong>午餐</strong><span>${mealCategoryText(groupByTitle('午餐'))}<br>主食＋鱼虾＋豆腐＋蔬菜</span></div>
+            <div class="sheet-meal-items four-col">
+              <div><small>主食</small><strong>杂粮米（生）${lunchRaw}g</strong><span>熟杂粮饭约${lunchCooked}g</span></div>
+              <div><small>鱼虾</small><strong>鱼或虾仁 ${amount(plan,'fish')}g</strong><span>清蒸或清炒</span></div>
+              <div><small>大豆制品</small><strong>北豆腐 ${amount(plan,'tofu')}g</strong><span>炖、蒸或凉拌</span></div>
+              <div><small>蔬菜与油</small><strong>蔬菜${amount(plan,'lVeg')}～300g</strong><span>烹调油${amount(plan,'lOil')}g</span></div>
+            </div>
+          </article>
+          <article class="sheet-meal-row sheet-snack-row">
+            <div class="sheet-meal-name"><strong>下午加餐</strong><span>${mealCategoryText(groupByTitle('下午加餐'))}</span></div>
+            <div class="sheet-snack-main"><strong>完整水果 ${amount(plan,'fruit')}g</strong><span>两餐之间吃，不榨汁</span></div>
+          </article>
+          <article class="sheet-meal-row">
+            <div class="sheet-meal-name"><strong>晚餐</strong><span>${mealCategoryText(groupByTitle('晚餐'))}<br>主食＋禽肉＋蔬菜</span></div>
+            <div class="sheet-meal-items">
+              <div><small>主食</small><strong>杂粮米（生）${dinnerRaw}g</strong><span>熟杂粮饭约${dinnerCooked}g</span></div>
+              <div><small>菜肴</small><strong>去皮禽肉 ${amount(plan,'chicken')}g</strong><span>蒸、煮、炖优先</span></div>
+              <div><small>蔬菜与油</small><strong>蔬菜${amount(plan,'dVeg')}～300g</strong><span>烹调油${amount(plan,'dOil')}g</span></div>
+            </div>
+          </article>
+        </div>
+        <div class="sheet-menu-alt"><b>同类替换：</b>${alternateMenu}</div>
+        <div class="sheet-section-head"><b>02</b><h4>执行要点</h4><span>把份量、顺序和随访落到每天</span></div>
+        <div class="sheet-guidance">
+          <section class="sheet-principles">
             <div class="sheet-check"><i>1</i><span>控制全天总量，三餐定时定量；加餐计入全天交换份。</span></div><div class="sheet-check"><i>2</i><span>主食称生重，粗细搭配，全谷物和杂豆建议占主食1/3以上。</span></div>
             <div class="sheet-check"><i>3</i><span>全天蔬菜不少于500g，深色蔬菜占一半以上，食物多样。</span></div><div class="sheet-check"><i>4</i><span>水果放在两餐之间，完整吃、不榨汁；按本单份量食用。</span></div>
             <div class="sheet-check"><i>5</i><span>山药、土豆、藕、芋艿、紫薯等按谷薯类交换，不额外添加。</span></div><div class="sheet-check"><i>6</i><span>少油少盐，优先蒸、煮、炖、焖；少煎炸、烧烤，戒烟限酒。</span></div>
-          </div></section>
-          <section class="sheet-panel"><h4>进餐与随访</h4><div class="sheet-order"><b>先蔬菜</b><span>→</span><b>再肉蛋豆</b><span>→</span><b>后主食</b></div><div class="sheet-follow-list">
+          </section>
+          <section class="sheet-practical"><h5>进餐与随访</h5><div class="sheet-order"><b>先蔬菜</b><span>→</span><b>再肉蛋豆</b><span>→</span><b>后主食</b></div><div class="sheet-follow-list">
             <div class="sheet-follow-item"><i>•</i><span>尽量固定进餐时间与食量，避免漏餐、暴食。</span></div>
             <div class="sheet-follow-item"><i>•</i><span>餐后约1小时，根据身体情况活动约30分钟。</span></div>
             <div class="sheet-follow-item"><i>•</i><span>体重、血糖或进食情况明显变化时，及时复诊调整。</span></div>
             <div class="sheet-follow-item"><i>•</i><span>遵医嘱用药，不因减少主食自行减停降糖药。</span></div>
           </div></section>
         </div>
-        <div class="sheet-footer"><span>指南食谱重量均为烹调前可食部生重；熟重按馒头＝面粉×1.5、粗细搭配杂粮饭＝生米×2.2估算，实际受品种、浸泡和加水量影响。适用于一般成年糖尿病患者的初步参考，特殊人群需个体化制定。</span></div>`;
+        <div class="sheet-footer"><span>食物重量均按烹调前可食部计；杂粮馒头约按面粉×1.5、熟杂粮饭约按生米×2.2估算。请结合血糖、体重和进食情况复诊调整。</span></div>`;
       byId('patientSheet').innerHTML=sheetHtml;
       byId('printGuidePage').innerHTML=sheetHtml;
       byId('report').textContent=`糖尿病饮食指导单
 姓名：${patientName}　诊断：${diagnosis}
 身高：${numberValue('height')}cm　体重：${numberValue('weight')}kg　BMI：${byId('bmi').textContent}
-能量估算：${byId('energy').textContent}kcal；交换份折算：${menuEnergy}kcal；全天${exchangeTarget}份；蛋白质约${macro.proteinGrams.toFixed(1)}g
-分类交换份与营养：${categoryDetails.map(item=>`${item.label}${portionText(item.portion)}份（${Math.round(item.portion*90)}kcal，蛋白质约${(Math.round(item.protein*10)/10).toFixed(1)}g）`).join('；')}
+标准能量：${byId('energy').textContent}kcal；全天${exchangeTarget}份
+碳水化合物约${Math.round(macro.carbohydrateGrams)}g（${Math.round(macro.carbohydrate)}%供能）；蛋白质约${Math.round(macro.proteinGrams)}g（${Math.round(macro.protein)}%供能）；脂肪约${Math.round(macro.fatGrams)}g（${Math.round(macro.fat)}%供能）
+分类交换份与营养：${categoryDetails.map(item=>`${item.label}${portionText(item.portion)}份（${Math.round(item.portion*90)}kcal，蛋白质约${Math.round(item.protein)}g）`).join('；')}
 
 ${mealRows.map(row=>`${row.title}（${mealCategoryText(row.group)}）：${row.foods}`).join('\n')}
 
-同份换一天：${alternateMenu}
+同类替换：${alternateMenu}
 
 熟重说明：馒头约按面粉×1.5、粗细搭配杂粮饭约按生米×2.2估算。
 
