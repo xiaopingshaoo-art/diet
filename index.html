@@ -304,7 +304,7 @@
               <article class="yield-card"><div class="yield-card-head"><b>杂粮米饭</b><i aria-hidden="true">🌾</i></div><div class="yield-flow"><span class="yield-weight">生杂粮米<strong>100g</strong></span><span class="yield-arrow">→</span><span class="yield-weight">熟杂粮饭<strong>230g</strong></span></div><span class="yield-badge">约 ×2.3</span><small>本计算器为便于估算采用×2.2</small></article>
               <article class="yield-card"><div class="yield-card-head"><b>红豆米饭</b><i aria-hidden="true">🫘</i></div><div class="yield-flow"><span class="yield-weight">生原料<strong>100g</strong></span><span class="yield-arrow">→</span><span class="yield-weight">熟饭<strong>210g</strong></span></div><span class="yield-badge">约 ×2.1</span><small>浸泡与豆米比例会改变熟重</small></article>
               <article class="yield-card"><div class="yield-card-head"><b>全麦馒头</b><i aria-hidden="true">🥖</i></div><div class="yield-flow"><span class="yield-weight">生面粉<strong>100g</strong></span><span class="yield-arrow">→</span><span class="yield-weight">熟馒头<strong>150g</strong></span></div><span class="yield-badge">约 ×1.5</span><small>与本计算器默认系数一致</small></article>
-              <article class="yield-card"><div class="yield-card-head"><b>荞麦面条</b><i aria-hidden="true">🍜</i></div><div class="yield-flow"><span class="yield-weight">干面<strong>100g</strong></span><span class="yield-arrow">→</span><span class="yield-weight">熟面<strong>315g</strong></span></div><span class="yield-badge">约 ×3.2</span><small>沥水程度影响称量结果</small></article>
+              <article class="yield-card"><div class="yield-card-head"><b>粗粮面条</b><i aria-hidden="true">🍜</i></div><div class="yield-flow"><span class="yield-weight">干面<strong>100g</strong></span><span class="yield-arrow">→</span><span class="yield-weight">熟面<strong>315g</strong></span></div><span class="yield-badge">约 ×3.2</span><small>以荞麦面实测；沥水程度影响称量结果</small></article>
               <article class="yield-card"><div class="yield-card-head"><b>蒸红薯</b><i aria-hidden="true">🍠</i></div><div class="yield-flow"><span class="yield-weight">生红薯<strong>100g</strong></span><span class="yield-arrow">→</span><span class="yield-weight">蒸熟<strong>95g</strong></span></div><span class="yield-badge">约保留95%</span><small>与烤制相比，蒸制失水较少</small></article>
             </div>
             <details class="yield-all"><summary>查看文章中的更多主食换算</summary><div class="yield-table-wrap"><table class="yield-table"><thead><tr><th>食物</th><th>生重100g→熟重</th><th>约数</th><th>食物</th><th>生重100g→熟重</th><th>约数</th></tr></thead><tbody>
@@ -493,11 +493,10 @@
         title:'早餐两种主食方案',
         images:[
           {src:'./portion-guide-bun.jpg',alt:'100克面粉制成馒头与拳头大小对照',caption:'100g面粉制成馒头，约1个拳头'},
-          {src:'./portion-guide-sweet-potato.jpg',alt:'100克生红薯与成人手掌大小对照',caption:'生红薯100g，约1个掌心'},
           {src:'./portion-gallery-19.jpg',alt:'50克去皮生山药与成人手掌大小对照',caption:'去皮生山药50g，约1/4掌心'}
         ],
-        reference:'方案A为杂粮馒头，方案B为红薯或山药，两者选一种',
-        estimate:amount=>`方案A：全麦/玉米面${amount}g，馒头约${cookedEstimate(amount,'steamedBun')}g；方案B：红薯/山药约${amount*4}g`,
+        reference:'方案A为杂粮馒头，方案B为芋头或山药，两者选一种',
+        estimate:amount=>`方案A：全麦/玉米面${amount}g，馒头约${cookedEstimate(amount,'steamedBun')}g；方案B：芋头/山药约${amount*4}g`,
         comparison:''
       },
       rice:{
@@ -692,8 +691,8 @@
     function createExchangePlan(profile){
       const tier=standardTierForExchange(profile.total);
       const line=(key,name,type,portion,gramsPerPortion,food,unitLabel,swap,estimate=null,prepared=null,amountOverride=null,swapLabel='同类可换')=>({key,name,type,portion,ideal:portion,minimum:portion,gramsPerPortion,food,unitLabel,swap,estimate,prepared,amountOverride,swapLabel});
-      const grainSwap=(portion,amount)=>`生谷物 ${amount}g；馒头约${Math.round(amount*1.4)}g；薯芋 ${Math.round(amount*4)}g`;
-      const breakfastGrainSwap=(portion,amount)=>`方案B｜红薯/山药 ${Math.round(amount*4)}g`;
+      const grainSwap=(portion,amount)=>`生谷物或粗粮干面 ${amount}g；馒头约${Math.round(amount*1.4)}g；薯芋 ${Math.round(amount*4)}g；大馄饨/饺子按面皮与馅料折算`;
+      const breakfastGrainSwap=(portion,amount)=>`方案B｜芋头/山药 ${Math.round(amount*4)}g`;
       const vegetableSwap=portion=>`综合蔬菜 ${Math.round(portion*250)}g；深色嫩茎叶花菜 ${Math.round(portion*300)}g`;
       const [breakfastGrain,lunchGrain,dinnerGrain]=tier.mealGrainPortions;
       const [,fishPortion,chickenPortion]=tier.mealProteinPortions;
@@ -765,7 +764,7 @@
         menuMeal('🌙','晚餐',[`杂粮米：大米搭配小米/燕麦共${dinnerRaw}g（生重），熟杂粮饭约${dinnerCooked}g`,`芹菜鸡片：去皮禽肉${chicken}g（生重可食部）`,`香菇青菜等蔬菜${dinnerVeg}～300g`])
       ];
       const day2=[
-        menuMeal('🌅','早餐',[`主食方案B：红薯或山药${breakfastTubers}g（生重可食部）`,`茶叶蛋${egg}g（约1个）`,`蔬菜可选：黄瓜、番茄等约${breakfastVeg}g`]),
+        menuMeal('🌅','早餐',[`主食方案B：芋头或山药${breakfastTubers}g（生重可食部）`,`茶叶蛋${egg}g（约1个）`,`蔬菜可选：黄瓜、番茄等约${breakfastVeg}g`]),
         menuMeal('🥛','上午加餐',[`全脂纯牛奶${milk}ml`]),
         menuMeal('☀️','午餐',[`二米饭：大米搭配小米共${lunchRaw}g（生重），熟饭约${lunchCooked}g`,`少油葱油鱼或清炒虾仁${fish}g（生重可食部）`,`香菇油菜、清炒莴笋等蔬菜${lunchVeg}～300g`,`冬瓜豆腐汤：北豆腐${tofu}g`]),
         menuMeal('🍊','下午加餐',[`橙子约${orange}g，完整食用`]),
@@ -773,7 +772,7 @@
       ];
       byId('meals').innerHTML=
         menuDay('第1天','主食方案A','杂粮馒头、鱼虾和时蔬组合',day1,oil)+
-        menuDay('第2天','主食方案B','薯类早餐、二米饭和家常菜组合',day2,oil);
+        menuDay('第2天','主食方案B','芋头/山药早餐、二米饭和家常菜组合',day2,oil);
     }
     function escapeHtml(value){return String(value??'').replace(/[&<>"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[char]))}
     function groupTotal(plan,title){const group=plan.groups.find(item=>item.title===title);return group?group.lines.reduce((sum,line)=>sum+line.portion,0):0}
@@ -795,7 +794,7 @@
       const lunchCooked=cookedRice(plan,'lGrain');
       const dinnerCooked=cookedRice(plan,'dGrain');
       const mealRows=[
-        {title:'早餐',group:groupByTitle('早餐'),foods:`主食二选一：A.全麦/玉米面${breakfastRaw}g（生重），杂粮馒头约${breakfastCooked}g；B.红薯/山药${breakfastTubers}g；另配鸡蛋1个，蔬菜可选约100g`},
+        {title:'早餐',group:groupByTitle('早餐'),foods:`主食二选一：A.全麦/玉米面${breakfastRaw}g（生重），杂粮馒头约${breakfastCooked}g；B.芋头/山药${breakfastTubers}g；另配鸡蛋1个，蔬菜可选约100g`},
         {title:'上午加餐',group:groupByTitle('上午加餐'),foods:`全脂纯牛奶${amount(plan,'milk')}ml`},
         {title:'午餐',group:groupByTitle('午餐'),foods:`杂粮米${lunchRaw}g（生重），熟杂粮饭约${lunchCooked}g；鱼或虾仁${amount(plan,'fish')}g；北豆腐${amount(plan,'tofu')}g；蔬菜${amount(plan,'lVeg')}～300g；烹调油${amount(plan,'lOil')}g`},
         {title:'下午加餐',group:groupByTitle('下午加餐'),foods:`苹果、梨等完整水果${amount(plan,'fruit')}g，不榨汁`},
@@ -803,7 +802,7 @@
       ];
       const categoryDetails=categoryNutrition(profile);
       const categoryStrip=categoryDetails.map(item=>`<span>${item.label} <strong>${portionText(item.portion)}份</strong></span>`).join('');
-      const alternateMenu='同类食物可按本单克数替换：鱼可换虾仁，去皮禽肉可换同份瘦肉；杂粮米可在大米、小米、燕麦、杂豆之间搭配；蔬菜优先选择当季深色蔬菜。';
+      const alternateMenu='同类食物可按本单克数替换：鱼可换虾仁，去皮禽肉可换同份瘦肉；杂粮米可在大米、小米、燕麦、杂豆之间搭配，也可按交换份换粗粮面条；大馄饨或饺子需将面皮、馅料和烹调油分别计入相应交换份；蔬菜优先选择当季深色蔬菜。';
       const sheetHtml=`
         <div class="sheet-brand"><img src="./hospital-logo.png" alt="昆山市第一人民医院"><div class="sheet-brand-copy"><strong>昆山市第一人民医院</strong><span>临床营养科</span></div></div>
         <div class="sheet-titlebar"><h3><strong>${byId('energy').textContent}</strong><span>kcal</span>糖尿病一日食谱</h3><div class="sheet-exchange-total"><strong>${exchangeTarget}</strong><span>全天交换份</span></div></div>
@@ -812,12 +811,12 @@
         </div>
         <div class="sheet-macro-row"><div><span>碳水化合物</span><strong>${Math.round(macro.carbohydrateGrams)} g</strong><small>${Math.round(macro.carbohydrate)}%供能</small></div><div><span>蛋白质</span><strong>${Math.round(macro.proteinGrams)} g</strong><small>${Math.round(macro.protein)}%供能</small></div><div><span>脂肪</span><strong>${Math.round(macro.fatGrams)} g</strong><small>${Math.round(macro.fat)}%供能</small></div></div>
         <div class="sheet-exchange-categories">${categoryStrip}</div>
-        <div class="sheet-section-head"><b>01</b><h4>一日五餐</h4><span>每餐交换份与食物克数对应呈现</span></div>
+        <div class="sheet-section-head"><b>01</b><h4>一日五餐</h4><span>按顺序吃（先蔬菜，再肉类，最后主食）</span></div>
         <div class="sheet-meal-list">
           <article class="sheet-meal-row">
             <div class="sheet-meal-name"><strong>早餐</strong><span>${mealCategoryText(groupByTitle('早餐'))}<br>主食二选一＋鸡蛋</span></div>
             <div class="sheet-meal-items breakfast-items">
-              <div class="sheet-breakfast-choice"><small>主食方案（二选一）</small><div class="sheet-choice-line"><b>方案A</b><strong>全麦/玉米面 ${breakfastRaw}g</strong><span>杂粮馒头约${breakfastCooked}g</span></div><div class="sheet-choice-line"><b>方案B</b><strong>红薯/山药 ${breakfastTubers}g</strong></div></div>
+              <div class="sheet-breakfast-choice"><small>主食方案（二选一）</small><div class="sheet-choice-line"><b>方案A</b><strong>全麦/玉米面 ${breakfastRaw}g</strong><span>杂粮馒头约${breakfastCooked}g</span></div><div class="sheet-choice-line"><b>方案B</b><strong>芋头/山药 ${breakfastTubers}g</strong></div></div>
               <div><small>蛋白质</small><strong>鸡蛋 1个</strong><span>约${amount(plan,'egg')}g</span></div>
               <div><small>蔬菜</small><strong>约100g，可选</strong><span>如半根黄瓜</span></div>
             </div>
@@ -856,7 +855,7 @@
             <div class="sheet-check"><i>3</i><span>全天蔬菜不少于500g，深色蔬菜占一半以上，食物多样。</span></div><div class="sheet-check"><i>4</i><span>水果放在两餐之间，完整吃、不榨汁；按本单份量食用。</span></div>
             <div class="sheet-check"><i>5</i><span>山药、土豆、藕、芋艿、紫薯等按谷薯类交换，不额外添加。</span></div><div class="sheet-check"><i>6</i><span>少油少盐，优先蒸、煮、炖、焖；少煎炸、烧烤，戒烟限酒。</span></div>
           </section>
-          <section class="sheet-practical"><h5>进餐与随访</h5><div class="sheet-order"><b>先蔬菜</b><span>→</span><b>再肉蛋豆</b><span>→</span><b>后主食</b></div><div class="sheet-follow-list">
+          <section class="sheet-practical"><h5>进餐与随访</h5><div class="sheet-order"><b>先蔬菜</b><span>→</span><b>再肉类</b><span>→</span><b>最后主食</b></div><div class="sheet-follow-list">
             <div class="sheet-follow-item"><i>•</i><span>尽量固定进餐时间与食量，避免漏餐、暴食。</span></div>
             <div class="sheet-follow-item"><i>•</i><span>餐后约1小时，根据身体情况活动约30分钟。</span></div>
             <div class="sheet-follow-item"><i>•</i><span>体重、血糖或进食情况明显变化时，及时复诊调整。</span></div>
