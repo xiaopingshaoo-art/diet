@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="color-scheme" content="light">
-  <meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#f6f7f5" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#032f27" media="(prefers-color-scheme: dark)">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
@@ -247,18 +247,157 @@
         .print-guide-page,.print-poster-page{width:210mm!important;min-width:210mm!important;max-width:210mm!important;min-height:293mm!important;height:293mm!important;max-height:293mm!important}
       }
     }
+    /* Screen-only visual system: quieter hierarchy, fewer nested cards, clearer data. */
+    @media screen{
+      :root{
+        --bg:#f6f7f5;--card:#fff;--text:#202522;--muted:#68706b;--separator:#e1e5e2;
+        --green:#176b4a;--green-soft:#edf5f0;--blue:#315f84;--fill:#f8f9f8;--shadow:none
+      }
+      html,body{background:var(--bg)}
+      body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","HarmonyOS Sans SC","PingFang SC","Microsoft YaHei",sans-serif}
+      .hero{max-width:1040px;margin:0 auto;padding:max(38px,calc(env(safe-area-inset-top) + 24px)) 18px 26px}
+      .eyebrow{font-size:12px;letter-spacing:.12em}
+      h1{margin:9px 0 7px;font-size:clamp(34px,5vw,46px);line-height:1.08;letter-spacing:-.035em}
+      .hero p{font-size:15px}
+      .wrap{max-width:1040px;padding:0 14px max(48px,calc(env(safe-area-inset-bottom) + 28px))}
+      .card{margin:0 0 18px;padding:26px;border:1px solid #e3e7e4;border-radius:14px;box-shadow:none}
+      .section-head{align-items:center;gap:11px;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid var(--separator)}
+      .step{width:auto;height:auto;padding:3px 6px;border:1px solid #cfe1d6;border-radius:5px;background:#fff;color:var(--green);font-family:ui-monospace,"SFMono-Regular",Consolas,monospace;font-size:12px;letter-spacing:.04em}
+      .section-emoji{display:none}
+      h2{font-size:21px;letter-spacing:-.015em}
+      .form{gap:14px}
+      label{margin-left:0;color:#58605b;font-size:12px;letter-spacing:.02em}
+      input,select{height:46px;padding:0 12px;border:1px solid #dfe4e0;border-radius:8px;background:#fafbfa}
+      input:focus,select:focus{border-color:#7aaa91;box-shadow:0 0 0 3px rgba(23,107,74,.1)}
+      .actions{margin-top:17px}
+      button,.button-link{min-height:44px;border-radius:7px;box-shadow:none}
+      button{background:var(--green)}
+      button:hover{filter:brightness(.96)}
+      .secondary{border:1px solid #d9e1dc;background:#fff;color:var(--green)}
+      .helper{margin-top:10px}
+
+      .results{grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;overflow:hidden;border:1px solid var(--separator);border-radius:11px;background:var(--separator)}
+      .result{min-height:112px;padding:15px 16px;border-radius:0;background:#fff;color:#68706b;font-size:12px}
+      .result:nth-child(3),.result:nth-child(5){background:#f1f6f3}
+      .result b{margin:11px 0 2px;font-size:28px}
+      .result em{margin-top:6px;font-size:11px}
+      .result-detail-head{margin:22px 0 10px}
+      .result-detail-head b{font-size:15px}
+      .result-categories{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+      .category-result{padding:13px 14px;border:1px solid var(--separator);border-radius:8px;background:#fff}
+      .category-result-head{font-size:13px}
+      .category-result-data{gap:10px;margin-top:7px}
+      .category-result-data span{padding:0;border-radius:0;background:transparent;font-size:11px}
+      .method{margin-top:14px}
+
+      .exchange-hero{padding:14px 16px;border:1px solid #d7e7dc;border-radius:9px;background:#f1f6f3}
+      .exchange-hero b{font-size:32px}
+      .group-summary{grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;overflow:hidden;margin:10px 0 18px;border:1px solid var(--separator);border-radius:9px;background:var(--separator)}
+      .summary-item{padding:10px 11px;border-radius:0;background:#fff}
+      .summary-item b{font-size:16px}
+      .exchange-meals{gap:12px}
+      .exchange-meal{padding:15px 16px;border:1px solid var(--separator);border-radius:10px;background:#fff}
+      .exchange-meal h3{font-size:17px}
+      .meal-total,.menu-day-badge,.yield-badge{border-radius:5px}
+      .exchange-line{padding:11px 0}
+      .exchange-line .swap{line-height:1.45}
+      .estimate{margin-top:6px;padding:4px 0 4px 8px;border-left:2px solid #b9d8c5;border-radius:0;background:transparent}
+      .portion-info{box-shadow:none}
+      .yield-reference{border-color:var(--separator);border-radius:9px}
+      .yield-reference>summary{padding:13px 15px}
+      .yield-body{padding:0 14px 14px}
+      .yield-intro{margin-bottom:13px;padding:11px 12px;border:1px solid var(--separator);border-radius:7px;background:#fafbfa}
+      .yield-intro-icon,.yield-card-head i,.day-meal-title span{display:none}
+      .yield-grid{gap:8px}
+      .yield-card{border-color:var(--separator);border-radius:7px;background:#fff}
+      .yield-weight{border:1px solid #e7eae8;border-radius:5px}
+      .yield-all{border-radius:7px}
+
+      .menu-days{gap:12px}
+      .menu-day{padding:16px;border-color:var(--separator);border-radius:10px}
+      .menu-day-head{margin-bottom:10px;padding-bottom:10px}
+      .menu-day-head h3{font-size:18px}
+      .day-meals{gap:0}
+      .day-meal{padding:10px 2px;border-bottom:1px solid var(--separator);border-radius:0;background:#fff}
+      .day-meal:last-child{border-bottom:0}
+      .day-meal-title{margin-bottom:5px}
+      .day-meal ul{font-size:13px}
+      .principles{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;margin-top:14px;border-top:1px solid var(--separator);border-bottom:1px solid var(--separator)}
+      .chip{padding:9px 10px;border-right:1px solid var(--separator);border-radius:0;background:transparent;color:#59615c;text-align:center}
+      .chip:last-child{border-right:0}
+
+      .patient-fields{gap:12px;margin-bottom:15px}
+      .patient-sheet{border-color:var(--separator);border-radius:10px;box-shadow:none}
+      .row-buttons{gap:8px}
+      .reference-panel{margin-top:10px;border:0;border-bottom:1px solid var(--separator);border-radius:0}
+      .reference-panel:first-of-type{border-top:1px solid var(--separator)}
+      .reference-panel>summary{min-height:48px;padding:12px 2px;background:#fff;font-size:14px}
+      .reference-panel.tier-reference>summary{border-radius:0}
+      .reference-panel[open]>summary{border-bottom:1px solid var(--separator)}
+      .reference-panel>.tier-intro,.reference-panel>.helper,.gallery-intro{margin-right:2px;margin-left:2px}
+      .reference-panel>.tier-table-wrap,.reference-panel>.tier-basis,.reference-panel>.table-wrap{margin-right:0;margin-left:0}
+      .portion-library{padding-right:0;padding-left:0}
+      .portion-library-card{border-color:var(--separator);border-radius:7px;background:#fff}
+      .tier-table-wrap,.table-wrap{border-color:var(--separator);border-radius:7px}
+      .tier-basis article{border:1px solid var(--separator);border-radius:7px;background:#fff}
+      .scope{margin-top:16px}
+      footer{padding-top:10px}
+    }
+    @media screen and (max-width:900px){
+      .card{padding:22px}
+      .results{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .group-summary{grid-template-columns:repeat(3,minmax(0,1fr))}
+      .principles{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .chip{border-right:0;border-bottom:1px solid var(--separator);text-align:left}
+      .chip:nth-last-child(-n+2){border-bottom:0}
+    }
+    @media screen and (max-width:600px){
+      .hero{padding:max(28px,calc(env(safe-area-inset-top) + 18px)) 18px 20px}
+      .eyebrow{font-size:11px}
+      h1{font-size:31px}
+      .hero p{font-size:14px}
+      .wrap{padding:0 10px max(34px,calc(env(safe-area-inset-bottom) + 20px))}
+      .card{margin-bottom:12px;padding:17px 15px;border-radius:10px}
+      .section-head{align-items:center;margin-bottom:16px;padding-bottom:12px}
+      h2{font-size:19px}
+      .form{gap:12px}
+      .actions{display:grid;grid-template-columns:1fr}
+      .results{gap:1px;border-radius:8px}
+      .result{min-height:102px;padding:12px}
+      .result b{font-size:24px}
+      .result-detail-head{display:block;margin-top:18px}
+      .result-detail-head span{display:block;margin-top:4px;text-align:left}
+      .result-categories{grid-template-columns:1fr}
+      .category-result{border-radius:7px}
+      .exchange-hero{padding:12px 13px}
+      .exchange-hero b{font-size:29px}
+      .group-summary{grid-template-columns:repeat(2,minmax(0,1fr));border-radius:7px}
+      .exchange-meals{grid-template-columns:1fr}
+      .exchange-meal{padding:14px 13px;border-radius:8px}
+      .menu-day{padding:14px 13px;border-radius:8px}
+      .principles{grid-template-columns:1fr}
+      .chip,.chip:nth-last-child(-n+2){border-bottom:1px solid var(--separator)}
+      .chip:last-child{border-bottom:0}
+      .patient-sheet{border-radius:8px}
+      .reference-panel>summary{padding-right:0;padding-left:0}
+    }
+    @media screen and (max-width:380px){
+      h1{font-size:28px}
+      .result{min-height:98px;padding:11px}
+      .result b{font-size:22px}
+    }
   </style>
 </head>
 <body>
   <header class="hero">
-    <div class="eyebrow"><span aria-hidden="true">🏥</span> 临床营养饮食工具</div>
+    <div class="eyebrow">临床营养饮食工具</div>
     <h1>糖尿病食谱计算器1.0</h1>
     <p>昆山市第一人民医院　临床营养科</p>
   </header>
 
   <main class="wrap">
     <section class="card">
-      <div class="section-head"><span class="step">01</span><h2><span class="section-emoji" aria-hidden="true">🧍</span>填写基本情况</h2></div>
+      <div class="section-head"><span class="step">01</span><h2>填写基本情况</h2></div>
       <div class="form">
         <div><label for="height">身高（cm）</label><input id="height" type="number" value="165" min="120" max="220"></div>
         <div><label for="weight">体重（kg）</label><input id="weight" type="number" value="70" min="25" max="250" step="0.1"></div>
@@ -269,16 +408,16 @@
     </section>
 
     <section class="card">
-      <div class="section-head"><span class="step">02</span><h2><span class="section-emoji" aria-hidden="true">📊</span>计算结果</h2></div>
+      <div class="section-head"><span class="step">02</span><h2>计算结果</h2></div>
       <div class="results">
-        <div class="result">⚖️ 目标体重<b id="ibw">—</b>kg<em>身高－105</em></div>
-        <div class="result">📐 BMI<b id="bmi">—</b><em id="bmiText">—</em></div>
-        <div class="result">🔥 标准能量档<b id="energy">—</b>kcal/天<em id="energyRange">—</em></div>
-        <div class="result">⚡ 交换份折算能量<b id="menuEnergy">—</b>kcal<em>全天交换份×90 kcal</em></div>
-        <div class="result">🧮 全天交换份<b id="exchangeTotal">—</b>份<em>按标准能量档固定配置</em></div>
-        <div class="result">🍚 碳水化合物<b id="carbohydrateTotal">—</b>g/天<em id="carbohydrateRatio">—</em></div>
-        <div class="result">🥚 蛋白质估算<b id="proteinTotal">—</b>g/天<em id="proteinRatio">—</em></div>
-        <div class="result">🫗 脂肪估算<b id="fatTotal">—</b>g/天<em id="fatRatio">—</em></div>
+        <div class="result">目标体重<b id="ibw">—</b>kg<em>身高－105</em></div>
+        <div class="result">BMI<b id="bmi">—</b><em id="bmiText">—</em></div>
+        <div class="result">标准能量档<b id="energy">—</b>kcal/天<em id="energyRange">—</em></div>
+        <div class="result">交换份折算能量<b id="menuEnergy">—</b>kcal<em>全天交换份×90 kcal</em></div>
+        <div class="result">全天交换份<b id="exchangeTotal">—</b>份<em>按标准能量档固定配置</em></div>
+        <div class="result">碳水化合物<b id="carbohydrateTotal">—</b>g/天<em id="carbohydrateRatio">—</em></div>
+        <div class="result">蛋白质估算<b id="proteinTotal">—</b>g/天<em id="proteinRatio">—</em></div>
+        <div class="result">脂肪估算<b id="fatTotal">—</b>g/天<em id="fatRatio">—</em></div>
       </div>
       <div class="result-detail-head"><b>六类食物分配</b><span>每类能量按交换份×90 kcal；蛋白质按当前示例食物估算</span></div>
       <div id="resultCategorySummary" class="result-categories"></div>
@@ -286,14 +425,14 @@
     </section>
 
     <section class="card">
-      <div class="section-head"><span class="step">03</span><h2><span class="section-emoji" aria-hidden="true">🍽️</span>每餐交换份与食物量</h2></div>
+      <div class="section-head"><span class="step">03</span><h2>每餐交换份与食物量</h2></div>
       <div class="exchange-hero"><span>全天合计</span><b id="exchangeTotalBig">—</b><span>份</span></div>
       <div id="groupSummary" class="group-summary"></div>
       <p class="helper">烹调后熟重与手量仅供参考。</p>
       <div id="exchangeMeals" class="exchange-meals"></div>
       <p class="helper cooked-note">实际烹调后重量按馒头＝面粉×1.5、粗细搭配杂粮饭＝生米×2.2估算。品种、浸泡和加水量会影响熟重，临床配餐仍以烹调前可食部生重为准。</p>
       <details class="yield-reference">
-        <summary>⚖️ 生重→熟重图解（教学参考）</summary>
+        <summary>生重→熟重图解（教学参考）</summary>
         <div class="yield-body">
           <div class="yield-intro"><span class="yield-intro-icon" aria-hidden="true">💧</span><div><b>一眼看懂：主食多因吸水变重，肉类多因失水变轻</b><p>下图均以烹调前可食部100g为起点。营养计算仍以生重为准；熟重只用于把菜单换成餐桌上更直观的量。</p></div></div>
 
@@ -333,14 +472,14 @@
     </section>
 
     <section class="card">
-      <div class="section-head"><span class="step">04</span><h2><span class="section-emoji" aria-hidden="true">📅</span>两天五餐参考</h2></div>
+      <div class="section-head"><span class="step">04</span><h2>两天五餐参考</h2></div>
       <div id="meals" class="menu-days"></div>
-      <div class="principles"><span class="chip">🌾 全谷物和杂豆≥主食1/3</span><span class="chip">🥬 蔬菜≥500g</span><span class="chip">🌈 深色蔬菜占一半以上</span><span class="chip">🫗 油≤25g</span><span class="chip">🧂 盐≤5g</span></div>
+      <div class="principles"><span class="chip">全谷物和杂豆 ≥ 主食1/3</span><span class="chip">蔬菜 ≥ 500g</span><span class="chip">深色蔬菜占一半以上</span><span class="chip">烹调油 ≤ 25g</span><span class="chip">盐 ≤ 5g</span></div>
     </section>
 
 
     <section class="card">
-      <div class="section-head"><span class="step">05</span><h2><span class="section-emoji" aria-hidden="true">🧾</span>患者饮食指导单</h2></div>
+      <div class="section-head"><span class="step">05</span><h2>患者饮食指导单</h2></div>
       <div class="patient-fields no-print">
         <div><label for="patientName">患者姓名（选填）</label><input id="patientName" type="text" placeholder="例如：张女士"></div>
         <div><label for="diagnosis">诊断（选填）</label><input id="diagnosis" type="text" value="糖尿病" placeholder="例如：2型糖尿病"></div>
@@ -613,7 +752,7 @@
     function buildResultCategories(profile){
       byId('resultCategorySummary').innerHTML=categoryNutrition(profile).map(item=>`
         <div class="category-result">
-          <div class="category-result-head"><span>${item.icon} ${item.label}</span><b>${portionText(item.portion)}份</b></div>
+          <div class="category-result-head"><span>${item.label}</span><b>${portionText(item.portion)}份</b></div>
           <div class="category-result-data"><span>${Math.round(item.portion*90)} kcal</span><span>蛋白质约${Math.round(item.protein)}g</span></div>
         </div>`).join('');
     }
